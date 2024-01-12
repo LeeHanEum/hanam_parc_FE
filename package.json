@@ -1,14 +1,31 @@
 {
-  "name": "landing_page",
-  "version": "0.1.0",
+  "name": "techwind",
+  "version": "2.1.0",
+  "description": "React Js Multipurpose Landing Page Template",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "feather-icons-react": "^0.6.2",
+    "pure-react-carousel": "^1.30.1",
     "react": "^18.2.0",
+    "react-18-image-lightbox": "^5.1.4",
+    "react-countup": "^6.5.0",
     "react-dom": "^18.2.0",
+    "react-feather": "^2.0.10",
+    "react-icons": "^4.12.0",
+    "react-modal-video": "^2.0.1",
+    "react-parallax": "^3.5.1",
+    "react-responsive-masonry": "^2.1.7",
+    "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.0",
+    "react-select": "^5.8.0",
+    "react-type-animation": "^3.1.0",
+    "swiper": "^10.3.1",
+    "tailwindcss": "^3.3.6",
+    "tiny-slider-react": "^0.5.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -34,5 +51,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "source-map-loader": "^4.0.1"
   }
 }
