@@ -203,32 +203,18 @@ export const about=[
 ]
 export const courseDetail = [
     {
-        heading: 'Introductions',
-        ls1: 'Lesson 1',
-        ls2: 'Lesson 2',
-        ls3: 'Lesson 3',
-        ls4: 'Lesson 4',
+        heading: '공지사항',
+        ls1: '1번 공지사항 입니다.',
+        ls2: '2번 공지사항 입니다.',
+        ls3: '3번 공지사항 입니다.',
+        ls4: '4번 공지사항 입니다.',
     },
     {
-        heading: 'Mastery',
-        ls1: 'Lesson 5',
-        ls2: 'Lesson 6',
-        ls3: 'Lesson 7',
-        ls4: 'Lesson 8',
-    },
-    {
-        heading: 'Final Thoughts',
-        ls1: 'Lesson 9',
-        ls2: 'Lesson 10',
-        ls3: 'Lesson 11',
-        ls4: 'Lesson 12',
-    },
-    {
-        heading: 'Bonus',
-        ls1: 'Lesson 13',
-        ls2: 'Lesson 14',
-        ls3: 'Lesson 15',
-        ls4: 'Lesson 16',
+        heading: '대회 개최',
+        ls1: '경기도 하남시 장애인 체육대회',
+        ls2: '하남시 휠체어 농구대회',
+        ls3: '하남시 장애인 체육대회',
+        ls4: '하남시 성남시 연합 장애인 체육대회',
     },
 ]
 
