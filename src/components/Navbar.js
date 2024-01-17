@@ -4,6 +4,7 @@ import '../assets/libs/@mdi/font/css/materialdesignicons.min.css';
 import '../assets/css/tailwind.css';
 import {Link, useLocation} from 'react-router-dom'
 import {Search, User} from "feather-icons-react";
+import AuthLogin from "./AuthLogin";
 
 export default function Navbar(props) {
     let { navClass, navJustify } = props;
@@ -83,7 +84,7 @@ export default function Navbar(props) {
                 <ul className="buy-button list-none mb-0">
                     <li className="inline mb-0">
                         <Link to="https://1.envato.market/techwind-react" target="_blank" className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white" style={{backgroundColor : "lightgray"}}><Search className="h-4 w-4" /></Link>
-                        <Link to="https://1.envato.market/techwind-react" target="_blank" className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><User className="h-4 w-4" /></Link>
+                        <Link to="/login" className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><User className="h-4 w-4" /></Link>
                     </li>
                 </ul>
 
