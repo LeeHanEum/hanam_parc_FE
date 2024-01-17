@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react'
 import logo from '../asset/image/logo.png';
 import '../assets/libs/@mdi/font/css/materialdesignicons.min.css';
 import '../assets/css/tailwind.css';
-import {Settings, ShoppingCart} from 'feather-icons-react';
 import {Link, useLocation} from 'react-router-dom'
+import {Search, User} from "feather-icons-react";
 
 export default function Navbar(props) {
     let { navClass, navJustify } = props;
@@ -80,34 +80,12 @@ export default function Navbar(props) {
                     </div>
                 </div>
 
-                {/*{*/}
-                {/*    navClass !== 'nav-light' ? <ul className={`buy-button list-none space-x-1 mb-0`} >*/}
-                {/*            <li className="inline mb-0">*/}
-                {/*                <Link to="#" className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600/5 hover:bg-indigo-600 border border-indigo-600/10 hover:border-indigo-600 text-indigo-600 hover:text-white"><Settings className="h-4 w-4" /></Link>*/}
-                {/*            </li>*/}
-
-                {/*            <li className="inline ps-1 mb-0">*/}
-                {/*                <Link to="https://1.envato.market/techwind-react" target="_blank" className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><ShoppingCart className="h-4 w-4" /></Link>*/}
-                {/*            </li>*/}
-
-                {/*        </ul>*/}
-                {/*        :*/}
-                {/*        <ul className="buy-button list-none space-x-1 mb-0">*/}
-                {/*            <li className="inline mb-0">*/}
-                {/*                <Link to="#">*/}
-                {/*                    <span className="login-btn-primary"><span className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle transition duration-500 ease-in-out text-base text-center rounded-full bg-indigo-600/5 hover:bg-indigo-600 border border-indigo-600/10 hover:border-indigo-600 text-indigo-600 hover:text-white"><Settings className="h-4 w-4" /></span></span>*/}
-                {/*                    <span className="login-btn-light"><span className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle transition duration-500 ease-in-out text-base text-center rounded-full bg-gray-50 hover:bg-gray-200 dark:bg-slate-900 dark:hover:bg-gray-700 border hover:border-gray-100 dark:border-gray-700 dark:hover:border-gray-700"><Settings className="h-4 w-4" /></span></span>*/}
-                {/*                </Link>*/}
-                {/*            </li>*/}
-
-                {/*            <li className="inline ps-1 mb-0">*/}
-                {/*                <Link to="https://1.envato.market/techwind-react" target="_blank">*/}
-                {/*                    <div className="login-btn-primary"><span className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle transition duration-500 ease-in-out text-base text-center rounded-full bg-indigo-600 hover:bg-indigo-700 border border-indigo-600 hover:border-indigo-700 text-white"><ShoppingCart className="h-4 w-4" /></span></div>*/}
-                {/*                    <div className="login-btn-light"><span className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle transition duration-500 ease-in-out text-base text-center rounded-full bg-gray-50 hover:bg-gray-200 dark:bg-slate-900 dark:hover:bg-gray-700 border hover:border-gray-100 dark:border-gray-700 dark:hover:border-gray-700"><ShoppingCart className="h-4 w-4" /></span></div>*/}
-                {/*                </Link>*/}
-                {/*            </li>*/}
-                {/*        </ul>*/}
-                {/*}*/}
+                <ul className="buy-button list-none mb-0">
+                    <li className="inline mb-0">
+                        <Link to="https://1.envato.market/techwind-react" target="_blank" className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white" style={{backgroundColor : "lightgray"}}><Search className="h-4 w-4" /></Link>
+                        <Link to="https://1.envato.market/techwind-react" target="_blank" className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><User className="h-4 w-4" /></Link>
+                    </li>
+                </ul>
 
                 {/*메뉴 영역*/}
                 <div id="navigation" style={{ display: isMenu ? 'block' : 'none'}}>
@@ -164,14 +142,7 @@ export default function Navbar(props) {
                                 <li><Link to="/about">문의사항</Link></li>
                                 <li><Link to="/about">채용공고</Link></li>
                                 <li><Link to="/about">행사일정</Link></li>
-                            </ul>
-                        </li>
-
-                        <li className="has-submenu parent-parent-menu-item">
-                            <Link to="#!">경영 공시</Link><span className="menu-arrow"></span>
-                            <ul className="submenu">
-                                <li><Link to="/about">업무 추친비 현황</Link></li>
-                                <li><Link to="/about">경영 공시</Link></li>
+                                <li><Link to="/about">경영공시</Link></li>
                             </ul>
                         </li>
 

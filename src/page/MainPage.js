@@ -1,33 +1,47 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
-import Footer from "../component/Footer/footer";
+import Footer from "../components/Footer";
 import CookieModal from '../component/cookieModal'
 import marathon from '../asset/image/marathon.jpg'
 
 import CountUp from 'react-countup';
-import {accordionData, courseDetail, destinationData, travelBenefit} from '../data/dataTwo'
-import {GoLock, LiaClipboardListSolid, PiShoppingCart} from "../assets/icons/icons";
-import {board_main} from "../asset/data/data";
+import {LiaClipboardListSolid} from "../assets/icons/icons";
+import {board_main, course_main, footer_img, photo_main} from "../asset/data/data";
+import TinySlider from "tiny-slider-react";
 
 export default function MainPage(){
-    let [selectedCategory, setSelectedCategory] = useState(null);
-    let [activeIndex, setActiveIndex] = useState(0);
-    let toggleAccordion = (index) => {
-        if (activeIndex === index) {
-            setActiveIndex(0);
-        } else {
-            setActiveIndex(index);
-        }
-    }
-    let matchCategory = (category) => {
-        setSelectedCategory(category);
-    };
 
-    let filteredData = selectedCategory
-        ? destinationData.filter((item) => item.category === selectedCategory)
-        : destinationData;
+    let settings = {
+        container: '.tiny-three-item',
+        controls: false,
+        mouseDrag: true,
+        loop: true,
+        rewind: true,
+        autoplay: true,
+        autoplayButtonOutput: false,
+        autoplayTimeout: 3000,
+        navPosition: "bottom",
+        speed: 400,
+        gutter: 12,
+        pagination : false,
+        responsive: {
+            992: {
+                items: 4,
+            },
+
+            767: {
+                items: 2,
+            },
+
+            320: {
+                items: 1,
+            },
+        },
+    }
+
+
     return(
         <>
             <Navbar navClass="nav-light" />
@@ -131,126 +145,110 @@ export default function MainPage(){
 
                 </section>
 
-                <section className="relative md:py-24 py-16">
+                <section className="relative md:py-24 py-16" style={{backgroundColor : "#F6F6F6"}}>
                     <div className="container relative">
                     <div className="grid grid-cols-1 pb-8 text-center">
-                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Benefit for Traveller</h3>
+                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">생활 체육 서비스</h3>
 
-                        <p className="text-slate-400 max-w-xl mx-auto">Start working with Techwind that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                        <p className="text-slate-400 max-w-xl mx-auto">하남시 장애인 체육회와 함께하는 다양한 생활 체육 프로그램을 소개합니다.</p>
                     </div>
 
-                    <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-                        {travelBenefit.map((item,index)=>{
-                            let Icons = item.icon
-                            return(
-                                <div key={index} className="group p-6 rounded-lg shadow dark:shadow-gray-800 bg-white dark:bg-slate-900 hover:-translate-y-2 duration-500">
-                                    <div
-                                        className="w-16 h-16 bg-indigo-600/5 group-hover:bg-indigo-600 group-hover:text-white border-2 border-indigo-600/20 text-indigo-600 rounded-lg text-2xl flex align-middle justify-center items-center shadow-sm dark:shadow-gray-800 duration-500">
-                                        <Icons/>
-                                    </div>
+                        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
+                            {
+                                course_main.map((data,index) => {
+                                    return (
 
-                                    <div className="content mt-7">
-                                        <Link to="/page-services" className="title h5 text-lg font-medium hover:text-indigo-600">{item.title}</Link>
-                                        <p className="text-slate-400 mt-3">{item.desc}</p>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-
-                <div className="container relative md:mt-24 mt-16">
-                    <div className="grid grid-cols-1 pb-8">
-                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Popular Destination</h3>
-                        <p className="text-slate-400 max-w-xl">Start working with Techwind that can provide everything you need to generate awareness, drive traffic, connect.</p>
-
-                        <div className="filters-group-wrap mt-4">
-                            <div className="filters-group">
-                                <ul className="mb-0 list-none container-filter-border-bottom filter-options space-x-3">
-                                    <li className={`${selectedCategory === null ? 'active' : ''} inline-block text-lg font-semibold mb-3 cursor-pointer relative border-b border-transparent text-slate-400 duration-500`}  onClick={() => matchCategory(null)}>All</li>
-                                    <li className={`${selectedCategory === 'beach' ? 'active' : ''} inline-block text-lg font-semibold mb-3 cursor-pointer relative border-b border-transparent text-slate-400 duration-500`} onClick={() => matchCategory('beach')}>Beach</li>
-                                    <li className={`${selectedCategory === 'park' ? 'active' : ''} inline-block text-lg font-semibold mb-3 cursor-pointer relative border-b border-transparent text-slate-400 duration-500`} onClick={() => matchCategory('park')}>Park</li>
-                                    <li className={`${selectedCategory === 'nature' ? 'active' : ''} inline-block text-lg font-semibold mb-3 cursor-pointer relative border-b border-transparent text-slate-400 duration-500`} onClick={() => matchCategory('nature')}>Nature</li>
-                                    <li className={`${selectedCategory === 'mountain' ? 'active' : ''} inline-block text-lg font-semibold mb-3 cursor-pointer relative border-b border-transparent text-slate-400 duration-500`} onClick={() => matchCategory('mountain')}>Mountain</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="grid" className=" justify-center mx-auto grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 gap-[30px] ">
-                        {filteredData.map((item,index) => {
-                            return(
-                                <div className="" key={index} >
-                                    <div className="group relative overflow-hidden rounded-md">
-                                        <div className="relative overflow-hidden">
-                                            <img src={item.image} className="roubded-md" alt=""/>
-                                            <div className="absolute inset-0 bg-gradient-to-b to-slate-900 from-transparent"></div>
-                                        </div>
-
-                                        <div className="absolute bottom-0 start-0 end-0 flex justify-between p-6">
-                                            <div>
-                                                <Link to="" className="text-white/80 hover:text-white text-lg font-semibold block">{item.place}</Link>
-
-                                                <ul className="list-none mb-0 text-amber-400">
-                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                    <li className="inline"><i className="mdi mdi-star"></i></li>
-                                                </ul>
+                                        <div className="group relative rounded-md shadow hover:shadow-lg dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden" key={index}>
+                                            <div className="relative overflow-hidden">
+                                                <img src={data.image} className="group-hover:scale-110 duration-500 ease-in-out" alt="" style={{width : "100%", maxHeight : "250px"}}/>
+                                                <div className="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
                                             </div>
 
-                                            <h5 className="text-white/70">${item.amount}/night</h5>
+                                            <div className="content p-6 relative">
+                                                {/*<Link to={`/course-detail/${data.id}`} className="font-medium block text-indigo-600">{data.field}</Link>*/}
+                                                <Link to={`/course-detail/${data.id}`} className="text-lg font-medium block hover:text-indigo-600 duration-500 ease-in-out mt-2">{data.desc}</Link>
+                                                <p className="text-slate-400 mt-3 mb-4">This program is supported by hanam-si.</p>
+
+                                            </div>
                                         </div>
+                                    )
+                                })
+                            }
 
-                                        <div className="absolute end-0 top-0 m-6 opacity-0 group-hover:opacity-100 duration-500 ease-in-out">
-                                            <Link to="#!" className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-center text-lg bg-white dark:bg-slate-900 border-0 shadow dark:shadow-gray-800 rounded-full text-red-600/20 hover:text-red-600 focus:text-red-600"><i className="mdi mdi-heart"></i></Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
-                </div>
-
-                <div className="container relative md:mt-24 mt-16">
-                    <div className="grid grid-cols-1 pb-8 text-center">
-                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">Frequently Asked Questions</h3>
-
-                        <p className="text-slate-400 max-w-xl mx-auto">Start working with Tailwind CSS that can provide everything you need to generate awareness, drive traffic, connect.</p>
-                    </div>
-
-                    <div className="relative grid md:grid-cols-12 grid-cols-1 items-center mt-8 gap-[30px]">
-                        <div className="md:col-span-6">
-                            <img src={marathon} className="rounded-md shadow dark:shadow-gray-800" alt=""/>
                         </div>
 
-                        <div className="md:col-span-6">
-                            <div id="accordion-collapse" >
-                                {accordionData.map((item, index) => (
-                                    <div key={index} className="relative shadow dark:shadow-gray-800 rounded-md overflow-hidden mt-4">
-                                        <h2 className="text-base font-semibold">
-                                            <button type="button" onClick={() => toggleAccordion(index)} className={`flex justify-between items-center p-5 w-full font-medium text-start ${activeIndex === index ? 'bg-gray-50 dark:bg-slate-800 text-indigo-600' : ''}`} >
-                                                <span>{item.title}</span>
-                                                <svg className={`${activeIndex === index ? "rotate-180" : "rotate-270" } w-4 h-4 shrink-01`}  fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                                                </svg>
-                                            </button>
-                                        </h2>
-                                        {activeIndex === index && (
-                                            <div>
-                                                <div className="p-5">
-                                                    <p className="text-slate-400 dark:text-gray-400">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                ))}
+                        <div className="relative mt-8 text-center">
+                            <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">생활 체육 서비스 더보기</Link>
+                        </div>
+
+                </div>
+                </section>
+
+            <section className="relative md:py-24 py-16">
+                <div className="relative">
+                    <div className="container relative">
+                        <div className="grid grid-cols-1 pb-8 text-center">
+                            <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">포토 갤러리</h3>
+
+                            <p className="text-slate-400 max-w-xl mx-auto">한 눈에 보는 하남시 장애인 체육회의 활동 사진 자료실 입니다.</p>
+                        </div>
+                    </div>
+                        <div className="grid grid-cols-1 mt-8">
+                            <div className="tiny-three-item" style={{overflow : "hidden"}}>
+                                <TinySlider settings={settings}>
+                                    {photo_main.map((item, index) => (
+                                        <span className="tiny-slide text-center" key={index}>
+                                            <img src={item.image} className="inline shadow-md mx-auto" alt=""  style={{width : "350px", height:"250px"}}/>
+                                        </span>
+                                    ))}
+                                </TinySlider>
+
+                            </div>
+
+                            <div className="relative mt-8 text-center">
+                                <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">사진 더보기</Link>
                             </div>
                         </div>
-                    </div>
+
                 </div>
             </section>
+
+            <section className="relative">
+                <div className="container relative text-center">
+                    {footer_img.map((data, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                width: "20%",
+                                display: "inline-block",
+                                alignItems: "center",
+                                textAlign: "center", // 추가된 부분
+                                margin : "2%"
+                            }}
+                        >
+                            <img
+                                src={data.image}
+                                alt=""
+                                style={{
+                                    width: "100%", // 이미지를 100%로 표시하여 가로 크기 유지
+                                    height: "auto",
+                                    display: "block", // 이미지를 가운데 정렬하기 위해 block으로 변경
+                                    margin: "0 auto", // 이미지를 가운데 정렬하기 위한 margin 설정
+                                }}
+                            />
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="relative py-2" style={{backgroundColor : "#F6F6F6"}}>
+                <div className="container relative" style={{color : "gray"}}>
+                    <span>개인정보처리방침 | </span>
+                    <span>이메일무단수집거부 | </span>
+                    <span>사이트맵</span>
+                </div>
+            </section>
+
             <CookieModal/>
             <Footer/>
         </>

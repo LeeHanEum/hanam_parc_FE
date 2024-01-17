@@ -4473,9 +4473,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 #topnav .navigation-menu > li > a{
   display: block !important;
   background-color: transparent !important;
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-  font-size: 16px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  font-size: 15px !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   line-height: 1.5rem !important;
@@ -4660,12 +4660,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 
 .logo{
-  -webkit-margin-end: 15px;
-          margin-inline-end: 15px;
-  -webkit-padding-end: 15px;
-          padding-inline-end: 15px;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  -webkit-padding-end: 0px;
+          padding-inline-end: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
+  margin-right : 0px;
   font-size: 24px;
   font-weight: 700;
   line-height: 68px;
@@ -4758,7 +4759,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     padding-bottom: 10px;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 17px;
@@ -4883,8 +4884,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     border-color: rgb(255 255 255 / var(--tw-border-opacity)) !important;
   }
   #topnav .buy-button{
-    -webkit-margin-start: 15px;
-            margin-inline-start: 15px;
+    -webkit-margin-start: 0px;
+            margin-inline-start: 0px;
     -webkit-padding-start: 15px;
             padding-inline-start: 15px;
   }
@@ -10121,4 +10122,7 @@ ul li{
 ul li:first-child{
   -webkit-margin-start: 0px;
           margin-inline-start: 0px;
+}
+.tiny-three-item .tns-outer .tns-liveregion {
+    display: none !important;
 }
