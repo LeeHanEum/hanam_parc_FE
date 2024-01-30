@@ -140,7 +140,7 @@ export default function Navbar(props) {
                             <Link to="#!">알림 마당</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
                                 <li><Link to="/announcement">공지사항</Link></li>
-                                <li><Link to="/about">문의사항</Link></li>
+                                <li><Link to="/qna">문의사항</Link></li>
                                 <li><Link to="/about">채용공고</Link></li>
                                 <li><Link to="/about">행사일정</Link></li>
                                 <li><Link to="/about">경영공시</Link></li>

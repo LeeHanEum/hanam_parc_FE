@@ -4961,7 +4961,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     padding-bottom: 7px !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
-    font-size: 11px !important;
+    font-size: 14px !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
@@ -10125,4 +10125,14 @@ ul li:first-child{
 }
 .tiny-three-item .tns-outer .tns-liveregion {
     display: none !important;
+}
+
+@media (max-width: 450px) {
+  .xs\:hidden{
+    display: none !important;
+  }
+  .xs\:px-2{
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
 }

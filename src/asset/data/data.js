@@ -194,3 +194,102 @@ export const board_announcement = [
     }
 ]
 
+export const board_qna = [
+    {
+        id:1,
+        title: '1번 QnA 입니다.',
+        writer: '김철수',
+        created_at: '2021-09-01',
+        is_answered: true,
+        updated_at: '2021-09-03',
+    },
+    {
+        id:2,
+        title: '2번 QnA 입니다.',
+        writer: '박영희',
+        created_at: '2021-10-01',
+        is_answered: true,
+        updated_at: '2021-10-03',
+    },
+    {
+        id:3,
+        title: '3번 QnA 입니다.',
+        writer: '이한음',
+        created_at: '2021-11-01',
+        is_answered: true,
+        updated_at: '2021-11-03',
+    },
+    {
+        id:4,
+        title: '4번 QnA 입니다.',
+        writer: '장영옥',
+        created_at: '2021-12-01',
+        is_answered: true,
+        updated_at: '2021-12-03',
+    },
+    {
+        id:5,
+        title: '5번 QnA 입니다.',
+        writer: '홍준서',
+        created_at: '2022-01-01',
+        is_answered: true,
+        updated_at: '2022-01-03',
+    },
+    {
+        id:6,
+        title: '6번 QnA 입니다.',
+        writer: '김철수',
+        created_at: '2022-02-01',
+        is_answered: true,
+        updated_at: '2022-02-03',
+    },
+    {
+        id:7,
+        title: '7번 QnA 입니다.',
+        writer: '박영희',
+        created_at: '2022-03-01',
+        is_answered: true,
+        updated_at: '2022-03-03',
+    },
+    {
+        id:8,
+        title: '8번 QnA 입니다.',
+        writer: '이한음',
+        created_at: '2022-04-01',
+        is_answered: true,
+        updated_at: '2022-04-03',
+    },
+    {
+        id:9,
+        title: '9번 QnA 입니다.',
+        writer: '장영옥',
+        created_at: '2022-05-01',
+        is_answered: true,
+        updated_at: '2022-05-03',
+    },
+    {
+        id:10,
+        title: '10번 QnA 입니다.',
+        writer: '홍준서',
+        created_at: '2022-06-01',
+        is_answered: false,
+        updated_at: '2022-06-03',
+    },
+    {
+        id:11,
+        title: '11번 QnA 입니다.',
+        writer: '김철수',
+        created_at: '2022-07-01',
+        is_answered: false,
+        updated_at: '2022-07-03',
+    },
+    {
+        id:12,
+        title: '12번 QnA 입니다.',
+        writer: '박영희',
+        created_at: '2022-08-01',
+        is_answered: false,
+        updated_at: '2022-08-03',
+    }
+]
+

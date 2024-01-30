@@ -6,6 +6,7 @@ import AuthLogin from "./components/AuthLogin";
 import AuthSignup from "./components/AuthSignup";
 import AuthRePassword from "./components/AuthRePassword";
 import Announcement from "./page/notification/Announcement";
+import QnA from "./page/notification/QnA";
 
 export default function App() {
     return (
@@ -16,6 +17,7 @@ export default function App() {
                 <Route path="/signup" element={<AuthSignup />} />
                 <Route path="/re-password" element={<AuthRePassword />} />
                 <Route path="/announcement" element={<Announcement />} />
+                <Route path="/qna" element={<QnA />} />
             </Routes>
         </BrowserRouter>
     )
