@@ -28,7 +28,7 @@ export default function AuthLogin() {
                                     </div>
 
                                     <div className="flex justify-between mb-4">
-                                        <p className="text-slate-400 mb-0"><Link to="/auth-re-password" className="text-slate-400">비밀번호 찾기</Link></p>
+                                        <p className="text-slate-400 mb-0"><Link to="/re-password" className="text-slate-400">비밀번호 찾기</Link></p>
                                     </div>
 
                                     <div className="mb-4">

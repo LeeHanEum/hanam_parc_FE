@@ -139,7 +139,7 @@ export default function Navbar(props) {
                         <li className="has-submenu parent-parent-menu-item">
                             <Link to="#!">알림 마당</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/about">공지사항</Link></li>
+                                <li><Link to="/announcement">공지사항</Link></li>
                                 <li><Link to="/about">문의사항</Link></li>
                                 <li><Link to="/about">채용공고</Link></li>
                                 <li><Link to="/about">행사일정</Link></li>
