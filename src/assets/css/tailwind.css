@@ -4473,10 +4473,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 #topnav .navigation-menu > li > a{
   display: block !important;
   background-color: transparent !important;
-  padding-left: 8px !important;
-  padding-right: 8px !important;
-  font-size: 15px !important;
-  font-weight: 700 !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
   text-transform: uppercase !important;
   line-height: 1.5rem !important;
   letter-spacing: 1px !important;
@@ -4493,11 +4493,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 #topnav .navigation-menu > li:hover > a, #topnav .navigation-menu > li.active > a{
   --tw-text-opacity: 1 !important;
-  color: rgb(79 70 229 / var(--tw-text-opacity)) !important;
+  color: rgb(0 128 0 / var(--tw-text-opacity)) !important;
 }
 :is(.dark #topnav .navigation-menu > li:hover > a),:is(.dark  #topnav .navigation-menu > li.active > a){
   --tw-text-opacity: 1 !important;
-  color: rgb(79 70 229 / var(--tw-text-opacity)) !important;
+  color: rgb(0 70 229 / var(--tw-text-opacity)) !important;
 }
 #topnav .navigation-menu > li .submenu.megamenu li .megamenu-head{
   white-space: nowrap !important;
@@ -4683,7 +4683,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     width: 936px !important;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1290px) {
   #topnav .navigation-menu{
     display: -webkit-box;
     display: -ms-flexbox;

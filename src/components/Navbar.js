@@ -63,13 +63,13 @@ export default function Navbar(props) {
         <nav id="topnav" className={`defaultscroll ${navClass === "nav-light" ? '' : navClass === "nav-sticky" ?
             'bg-white dark:bg-slate-900' : ''}`}>
             {/*로고 이미지*/}
-            <div className="container relative">
-                <Link className="logo" to="/">
-                    <img src={logo} alt={"로고"} width="230px" className="p-4"/>
+            <div className="px-3 md:px-12 lg:px-12">
+                <Link className="logo lg:px-16 md:py-16 sm:px-0" to="/">
+                    <img src={logo} alt={"로고"} width="220px" className="p-4"/>
                 </Link>
 
                 {/*모바일 화면에서 토클 햄버거 버튼*/}
-                <div className="menu-extras">
+                <div className="menu-extras px-1">
                     <div className="menu-item">
                         <Link to="#" className={`navbar-toggle ${isMenu ? 'open' : ''}`} id="isToggle" onClick={() => toggleMenu()}>
                             <div className="lines">
@@ -81,10 +81,10 @@ export default function Navbar(props) {
                     </div>
                 </div>
 
-                <ul className="buy-button list-none mb-0">
+                <ul className="buy-button list-none mb-0 lg:px-16 md:px-16 sm:px-2">
                     <li className="inline mb-0">
                         <Link to="https://1.envato.market/techwind-react" target="_blank" className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white" style={{backgroundColor : "lightgray"}}><Search className="h-4 w-4" /></Link>
-                        <Link to="/login" className="h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><User className="h-4 w-4" /></Link>
+                        <Link to="/login" className="mx-1 h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><User className="h-4 w-4" /></Link>
                     </li>
                 </ul>
 

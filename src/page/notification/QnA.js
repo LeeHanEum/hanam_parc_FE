@@ -15,7 +15,7 @@ export default function QnA() {
                 <div className="absolute inset-0 bg-black opacity-20"></div>
                 <div className="container relative">
                     <div className="grid grid-cols-1 pb-8 text-center mt-12">
-                        <h3 className="md:text-4xl text-3xl md:leading-normal tracking-wide leading-normal font-medium text-white pt-8">문의사항</h3>
+                        <h3 className="md:text-5xl text-4xl md:leading-normal tracking-wide leading-normal font-medium text-white pt-8">문의사항</h3>
                     </div>
                 </div>
             </section>
