@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CookieModal from '../component/cookieModal'
-import marathon from '../asset/image/marathon.jpg'
+import join_soccer from "../asset/image/join_soccer.jpg";
 
 import CountUp from 'react-countup';
 import {LiaClipboardListSolid} from "../assets/icons/icons";
@@ -47,7 +47,7 @@ export default function MainPage(){
             <Navbar navClass="nav-light" />
 
             <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover bg-fixed"
-                    style={{backgroundImage: `url(${marathon})`,}}>
+                    style={{backgroundImage: `url(${join_soccer})`,}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-slate-900/40"></div>
                 <div className="container relative">
                     <div className="grid grid-cols-1 mt-10">

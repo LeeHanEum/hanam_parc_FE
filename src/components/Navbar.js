@@ -95,44 +95,44 @@ export default function Navbar(props) {
                         <li className="has-submenu parent-parent-menu-item" >
                             <Link to="#!">체육회 소개</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/about">인사말</Link></li>
-                                <li><Link to="/about">설립 목적 및 연혁</Link></li>
-                                <li><Link to="/about">임원 현황</Link></li>
-                                <li><Link to="/about">직원 현황</Link></li>
-                                <li><Link to="/about">주요 사업</Link></li>
-                                <li><Link to="/about">관련 규정</Link></li>
-                                <li><Link to="/about">찾아오시는 길</Link></li>
+                                <li><Link to="/page-comming-soon">인사말</Link></li>
+                                <li><Link to="/page-comming-soon">설립 목적 및 연혁</Link></li>
+                                <li><Link to="/page-comming-soon">임원 현황</Link></li>
+                                <li><Link to="/page-comming-soon">직원 현황</Link></li>
+                                <li><Link to="/page-comming-soon">주요 사업</Link></li>
+                                <li><Link to="/page-comming-soon">관련 규정</Link></li>
+                                <li><Link to="/page-comming-soon">찾아오시는 길</Link></li>
                             </ul>
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
                             <Link to="#!">가맹 종목 단체</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/about">가맹 단체 현황</Link></li>
+                                <li><Link to="/page-comming-soon">가맹 단체 현황</Link></li>
                             </ul>
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
                             <Link to="#!">대회 정보</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/about">전국 장애인 체육대회</Link></li>
-                                <li><Link to="/about">전국 장애인 동계 체육대회</Link></li>
-                                <li><Link to="/about">전국 장애 학생 체육대회</Link></li>
-                                <li><Link to="/about">경기도 장애인 체육대회</Link></li>
-                                <li><Link to="/about">경기도 장애인 생활 체육대회</Link></li>
-                                <li><Link to="/about">각종 대회 자료실</Link></li>
+                                <li><Link to="/page-comming-soon">전국 장애인 체육대회</Link></li>
+                                <li><Link to="/page-comming-soon">전국 장애인 동계 체육대회</Link></li>
+                                <li><Link to="/page-comming-soon">전국 장애 학생 체육대회</Link></li>
+                                <li><Link to="/page-comming-soon">경기도 장애인 체육대회</Link></li>
+                                <li><Link to="/page-comming-soon">경기도 장애인 생활 체육대회</Link></li>
+                                <li><Link to="/page-comming-soon">각종 대회 자료실</Link></li>
                             </ul>
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
                             <Link to="#!">생활 체육 서비스</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/about">찾아가는 생활 체육 서비스</Link></li>
-                                <li><Link to="/about">생활 체육 프로그램</Link></li>
-                                <li><Link to="/about">생활 체육 지도자 현황</Link></li>
-                                <li><Link to="/about">지도자 배치현황</Link></li>
-                                <li><Link to="/about">장애인 체육시설</Link></li>
-                                <li><Link to="/about">온라인 접수</Link></li>
+                                <li><Link to="/page-comming-soon">찾아가는 생활 체육 서비스</Link></li>
+                                <li><Link to="/page-comming-soon">생활 체육 프로그램</Link></li>
+                                <li><Link to="/page-comming-soon">생활 체육 지도자 현황</Link></li>
+                                <li><Link to="/page-comming-soon">지도자 배치현황</Link></li>
+                                <li><Link to="/page-comming-soon">장애인 체육시설</Link></li>
+                                <li><Link to="/page-comming-soon">온라인 접수</Link></li>
                             </ul>
                         </li>
 
@@ -141,18 +141,18 @@ export default function Navbar(props) {
                             <ul className="submenu">
                                 <li><Link to="/announcement">공지사항</Link></li>
                                 <li><Link to="/qna">문의사항</Link></li>
-                                <li><Link to="/about">채용공고</Link></li>
-                                <li><Link to="/about">행사일정</Link></li>
-                                <li><Link to="/about">경영공시</Link></li>
+                                <li><Link to="/recruitment">채용공고</Link></li>
+                                <li><Link to="/page-comming-soon">행사일정</Link></li>
+                                <li><Link to="/management">경영공시</Link></li>
                             </ul>
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
                             <Link to="#!">통합 자료실</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/about">보도 자료</Link></li>
-                                <li><Link to="/about">멀티미디어 자료실</Link></li>
-                                <li><Link to="/about">문서 자료실</Link></li>
+                                <li><Link to="/page-comming-soon">보도 자료</Link></li>
+                                <li><Link to="/page-comming-soon">멀티미디어 자료실</Link></li>
+                                <li><Link to="/page-comming-soon">문서 자료실</Link></li>
                             </ul>
                         </li>
 
