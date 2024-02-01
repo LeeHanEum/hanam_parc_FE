@@ -48,7 +48,7 @@ export default function MainPage(){
 
             <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover bg-fixed"
                     style={{backgroundImage: `url(${join_soccer})`,}}>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-slate-900/40"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/80"></div>
                 <div className="container relative">
                     <div className="grid grid-cols-1 mt-10">
                         <h4 className="lg:leading-normal leading-normal text-white text-4xl lg:text-5xl mb-5 font-bold">스포츠의 힘으로<br /> 인생의 무한한 가능성을 열다.</h4>

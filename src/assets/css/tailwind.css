@@ -4862,7 +4862,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
             margin-inline-end: 10px;
   }
   #topnav .navigation-menu.nav-light > li > a{
-    color: rgb(255 255 255 / 0.5) !important;
+    color: rgb(255 255 255 / 1) !important;
   }
   #topnav .navigation-menu.nav-light > li.active > a{
     --tw-text-opacity: 1 !important;
