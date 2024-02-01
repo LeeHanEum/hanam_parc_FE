@@ -5,6 +5,7 @@ import {board_announcement, board_main, board_recuritment} from "../../asset/dat
 import {Link} from "react-router-dom";
 import {LiaClipboardListSolid} from "../../assets/icons/icons";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
+import SubFooter from "../../components/SubFooter";
 
 export default function Recruitment() {
     return (
@@ -91,6 +92,8 @@ export default function Recruitment() {
                     </nav>
                 </div>
             </section>
+
+            <SubFooter />
         </>
     )
 }

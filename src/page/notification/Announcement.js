@@ -5,6 +5,7 @@ import {board_announcement, board_main} from "../../asset/data/data";
 import {Link} from "react-router-dom";
 import {LiaClipboardListSolid} from "../../assets/icons/icons";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
+import SubFooter from "../../components/SubFooter";
 
 export default function Announcement() {
     return (
@@ -91,6 +92,7 @@ export default function Announcement() {
                     </nav>
                 </div>
             </section>
+            <SubFooter />
         </>
     )
 }

@@ -4,6 +4,7 @@ import join_soccer from "../../asset/image/join_soccer.jpg";
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from "@fullcalendar/daygrid";
 import {event} from "../../asset/data/event";
+import SubFooter from "../../components/SubFooter";
 
 export default function EventSchdule() {
 
@@ -52,6 +53,7 @@ export default function EventSchdule() {
 
 
             </section>
+            <SubFooter />
         </>
     )
 }

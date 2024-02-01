@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {LiaClipboardListSolid} from "../../assets/icons/icons";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import {board_qna} from "../../asset/data/data";
+import SubFooter from "../../components/SubFooter";
 
 export default function QnA() {
     return (
@@ -93,6 +94,8 @@ export default function QnA() {
                     </nav>
                 </div>
             </section>
+
+            <SubFooter />
         </>
     )
 }

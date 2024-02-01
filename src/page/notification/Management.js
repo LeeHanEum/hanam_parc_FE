@@ -4,6 +4,7 @@ import join_soccer from "../../asset/image/join_soccer.jpg";
 import {board_management} from "../../asset/data/data";
 import {Link} from "react-router-dom";
 import {LiaClipboardListSolid} from "../../assets/icons/icons";
+import SubFooter from "../../components/SubFooter";
 
 export default function Management() {
     return (
@@ -59,6 +60,8 @@ export default function Management() {
                 </div>
 
             </section>
+
+            <SubFooter />
         </>
     )
 }
