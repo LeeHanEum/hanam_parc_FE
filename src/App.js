@@ -10,6 +10,7 @@ import QnA from "./page/notification/QnA";
 import Recruitment from "./page/notification/Recruitment";
 import Management from "./page/notification/Management";
 import PageComingsoon from "./page/pageComingsoon";
+import EventSchdule from "./page/notification/EventSchdule";
 
 export default function App() {
     return (
@@ -24,6 +25,7 @@ export default function App() {
                 <Route path="/recruitment" element={<Recruitment />} />
                 <Route path="/management" element={<Management />} />
                 <Route path="/page-comming-soon" element={<PageComingsoon />} />
+                <Route path="/event-schedule" element={<EventSchdule />} />
             </Routes>
         </BrowserRouter>
     )

@@ -142,7 +142,7 @@ export default function Navbar(props) {
                                 <li><Link to="/announcement">공지사항</Link></li>
                                 <li><Link to="/qna">문의사항</Link></li>
                                 <li><Link to="/recruitment">채용공고</Link></li>
-                                <li><Link to="/page-comming-soon">행사일정</Link></li>
+                                <li><Link to="/event-schedule">행사일정</Link></li>
                                 <li><Link to="/management">경영공시</Link></li>
                             </ul>
                         </li>

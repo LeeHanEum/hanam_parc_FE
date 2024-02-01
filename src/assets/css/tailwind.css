@@ -4481,7 +4481,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   line-height: 1.5rem !important;
   letter-spacing: 1px !important;
   --tw-text-opacity: 1 !important;
-  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+  color: rgb(22 28 45 / var(--tw-text-opacity)) !important;
 }
 :is(.dark #topnav .navigation-menu > li > a){
   --tw-text-opacity: 1 !important;
@@ -4683,7 +4683,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     width: 936px !important;
   }
 }
-@media (min-width: 1560px) {
+@media (min-width: 1590px) {
   #topnav .navigation-menu{
     display: -webkit-box;
     display: -ms-flexbox;
