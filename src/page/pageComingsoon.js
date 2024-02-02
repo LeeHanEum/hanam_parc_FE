@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
-
-import logo from '../asset/image/logo.png';
+import React, {useEffect, useState} from 'react'
 import Navbar from "../components/Navbar";
+import runningTrack from "../asset/image/running-track.jpg";
 
 export default function PageComingsoon() {
     let [days,setDays] = useState();
@@ -28,7 +26,8 @@ export default function PageComingsoon() {
   return (
     <>
         <Navbar />
-        <section className="relative bg-[url('../../assets/images/utility.jpg')] bg-no-repeat bg-center bg-cover">
+        <section className="relative bg-no-repeat bg-center bg-cover"
+                 style={{backgroundImage : `url(${runningTrack})`,}}>
             <div className="absolute inset-0 bg-black/25"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black"></div>
             <div className="container-fluid relative">

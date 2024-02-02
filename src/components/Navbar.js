@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import logo from '../asset/image/logo.png';
+import wlogo from '../asset/image/wlogo.png';
 import '../assets/libs/@mdi/font/css/materialdesignicons.min.css';
 import '../assets/css/tailwind.css';
 import {Link, useLocation} from 'react-router-dom'
@@ -95,7 +96,7 @@ export default function Navbar(props) {
                         <li className="has-submenu parent-parent-menu-item" >
                             <Link to="#!">체육회 소개</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/page-comming-soon">인사말</Link></li>
+                                <li><Link to="/greetings">인사말</Link></li>
                                 <li><Link to="/page-comming-soon">설립 목적 및 연혁</Link></li>
                                 <li><Link to="/page-comming-soon">임원 현황</Link></li>
                                 <li><Link to="/page-comming-soon">직원 현황</Link></li>
