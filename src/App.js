@@ -12,6 +12,7 @@ import Management from "./page/notification/Management";
 import PageComingsoon from "./page/pageComingsoon";
 import EventSchdule from "./page/notification/EventSchdule";
 import Greetings from "./page/introduction/Greetings";
+import Establishment from "./page/introduction/Establishment";
 
 export default function App() {
     return (
@@ -28,6 +29,7 @@ export default function App() {
                 <Route path="/page-comming-soon" element={<PageComingsoon />} />
                 <Route path="/event-schedule" element={<EventSchdule />} />
                 <Route path="/greetings" element={<Greetings />} />
+                <Route path="/establishment" element={<Establishment />} />
             </Routes>
         </BrowserRouter>
     )

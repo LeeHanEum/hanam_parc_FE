@@ -1,15 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
 import "../../../node_modules/react-modal-video/css/modal-video.css";
-import {FaRegEnvelope, MdKeyboardArrowRight} from '../../assets/icons/icons'
-import CompanyLogo from '../../component/companyLogo';
-import KeyFeature from '../../component/keyFeature';
 import Navbar from "../../components/Navbar";
 import SubFooter from "../../components/SubFooter";
 
 import join_soccer from "../../asset/image/join_soccer.jpg";
 import mayor from "../../asset/image/mayor.jpg";
-import small_logo from "../../asset/image/small_logo.png";
 
 export default function Greetings() {
 
