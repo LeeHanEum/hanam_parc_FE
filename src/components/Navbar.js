@@ -133,7 +133,7 @@ export default function Navbar(props) {
                                 <li><Link to="/page-comming-soon">생활 체육 지도자 현황</Link></li>
                                 <li><Link to="/page-comming-soon">지도자 배치현황</Link></li>
                                 <li><Link to="/page-comming-soon">장애인 체육시설</Link></li>
-                                <li><Link to="/page-comming-soon">온라인 접수</Link></li>
+                                <li><Link to="/program-list">온라인 접수</Link></li>
                             </ul>
                         </li>
 
