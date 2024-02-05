@@ -13,6 +13,7 @@ import PageComingsoon from "./page/pageComingsoon";
 import EventSchdule from "./page/notification/EventSchdule";
 import Greetings from "./page/introduction/Greetings";
 import Establishment from "./page/introduction/Establishment";
+import Affiliate from "./page/affiliate/Affiliate";
 
 export default function App() {
     return (
@@ -30,6 +31,7 @@ export default function App() {
                 <Route path="/event-schedule" element={<EventSchdule />} />
                 <Route path="/greetings" element={<Greetings />} />
                 <Route path="/establishment" element={<Establishment />} />
+                <Route path="/affiliate" element={<Affiliate />} />
             </Routes>
         </BrowserRouter>
     )

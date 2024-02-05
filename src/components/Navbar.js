@@ -109,7 +109,7 @@ export default function Navbar(props) {
                         <li className="has-submenu parent-parent-menu-item">
                             <Link to="#!">가맹 종목 단체</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/page-comming-soon">가맹 단체 현황</Link></li>
+                                <li><Link to="/affiliate">가맹 단체 현황</Link></li>
                             </ul>
                         </li>
 
