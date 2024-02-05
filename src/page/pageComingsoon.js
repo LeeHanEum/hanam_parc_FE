@@ -8,7 +8,7 @@ export default function PageComingsoon() {
     let [minutes,setMinutes] = useState();
     let [seconds,setSeconds] = useState();
 
-    let deadline = "February, 15, 2024";
+    let deadline = "February, 8, 2024";
   
     let getTime = () => {
       let time = Date.parse(deadline) - Date.now();
