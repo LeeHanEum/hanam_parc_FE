@@ -2,13 +2,7 @@ import React from 'react'
 import Navbar from "../../../components/Navbar";
 import SubFooter from "../../../components/SubFooter";
 import rowing from "../../../asset/image/affiliate/조정.jpg";
-import BlogUserDetail from "../../../component/blogUserDetail";
-import image12 from "../../../assets/images/client/05.jpg";
 import {Link} from "react-router-dom";
-import {RecentPostData, TagscloudItem} from "../../../data/data";
-import * as Icon from "react-feather";
-import {board_announcement} from "../../../asset/data/data";
-import {LiaClipboardListSolid} from "../../../assets/icons/icons";
 
 export default function ProgramDetails() {
 
@@ -41,7 +35,7 @@ export default function ProgramDetails() {
                             </div>
 
                             <div className="mt-8">
-                                <Link to="#" className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">프로그램 신청하기</Link>
+                                <Link to="/receipt-form" className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">프로그램 신청하기</Link>
                             </div>
                         </div>
 

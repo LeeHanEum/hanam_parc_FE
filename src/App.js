@@ -16,6 +16,7 @@ import Establishment from "./page/introduction/Establishment";
 import Affiliate from "./page/affiliate/Affiliate";
 import ProgramList from "./page/athleticService/onlineReceiption/ProgramList";
 import ProgramDetails from "./page/athleticService/onlineReceiption/ProgramDetails";
+import ReceiptForm from "./page/athleticService/onlineReceiption/ReceiptForm";
 
 export default function App() {
     return (
@@ -36,6 +37,7 @@ export default function App() {
                 <Route path="/affiliate" element={<Affiliate />} />
                 <Route path="/program-list" element={<ProgramList />} />
                 <Route path={"/program/:id"} element={<ProgramDetails />} />
+                <Route path="/receipt-form" element={<ReceiptForm />} />
             </Routes>
         </BrowserRouter>
     )
