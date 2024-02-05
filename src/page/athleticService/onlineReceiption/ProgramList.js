@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from "../../../components/Navbar";
 import SubFooter from "../../../components/SubFooter";
-
 import join_soccer from "../../../asset/image/join_soccer.jpg";
 import {programList} from "../../../asset/data/program";
 import {Link} from "react-router-dom";

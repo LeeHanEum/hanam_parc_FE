@@ -1,9 +1,4 @@
-import gateball from '../../asset/image/affiliate/게이트볼.jpg'
-import Badminton from "../../asset/image/affiliate/배드민턴.jpg"
 import cycle from "../../asset/image/affiliate/자전거.jpg"
-import tabletennis from "../../asset/image/affiliate/탁구.jpg"
-import golf from "../../asset/image/affiliate/파크골프.jpg"
-import wheelchair from "../../asset/image/affiliate/휠체어.jpg"
 import rowing from "../../asset/image/affiliate/조정.jpg"
 
 export const programList = [
