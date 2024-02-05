@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
@@ -42,9 +42,41 @@ export default function MainPage(){
     }
 
 
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        // 로컬 스토리지에서 토큰을 가져오기
+        const token = localStorage.getItem('token');
+
+        if (token) {
+            // 토큰이 있다면 /member/current 엔드포인트로 사용자 데이터 요청
+            fetch('/member/current', {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.success) {
+                        // 사용자 데이터가 성공적으로 받아와졌을 때 state에 저장
+                        setUserData(data.data);
+                        console.log('User data fetched:', data.data);
+                    } else {
+                        // 토큰이 유효하지 않거나 오류가 발생한 경우 로그아웃 또는 다른 처리 수행
+                        console.error('Failed to fetch user data');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error during user data fetch:', error);
+                });
+        }
+    }, []); // useEffect가 처음 한 번만 실행되도록 빈 의존성 배열
+
     return(
         <>
-            <Navbar navClass="nav-light" />
+            <Navbar navClass="nav-light" userData={userData}/>
 
             <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover bg-fixed"
                     style={{backgroundImage: `url(${join_soccer})`,}}>
