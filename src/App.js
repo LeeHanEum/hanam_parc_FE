@@ -23,6 +23,7 @@ import MemberList from "./page/admin/member/MemberList";
 import AnnouncementList from "./page/admin/notification/AnnouncementList";
 import QnAList from "./page/admin/notification/QnAList";
 import RecruitmentList from "./page/admin/notification/RecruitmentList";
+import ManagementList from "./page/admin/notification/ManagementList";
 
 export default function App() {
     return (
@@ -50,6 +51,7 @@ export default function App() {
                     <Route path="/admin-announcement" element={<AnnouncementList />} />
                     <Route path="/admin-qna" element={<QnAList />} />
                     <Route path="/admin-recruitment" element={<RecruitmentList />} />
+                    <Route path="/admin-management" element={<ManagementList />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

@@ -53,7 +53,7 @@ export default function AnnouncementList() {
                                 <table className="w-full text-start xs:text-xs">
                                     <thead>
                                     <tr>
-                                        <th className="px-4 py-5 text-center ">아이디</th>
+                                        <th className="px-4 py-5 text-center ">번호</th>
                                         <th className="px-3 py-5 text-start">제목</th>
                                         <th className="px-3 py-5 text-center ">작성자</th>
                                         <th className="px-3 py-5 text-center xs:hidden">작성시각</th>

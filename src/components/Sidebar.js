@@ -71,7 +71,7 @@ export default function Sidebar(){
                                 <li><Link to='/admin-qna'>문의사항</Link></li>
                                 <li><Link to='/admin-recruitment'>채용공고</Link></li>
                                 <li><Link to='/'>행사일정</Link></li>
-                                <li><Link to='/'>경영공시</Link></li>
+                                <li><Link to='/admin-management'>경영공시</Link></li>
                             </ul>
                         </div>
                     </li>

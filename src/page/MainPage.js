@@ -284,7 +284,6 @@ export default function MainPage(){
                 </div>
             </section>
 
-            <CookieModal/>
             <Footer/>
         </>
     )
