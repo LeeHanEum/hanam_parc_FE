@@ -47,7 +47,7 @@ export default function Sidebar(){
                         <Link to="#" onClick={(e)=>{setSubManu(subManu === "profile-item" ? "" : "profile-item")}}><AiOutlineUser className=" me-3 icon "/>회원 관리</Link>
                         <div className={`sidebar-submenu ${["profile","profile-billing","profile-payment","profile-social","profile-notification","profile-setting","profile-item"].includes(subManu)? "block" : ""}`}>
                             <ul>
-                                <li><Link to='/member-list'>회원 목록</Link></li>
+                                <li><Link to='/admin-member'>회원 목록</Link></li>
                             </ul>
                         </div>
                     </li>
@@ -58,6 +58,7 @@ export default function Sidebar(){
                             <ul>
                                 <li><Link to='/program-form'>프로그램 추가</Link></li>
                                 <li><Link to='/program-list'>프로그램 목록</Link></li>
+                                <li><Link to='/a'>신청 현황</Link></li>
                             </ul>
                         </div>
                     </li>
@@ -66,9 +67,9 @@ export default function Sidebar(){
                         <Link to="#"  onClick={(e)=>{setSubManu(subManu === "index-item" ? "" : "index-item")}}><PiBrowsersBold className=" me-3 icon "/>알림마당 관리</Link>
                         <div className={`sidebar-submenu ${["index-dark","index-rtl","index-dark-rtl","index-sidebar-light","index-sidebar-colored","index-item"].includes(subManu)? "block" : ""}`}>
                             <ul>
-                                <li><Link to='/'>공지사항</Link></li>
-                                <li><Link to='/'>문의사항</Link></li>
-                                <li><Link to='/'>채용공고</Link></li>
+                                <li><Link to='/admin-announcement'>공지사항</Link></li>
+                                <li><Link to='/admin-qna'>문의사항</Link></li>
+                                <li><Link to='/admin-recruitment'>채용공고</Link></li>
                                 <li><Link to='/'>행사일정</Link></li>
                                 <li><Link to='/'>경영공시</Link></li>
                             </ul>

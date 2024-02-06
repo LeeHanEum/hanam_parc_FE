@@ -19,6 +19,10 @@ import ProgramDetails from "./page/athleticService/onlineReceiption/ProgramDetai
 import ReceiptForm from "./page/athleticService/onlineReceiption/ReceiptForm";
 import AuthProvider from "./auth/AuthProvider";
 import Home from "./page/admin/Home";
+import MemberList from "./page/admin/member/MemberList";
+import AnnouncementList from "./page/admin/notification/AnnouncementList";
+import QnAList from "./page/admin/notification/QnAList";
+import RecruitmentList from "./page/admin/notification/RecruitmentList";
 
 export default function App() {
     return (
@@ -42,6 +46,10 @@ export default function App() {
                     <Route path={"/program/:id"} element={<ProgramDetails />} />
                     <Route path="/receipt-form" element={<ReceiptForm />} />
                     <Route path="/admin-home" element={<Home />} />
+                    <Route path="/admin-member" element={<MemberList />} />
+                    <Route path="/admin-announcement" element={<AnnouncementList />} />
+                    <Route path="/admin-qna" element={<QnAList />} />
+                    <Route path="/admin-recruitment" element={<RecruitmentList />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

@@ -76,8 +76,6 @@ export default function Navbar(props) {
     const logout = () => {
         context.logout();
         toggleDropdown();
-
-        window.location.href = '/';
     }
 
 
@@ -106,9 +104,9 @@ export default function Navbar(props) {
                 <div>
                     <ul className="buy-button list-none mb-0 lg:px-16 md:px-16 sm:px-2">
                         <li className="inline mb-0 dropdown">
-                            <button className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white xs:hidden" style={{ backgroundColor: "white" }}><Search className="h-4 w-4" /></button>
+                            <span className="xs:hidden"><button className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white" style={{ backgroundColor: "lightgray" }}><Search className="h-4 w-4" /></button></span>
                             {context.isAuthenticated === true ?
-                                <button onClick={toggleDropdown} className="dropdown-toggle mx-1 h-9 px-3 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><span className="mr-2">{context.user?.name}</span><User className="h-4 w-4" /></button>
+                                <button onClick={toggleDropdown} className="dropdown-toggle mx-1 h-9 px-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><span className="mx-0.5">{context.user?.name}</span><User className="h-4 w-4" /></button>
                                 : <Link to="/login" className="h-9 px-3 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white">Log In</Link>
                             }
                         </li>

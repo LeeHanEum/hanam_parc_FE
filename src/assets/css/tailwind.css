@@ -10143,6 +10143,10 @@ ul li:first-child{
     width : 170px !important;
     margin-top : 5px !important;
   }
+  .xs\:text-xs{
+    font-size: 0.75rem !important;
+    line-height: 1rem !important;
+  }
 }
 
 .dropdown-menu {
