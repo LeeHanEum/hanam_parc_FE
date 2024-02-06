@@ -114,7 +114,7 @@ export default function Navbar(props) {
                         </li>
                     </ul>
 
-                    <div className={`dropdown-menu absolute end-12 mx-5 z-10 w-32 mt-16 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 ${isDropdownVisible ? 'block' : 'hidden'}`}>
+                    <div className={`dropdown-menu absolute end-5 z-10 w-32 mt-20 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 ${isDropdownVisible ? 'visible' : ''}`}>
                         <ul className="py-2 text-start">
                             <li>
                                 <Link to="/my" className="flex items-center font-medium py-1 px-5 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white">마이페이지</Link>

@@ -10144,3 +10144,14 @@ ul li:first-child{
     margin-top : 5px !important;
   }
 }
+
+.dropdown-menu {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.dropdown-menu.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
