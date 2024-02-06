@@ -106,7 +106,7 @@ export default function Navbar(props) {
                 <div>
                     <ul className="buy-button list-none mb-0 lg:px-16 md:px-16 sm:px-2">
                         <li className="inline mb-0 dropdown">
-                            <button onClick={toggleDropdown} className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white xs:hidden" style={{ backgroundColor: "lightgray" }}><Search className="h-4 w-4" /></button>
+                            <button className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white xs:hidden" style={{ backgroundColor: "white" }}><Search className="h-4 w-4" /></button>
                             {context.isAuthenticated === true ?
                                 <button onClick={toggleDropdown} className="dropdown-toggle mx-1 h-9 px-3 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><span className="mr-2">{context.user?.name}</span><User className="h-4 w-4" /></button>
                                 : <Link to="/login" className="h-9 px-3 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white">Log In</Link>
@@ -117,17 +117,17 @@ export default function Navbar(props) {
                     <div className={`dropdown-menu absolute end-12 mx-5 z-10 w-32 mt-16 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 ${isDropdownVisible ? 'block' : 'hidden'}`}>
                         <ul className="py-2 text-start">
                             <li>
-                                <Link to="/my" className="flex items-center font-medium py-1 px-5 dark:text-white/70 hover:text-indigo-600 dark:hover:text-white">마이페이지</Link>
+                                <Link to="/my" className="flex items-center font-medium py-1 px-5 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white">마이페이지</Link>
                             </li>
                             {
-                                context.user.memberRole === 'ADMIN'  || context.user.memberRole === 'SUPER' ?
+                                context.user?.memberRole === 'ADMIN'  || context.user?.memberRole === 'SUPER' ?
                                     <li>
-                                        <Link to="/admin-home" className="flex items-center font-medium py-1 px-4 dark:text-white/70 hover:text-indigo-600 dark:hover:text-white">관리자페이지</Link>
+                                        <Link to="/admin-home" className="flex items-center font-medium py-1 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white">관리자페이지</Link>
                                     </li>
                                     : null
                             }
                             <li>
-                                <Link onClick={() => logout()} className="flex items-center font-medium py-1 px-4 dark:text-white/70 hover:text-indigo-600 dark:hover:text-white"><span className="mr-2">Log Out</span> <IoMdLogOut className="me-2" /></Link>
+                                <Link onClick={() => logout()} className="flex items-center font-medium py-1 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white"><span className="mr-2">Log Out</span> <IoMdLogOut className="me-2" /></Link>
                             </li>
                         </ul>
                     </div>
