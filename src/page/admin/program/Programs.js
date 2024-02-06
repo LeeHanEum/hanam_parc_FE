@@ -1,13 +1,13 @@
+import React, {useEffect, useState} from "react";
 import Sidebar from "../../../components/Sidebar";
 import Topnav from "../../../components/Topnav";
 import {Link} from "react-router-dom";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
-import React, {useEffect, useState} from "react";
 
-export default function AnnouncementList() {
+export default function Programs() {
 
-    const [toggle, setToggle] = useState(true)
-    const [qnas, setQnA] = useState([]);
+    const[toggle, setToggle] = useState(true);
+    const [programs, setPrograms] = useState([]);
 
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(20);
@@ -15,35 +15,34 @@ export default function AnnouncementList() {
 
     useEffect(() => {
         // 페이지 로딩 시 API 호출
-        fetchQNA();
+        fetchBoards();
     }, []);
 
-    const fetchQNA = async () => {
+    const fetchBoards = async () => {
         try {
-            const response = await fetch(`/qna/page?page=${page}&size=${size}`);
+            const response = await fetch(`/program/page?page=${page}&size=${size}`);
             if (response.ok) {
                 const data = await response.json();
-                setQnA(data.data.content);
+                setPrograms(data.data.content);
                 setTotalPages(data.data.totalPages);
-                console.log(data.data.content);
+                console.log(data.data.content)
             } else {
-                console.error("Error fetching qna:", response.statusText);
+                console.error("Error fetching programs:", response.statusText);
             }
         } catch (error) {
-            console.error("Error fetching qna:", error);
+            console.error("Error fetching programs:", error);
         }
     };
-
 
     return (
         <>
             <div className={`page-wrapper  ${toggle ? "toggled" : ""}`}>
-                <Sidebar/>
+                <Sidebar />
                 <main className="page-content bg-gray-50 dark:bg-slate-800">
                     <Topnav toggle={toggle} setToggle={setToggle}/>
 
                     <div className="mt-32 relative mx-6">
-                        <h3 className="text-3xl mx-2 font-semibold">문의사항 목록</h3>
+                        <h3 className="text-3xl mx-2 font-semibold">프로그램 목록</h3>
                         <div className="grid md:grid-cols-1 grid-cols-1 pt-6 gap-[30px]">
                             <div
                                 className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
@@ -51,26 +50,24 @@ export default function AnnouncementList() {
                                     <thead>
                                     <tr>
                                         <th className="px-4 py-5 text-center xs:hidden">번호</th>
-                                        <th className="px-3 py-5 text-start">제목</th>
-                                        <th className="px-3 py-5 text-center">답변여부</th>
-                                        <th className="px-3 py-5 text-center ">질문자</th>
-                                        <th className="px-3 py-5 text-center ">답변자</th>
+                                        <th className="px-3 py-5 text-start">이름</th>
+                                        <th className="px-3 py-5 text-center">상태</th>
+                                        <th className="px-3 py-5 text-center">담당자</th>
+                                        <th className="px-3 py-5 text-center">접수마감</th>
                                         <th className="px-3 py-5 text-center xs:hidden">작성시각</th>
-                                        <th className="px-3 py-5 text-center xs:hidden">수정시각</th>
                                         <th className="px-3 py-5 text-center xs:hidden">상세</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
-                                    {qnas.map((qna) => (
-                                        <tr className="border-t border-gray-100 dark:border-gray-700" key={qna.id}>
-                                            <td className="p-3 text-center xs:hidden">{qna.id}</td>
-                                            <td className="p-3 text-start">{qna.title}</td>
-                                            <td className="p-3 text-center ">{qna.isAnswered ? "답변완료" : "답변대기"}</td>
-                                            <td className="p-3 text-center ">{qna.writer?.name}</td>
-                                            <td className="p-3 text-center ">{qna.answerer?.name}</td>
-                                            <td className="p-3 text-center xs:hidden">{qna.createdAt}</td>
-                                            <td className="p-3 text-center xs:hidden">{qna.updatedAt}</td>
+                                    {programs.map((program) => (
+                                        <tr className="border-t border-gray-100 dark:border-gray-700" key={program.id}>
+                                            <td className="p-3 text-center xs:hidden">{program.id}</td>
+                                            <td className="p-3 text-start">{program.name}</td>
+                                            <td className="p-3 text-center ">{program.programStatus}</td>
+                                            <td className="p-3 text-center ">{program.manager?.name}</td>
+                                            <td className="p-3 text-center ">{program.applyEnd}</td>
+                                            <td className="p-3 text-center xs:hidden">{program.createdAt}</td>
                                             <td className="p-3 text-center xs:hidden"><Link to="#"
                                                                                             className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">상세보기</Link>
                                             </td>
@@ -124,4 +121,4 @@ export default function AnnouncementList() {
             </div>
         </>
     )
-};
+}

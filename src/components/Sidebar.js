@@ -57,7 +57,7 @@ export default function Sidebar(){
                         <div className={`sidebar-submenu ${["chat","email","calendar","app-item"].includes(subManu)? "block" : ""}`}>
                             <ul>
                                 <li><Link to='/program-form'>프로그램 추가</Link></li>
-                                <li><Link to='/program-list'>프로그램 목록</Link></li>
+                                <li><Link to='/admin-programs'>프로그램 목록</Link></li>
                                 <li><Link to='/a'>신청 현황</Link></li>
                             </ul>
                         </div>

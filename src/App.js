@@ -15,6 +15,7 @@ import Greetings from "./page/introduction/Greetings";
 import Establishment from "./page/introduction/Establishment";
 import Affiliate from "./page/affiliate/Affiliate";
 import ProgramList from "./page/athleticService/onlineReceiption/ProgramList";
+import Programs from "./page/admin/program/Programs";
 import ProgramDetails from "./page/athleticService/onlineReceiption/ProgramDetails";
 import ReceiptForm from "./page/athleticService/onlineReceiption/ReceiptForm";
 import AuthProvider from "./auth/AuthProvider";
@@ -52,6 +53,7 @@ export default function App() {
                     <Route path="/admin-qna" element={<QnAList />} />
                     <Route path="/admin-recruitment" element={<RecruitmentList />} />
                     <Route path="/admin-management" element={<ManagementList />} />
+                    <Route path="/admin-programs" element={<Programs />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
