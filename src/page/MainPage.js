@@ -102,26 +102,22 @@ export default function MainPage(){
                 <div className="container absolute bottom-0 start-0 end-0">
                     <div className="grid grid-cols-1">
                         <div className="p-6 border-t border-dashed border-white/30">
-                            <div className="grid md:grid-cols-4 grid-cols-2 gap-[30px]">
+                            <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 gap-[30px] xs:hidden">
                                 <div className="counter-box flex items-center justify-center">
-                                    <h1 className="text-4xl font-bold text-white">10년</h1>
+                                    <h1 className="text-3xl font-bold text-white">10년</h1>
                                     <h5 className="counter-head text-xs font-semibold text-white/40 ms-2">2013년 하남시<br/>장애인 체육회 설립</h5>
                                 </div>
 
                                 <div className="counter-box flex items-center justify-center">
-                                    <h1 className="text-4xl font-bold text-white"><CountUp className="counter-value" start={1} end={30} />+</h1>
+                                    <h1 className="text-3xl font-bold text-white"><CountUp className="counter-value" start={1} end={30} />+</h1>
                                     <h5 className="counter-head text-xs font-semibold text-white/40 ms-2">장애인 체육대회 개최</h5>
                                 </div>
 
                                 <div className="counter-box flex items-center justify-center">
-                                    <h1 className="text-4xl font-bold text-white"><CountUp className="counter-value" start={1} end={80} />+</h1>
+                                    <h1 className="text-3xl font-bold text-white"><CountUp className="counter-value" start={1} end={80} />+</h1>
                                     <h5 className="counter-head text-xs font-semibold text-white/40 ms-2">생활 체육<br />프로그램 진행</h5>
                                 </div>
 
-                                <div className="counter-box flex items-center justify-center">
-                                    <h1 className="text-4xl font-bold text-white"><CountUp className="counter-value" start={1} end={4.9} /></h1>
-                                    <h5 className="counter-head text-xs font-semibold text-white/40 ms-2">하남시 장애인 시설<br />사용자 별점</h5>
-                                </div>
                             </div>
                         </div>
                     </div>

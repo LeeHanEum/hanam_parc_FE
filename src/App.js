@@ -18,6 +18,7 @@ import ProgramList from "./page/athleticService/onlineReceiption/ProgramList";
 import ProgramDetails from "./page/athleticService/onlineReceiption/ProgramDetails";
 import ReceiptForm from "./page/athleticService/onlineReceiption/ReceiptForm";
 import AuthProvider from "./auth/AuthProvider";
+import Home from "./page/admin/Home";
 
 export default function App() {
     return (
@@ -40,6 +41,7 @@ export default function App() {
                     <Route path="/program-list" element={<ProgramList />} />
                     <Route path={"/program/:id"} element={<ProgramDetails />} />
                     <Route path="/receipt-form" element={<ReceiptForm />} />
+                    <Route path="/admin-home" element={<Home />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

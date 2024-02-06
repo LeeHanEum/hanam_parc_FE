@@ -23,6 +23,7 @@ const AuthProvider = ({children}) => {
 
     const logout = () => {
         setAuthState(initialAuthState);
+        localStorage.removeItem('token');
     };
 
     return (

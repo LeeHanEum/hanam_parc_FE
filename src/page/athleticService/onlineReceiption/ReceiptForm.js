@@ -1,12 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Navbar from "../../../components/Navbar";
 import SubFooter from "../../../components/SubFooter";
 import Select from "react-select";
 import {Link} from "react-router-dom";
+import AuthContext from "../../../auth/AuthContext";
 
 export default function ReceiptForm() {
 
+    const context = useContext(AuthContext);
+
     const disabilityTypeOptions = [
+        { value: '0', label: '선택하세요'},
         { value: '1', label: '시각장애' },
         { value: '2', label: '청각장애' },
         { value: '3', label: '언어장애' },
@@ -19,6 +23,7 @@ export default function ReceiptForm() {
     ]
 
     const genderOptions = [
+        { value: '0', label: '선택하세요'},
         { value: '1', label: '남성' },
         { value: '2', label: '여성' },
     ]
@@ -35,32 +40,32 @@ export default function ReceiptForm() {
 
                             <div className="mb-4">
                                 <label className="font-semibold mr-2" htmlFor="name">이름 :</label>
-                                <input id="name" type="text" className="form-input mt-3 py-2 w-full px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="이름을 입력하세요" />
+                                <input id="name" type="text" className="form-input mt-3 py-2 w-full px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.name} readOnly/>
                             </div>
 
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="birth">생년월일 :</label>
-                                <input id="birth" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="ex : 19991208" />
+                                <input id="birth" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.birth} readOnly />
                             </div>
 
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="phone">전화번호 :</label>
-                                <input id="phone" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="전화번호를 입력하세요" />
+                                <input id="phone" type="tel" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.phone} />
                             </div>
 
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="email">이메일:</label>
-                                <input id="email" type="email" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="name@example.com" />
+                                <input id="email" type="email" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.email} />
                             </div>
 
                             <div className="mb-4">
                                 <label className="font-semibold mr-2 block" htmlFor="gender">성별 :</label>
-                                <Select id="gender" className="my-3" options={genderOptions}/>
+                                <Select id="gender" className="my-3" options={genderOptions} defaultValue={genderOptions[0]}/>
                             </div>
 
                             <div className="mb-4">
                                 <label className="font-semibold block" htmlFor="disabilityType">장애유형 :</label>
-                                <Select id="disabilityType" options={disabilityTypeOptions} className="my-3"/>
+                                <Select id="disabilityType" options={disabilityTypeOptions} className="my-3" defaultValue={disabilityTypeOptions[0]}/>
                             </div>
                         </div>
 
@@ -77,7 +82,7 @@ export default function ReceiptForm() {
 
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="guardianPhone">보호자 연락처 :</label>
-                                <input id="guardianPhone" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="보호자 전화번호를 입력하세요" />
+                                <input id="guardianPhone" type="tel" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="보호자 전화번호를 입력하세요" />
                             </div>
 
                             <div className="mb-4">
