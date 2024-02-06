@@ -10135,4 +10135,12 @@ ul li:first-child{
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
   }
+  .xs\:px-0{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .xs\:logo{
+    width : 170px !important;
+    margin-top : 5px !important;
+  }
 }

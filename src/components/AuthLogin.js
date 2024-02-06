@@ -1,13 +1,15 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom';
+import React, {useContext, useState} from 'react'
+import {Link} from 'react-router-dom';
 
 import logo from '../asset/image/logo.png';
 import join_soccer from '../asset/image/join_soccer.jpg';
+import AuthContext from "../auth/AuthContext";
 
 export default function AuthLogin() {
 
     const [id, setId] = useState('');
     const [password, setPassword] = useState('');
+    const context = useContext(AuthContext);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -35,6 +37,7 @@ export default function AuthLogin() {
                 }
                 window.location.reload();
                 localStorage.removeItem('token');
+                context.logout();
                 console.error('Login failed');
             }
         } catch (error) {

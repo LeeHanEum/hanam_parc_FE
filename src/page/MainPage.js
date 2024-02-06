@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
@@ -10,6 +10,7 @@ import CountUp from 'react-countup';
 import {LiaClipboardListSolid} from "../assets/icons/icons";
 import {board_main, course_main, footer_img, photo_main} from "../asset/data/data";
 import TinySlider from "tiny-slider-react";
+import AuthContext from "../auth/AuthContext";
 
 export default function MainPage(){
 
@@ -44,6 +45,9 @@ export default function MainPage(){
 
     const [userData, setUserData] = useState(null);
 
+
+    const context = useContext(AuthContext);
+
     useEffect(() => {
         // 로컬 스토리지에서 토큰을 가져오기
         const token = localStorage.getItem('token');
@@ -62,9 +66,12 @@ export default function MainPage(){
                     if (data.success) {
                         // 사용자 데이터가 성공적으로 받아와졌을 때 state에 저장
                         setUserData(data.data);
+                        context.login({userData: data.data});
                         console.log('User data fetched:', data.data);
                     } else {
                         // 토큰이 유효하지 않거나 오류가 발생한 경우 로그아웃 또는 다른 처리 수행
+                        alert('사용자 정보를 가져오는데 실패했습니다.')
+                        context.logout();
                         console.error('Failed to fetch user data');
                     }
                 })
@@ -76,7 +83,7 @@ export default function MainPage(){
 
     return(
         <>
-            <Navbar navClass="nav-light" userData={userData}/>
+            <Navbar navClass="nav-light" />
 
             <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover bg-fixed"
                     style={{backgroundImage: `url(${join_soccer})`,}}>

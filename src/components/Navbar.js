@@ -1,17 +1,23 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import logo from '../asset/image/logo.png';
-import wlogo from '../asset/image/wlogo.png';
 import '../assets/libs/@mdi/font/css/materialdesignicons.min.css';
 import '../assets/css/tailwind.css';
 import {Link, useLocation} from 'react-router-dom'
 import {Search, User} from "feather-icons-react";
-import AuthLogin from "./AuthLogin";
+import AuthContext from "../auth/AuthContext";
 
 export default function Navbar(props) {
-    let { navClass, navJustify } = props;
+    let {navClass, navJustify} = props;
     let [isMenu, setisMenu] = useState(false);
-    let [manu , setManu] = useState('');
+    let [manu, setManu] = useState('');
     let location = useLocation();
+
+    const context = useContext(AuthContext);
+
+    useEffect(() => {
+        console.log(context);
+    });
+
 
     useEffect(()=>{
         let current = location.pathname.substring(location.pathname.lastIndexOf('/') + 1)
@@ -64,8 +70,8 @@ export default function Navbar(props) {
         <nav id="topnav" className={`defaultscroll ${navClass === "nav-light" ? '' : navClass === "nav-sticky" ?
             'bg-white dark:bg-slate-900' : ''}`}>
             {/*로고 이미지*/}
-            <div className="px-3 md:px-12 lg:px-12">
-                <Link className="logo lg:px-16 md:py-16 sm:px-0" to="/">
+            <div className="px-3 md:px-12 lg:px-12 xs:px-0">
+                <Link className="logo lg:px-16 md:py-16 sm:px-0 xs:logo" to="/">
                     <img src={logo} alt={"로고"} width="220px" className="p-4"/>
                 </Link>
 
@@ -84,8 +90,8 @@ export default function Navbar(props) {
 
                 <ul className="buy-button list-none mb-0 lg:px-16 md:px-16 sm:px-2">
                     <li className="inline mb-0">
-                        <Link to="https://1.envato.market/techwind-react" target="_blank" className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white" style={{backgroundColor : "lightgray"}}><Search className="h-4 w-4" /></Link>
-                        <Link to="/login" className="mx-1 h-9 w-9 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><User className="h-4 w-4" /></Link>
+                        <Link to="https://1.envato.market/techwind-react" target="_blank" className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white xs:hidden" style={{backgroundColor : "lightgray"}}><Search className="h-4 w-4" /></Link>
+                        <Link to="/login" className="mx-1 h-9 px-3 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white">{context.user?.name}<User className="h-4 w-4" /></Link>
                     </li>
                 </ul>
 

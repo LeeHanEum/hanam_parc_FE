@@ -17,28 +17,31 @@ import Affiliate from "./page/affiliate/Affiliate";
 import ProgramList from "./page/athleticService/onlineReceiption/ProgramList";
 import ProgramDetails from "./page/athleticService/onlineReceiption/ProgramDetails";
 import ReceiptForm from "./page/athleticService/onlineReceiption/ReceiptForm";
+import AuthProvider from "./auth/AuthProvider";
 
 export default function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/login" element={<AuthLogin />} />
-                <Route path="/signup" element={<AuthSignup />} />
-                <Route path="/re-password" element={<AuthRePassword />} />
-                <Route path="/announcement" element={<Announcement />} />
-                <Route path="/qna" element={<QnA />} />
-                <Route path="/recruitment" element={<Recruitment />} />
-                <Route path="/management" element={<Management />} />
-                <Route path="/page-comming-soon" element={<PageComingsoon />} />
-                <Route path="/event-schedule" element={<EventSchdule />} />
-                <Route path="/greetings" element={<Greetings />} />
-                <Route path="/establishment" element={<Establishment />} />
-                <Route path="/affiliate" element={<Affiliate />} />
-                <Route path="/program-list" element={<ProgramList />} />
-                <Route path={"/program/:id"} element={<ProgramDetails />} />
-                <Route path="/receipt-form" element={<ReceiptForm />} />
-            </Routes>
-        </BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<MainPage />} />
+                    <Route path="/login" element={<AuthLogin />} />
+                    <Route path="/signup" element={<AuthSignup />} />
+                    <Route path="/re-password" element={<AuthRePassword />} />
+                    <Route path="/announcement" element={<Announcement />} />
+                    <Route path="/qna" element={<QnA />} />
+                    <Route path="/recruitment" element={<Recruitment />} />
+                    <Route path="/management" element={<Management />} />
+                    <Route path="/page-comming-soon" element={<PageComingsoon />} />
+                    <Route path="/event-schedule" element={<EventSchdule />} />
+                    <Route path="/greetings" element={<Greetings />} />
+                    <Route path="/establishment" element={<Establishment />} />
+                    <Route path="/affiliate" element={<Affiliate />} />
+                    <Route path="/program-list" element={<ProgramList />} />
+                    <Route path={"/program/:id"} element={<ProgramDetails />} />
+                    <Route path="/receipt-form" element={<ReceiptForm />} />
+                </Routes>
+            </BrowserRouter>
+        </AuthProvider>
     )
 }
