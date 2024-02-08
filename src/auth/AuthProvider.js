@@ -19,6 +19,7 @@ const AuthProvider = ({children}) => {
             login : login,
             logout : logout
         });
+        setTimeout(logout, 3600 * 1000);
     };
 
     const logout = () => {

@@ -10,7 +10,7 @@ import QnA from "./page/notification/QnA";
 import Recruitment from "./page/notification/Recruitment";
 import Management from "./page/notification/Management";
 import PageComingsoon from "./page/pageComingsoon";
-import EventSchdule from "./page/notification/EventSchdule";
+import EventSchdule from "./page/notification/EventSchedule";
 import Greetings from "./page/introduction/Greetings";
 import Establishment from "./page/introduction/Establishment";
 import Affiliate from "./page/affiliate/Affiliate";
@@ -27,6 +27,8 @@ import RecruitmentList from "./page/admin/notification/RecruitmentList";
 import ManagementList from "./page/admin/notification/ManagementList";
 import ApplicationList from "./page/admin/program/ApplicationList";
 import ProgramForm from "./page/admin/program/ProgramForm";
+import EventSchedule from "./page/notification/EventSchedule";
+import EventScheduleList from "./page/notification/EventScheduleList";
 
 export default function App() {
     return (
@@ -42,7 +44,7 @@ export default function App() {
                     <Route path="/recruitment" element={<Recruitment />} />
                     <Route path="/management" element={<Management />} />
                     <Route path="/page-comming-soon" element={<PageComingsoon />} />
-                    <Route path="/event-schedule" element={<EventSchdule />} />
+                    <Route path="/event-schedule" element={<EventSchedule />} />
                     <Route path="/greetings" element={<Greetings />} />
                     <Route path="/establishment" element={<Establishment />} />
                     <Route path="/affiliate" element={<Affiliate />} />
@@ -58,6 +60,7 @@ export default function App() {
                     <Route path="/admin-programs" element={<Programs />} />
                     <Route path="/admin-applicaions" element={<ApplicationList />} />
                     <Route path="/admin-programForm" element={<ProgramForm />} />
+                    <Route path="/event-schedule-list" element={<EventScheduleList />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

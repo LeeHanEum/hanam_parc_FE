@@ -4,6 +4,7 @@
   "description": "React Js Multipurpose Landing Page Template",
   "private": true,
   "dependencies": {
+    "@fullcalendar/core": "^6.1.10",
     "@fullcalendar/daygrid": "^6.1.10",
     "@fullcalendar/react": "^6.1.10",
     "@testing-library/jest-dom": "^5.16.5",

@@ -27,11 +27,11 @@ export default function Affiliate() {
                     <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
                         {affiliateData.map((item,index)=>{
                             return(
-                                <div key={index} className="blog relative rounded-md shadow dark:shadow-gray-800 overflow-hidden">
-                                    <img src={item.img} alt=""/>
-                                    <div className="content p-6">
+                                <div key={index} className="relative rounded-md shadow dark:shadow-gray-800 overflow-hidden">
+                                    <img src={item.img} alt="" className="pb-32"/>
+                                    <div className="content p-6" style={{bottom : 0, position : "absolute"}}>
                                         <p className="text-slate-500 mt-3 text-xl">{item.title}</p>
-                                        <p className="text-slate-400 mt-3 text-lg">회장 : {item.president} / 사무장 : {item.vice}</p>
+                                        <p className="text-slate-400 mt-3 text-lg">회장: {item.president} / 사무장: {item.vice}</p>
                                     </div>
                                 </div>
                             )

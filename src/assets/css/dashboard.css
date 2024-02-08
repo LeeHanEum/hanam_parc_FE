@@ -3422,7 +3422,7 @@ html[dir=rtl] .tns-visually-hidden {
   padding: 0.25rem;
   font-weight: 600;
   --tw-text-opacity: 1;
-  color: rgb(0 128 0 / var(--tw-text-opacity));
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 .fc .fc-col-header-cell-cushion{
   padding-top: 0.5rem !important;
@@ -3430,7 +3430,7 @@ html[dir=rtl] .tns-visually-hidden {
   padding-left: 0.25rem !important;
   padding-right: 0.25rem !important;
   --tw-text-opacity: 1 !important;
-  color: rgb(0 128 0 / var(--tw-text-opacity)) !important;
+  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
 }
 .fc .fc-scrollgrid-liquid {
   border-radius: 5px !important;
