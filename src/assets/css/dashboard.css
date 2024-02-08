@@ -2017,6 +2017,12 @@ video {
   --tw-gradient-to: rgb(30 41 59 / 0) var(--tw-gradient-to-position) !important;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
 }
+.to-slate-800\/40{
+    --tw-gradient-from: #1e293b var(--tw-gradient-from-position) !important;
+    --tw-gradient-to: rgb(30 41 59 / 0.25) var(--tw-gradient-to-position) !important;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+
+}
 .from-transparent{
   --tw-gradient-from: transparent var(--tw-gradient-from-position) !important;
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position) !important;
@@ -3506,9 +3512,10 @@ html[dir=rtl] .tns-visually-hidden {
 
 .fc .fc-button:hover{
   --tw-border-opacity: 1 !important;
-  border-color: rgb(67 56 202 / var(--tw-border-opacity)) !important;
+  border-color: rgb(0 128 0 / var(--tw-border-opacity)) !important;
   --tw-bg-opacity: 1 !important;
-  background-color: rgb(67 56 202 / var(--tw-bg-opacity)) !important;
+  background-color: rgb(0 128 0 / var(--tw-bg-opacity)) !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
 }
 
 .fc .fc-button:focus{

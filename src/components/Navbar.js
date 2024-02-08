@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react'
 import logo from '../asset/image/logo.png';
+import wlogo from '../asset/image/wlogo.png';
 import '../assets/libs/@mdi/font/css/materialdesignicons.min.css';
 import '../assets/css/tailwind.css';
 import {Link, useLocation} from 'react-router-dom'
@@ -12,6 +13,8 @@ export default function Navbar(props) {
     let [isMenu, setisMenu] = useState(false);
     let [manu, setManu] = useState('');
     let location = useLocation();
+
+    const [logoColor, setLogoColor] = useState(wlogo);
 
     const context = useContext(AuthContext);
 
@@ -32,10 +35,12 @@ export default function Navbar(props) {
             ) {
                 if (navbar !== null) {
                     navbar?.classList.add("nav-sticky");
+                    setLogoColor(logo);
                 }
             } else {
                 if (navbar !== null) {
                     navbar?.classList.remove("nav-sticky");
+                    setLogoColor(wlogo);
                 }
             }
         }
@@ -85,7 +90,7 @@ export default function Navbar(props) {
             {/*로고 이미지*/}
             <div className="px-3 md:px-12 lg:px-12 xs:px-0">
                 <Link className="logo lg:px-16 md:py-16 sm:px-0 xs:logo" to="/">
-                    <img src={logo} alt={"로고"} width="220px" className="p-4"/>
+                    <img src={logoColor} alt={"로고"} width="220px" className="p-4"/>
                 </Link>
 
                 {/*모바일 화면에서 토클 햄버거 버튼*/}
@@ -106,7 +111,7 @@ export default function Navbar(props) {
                         <li className="inline mb-0 dropdown">
                             <span className="xs:hidden"><button className="h-9 w-9 mr-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full text-green-600 hover:bg-green-700 hover:text-white" style={{ backgroundColor: "lightgray" }}><Search className="h-4 w-4" /></button></span>
                             {context.isAuthenticated === true ?
-                                <button onClick={toggleDropdown} className="dropdown-toggle mx-1 h-9 px-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white"><span className="mx-0.5">{context.user?.name}</span><User className="h-4 w-4" /></button>
+                                <button onClick={toggleDropdown} className="dropdown-toggle mx-1 h-9 px-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-emerald-600 border-emerald-600 text-white"><span className="mx-0.5">{context.user?.name}</span><User className="h-4 w-4" /></button>
                                 : <Link to="/login" className="h-9 px-3 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white">Log In</Link>
                             }
                         </li>

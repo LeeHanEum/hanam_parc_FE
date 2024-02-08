@@ -7,13 +7,11 @@ import {Link} from "react-router-dom";
 export default function ProgramForm() {
     const [toggle, setToggle] = useState(true);
 
-
     const genderOptions = [
         { value: '0', label: '선택하세요'},
         { value: '1', label: '남성' },
         { value: '2', label: '여성' },
     ]
-
 
     return (
         <>

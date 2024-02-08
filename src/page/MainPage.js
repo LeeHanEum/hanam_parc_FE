@@ -3,14 +3,13 @@ import {Link} from 'react-router-dom'
 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import CookieModal from '../component/cookieModal'
-import join_soccer from "../asset/image/join_soccer.jpg";
 
 import CountUp from 'react-countup';
 import {LiaClipboardListSolid} from "../assets/icons/icons";
 import {board_main, course_main, footer_img, photo_main} from "../asset/data/data";
 import TinySlider from "tiny-slider-react";
 import AuthContext from "../auth/AuthContext";
+import mainPhoto from "../asset/image/mainWheelchair.jpeg";
 
 export default function MainPage(){
 
@@ -86,16 +85,16 @@ export default function MainPage(){
             <Navbar navClass="nav-light" />
 
             <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover bg-fixed"
-                    style={{backgroundImage: `url(${join_soccer})`,}}>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-slate-900/80"></div>
+                    style={{backgroundImage: `url(${mainPhoto})`,}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-800 to-slate-800/40"></div>
                 <div className="container relative">
                     <div className="grid grid-cols-1 mt-10">
-                        <h4 className="lg:leading-normal leading-normal text-white text-4xl lg:text-5xl mb-5 font-bold">스포츠의 힘으로<br /> 인생의 무한한 가능성을 열다.</h4>
-                        <p className="text-slate-400 text-lg max-w-xl">Open your boundless possibilities in life with the power of sports</p>
+                        <h4 className="lg:leading-normal leading-normal text-white text-6xl lg:text-6xl mb-5 font-bold">스포츠의 힘으로<br /> 인생의 무한한 가능성을 열다.</h4>
+                        <p className="text-slate-400 text-3xl ">Open your boundless possibilities in life with the power of sports</p>
                     </div>
 
                     <div className="relative mt-8">
-                        <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">장애인 체육회 소개</Link>
+                        <Link to="/greetings" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2">장애인 체육회 소개</Link>
                     </div>
                 </div>
 

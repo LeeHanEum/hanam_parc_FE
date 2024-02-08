@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from "../../components/Navbar";
 import join_soccer from "../../asset/image/join_soccer.jpg";
 import {Link} from "react-router-dom";
@@ -8,6 +8,34 @@ import {board_qna} from "../../asset/data/data";
 import SubFooter from "../../components/SubFooter";
 
 export default function QnA() {
+
+    const [qnas, setQnA] = useState([]);
+
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState(20);
+    const [totalPages, setTotalPages] = useState(0);
+
+    useEffect(() => {
+        // 페이지 로딩 시 API 호출
+        fetchQNA();
+    }, []);
+
+    const fetchQNA = async () => {
+        try {
+            const response = await fetch(`/qna/page?page=${page}&size=${size}`);
+            if (response.ok) {
+                const data = await response.json();
+                setQnA(data.data.content);
+                setTotalPages(data.data.totalPages);
+                console.log(data.data.content);
+            } else {
+                console.error("Error fetching qna:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error fetching qna:", error);
+        }
+    };
+
     return (
         <>
             <Navbar />
@@ -36,22 +64,24 @@ export default function QnA() {
                                 <tr>
                                     <th className="px-4 py-5 text-start xs:hidden">번호</th>
                                     <th className="px-4 py-5 text-start">제목</th>
-                                    <th className="px-4 py-5 text-end">작성자</th>
-                                    <th className="px-4 py-5 text-end xs:hidden">작성일</th>
-                                    <th className="px-4 py-5 text end ">답변여부</th>
+                                    <th className="px-4 py-5 text-center">작성자</th>
+                                    <th className="px-4 py-5 text-center ">답변여부</th>
+                                    <th className="px-4 py-5 text-center xs:hidden">답변자</th>
+                                    <th className="px-4 py-5 text-center xs:hidden">작성일</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
 
-                                {board_qna.reverse().map((data, index) => {
+                                {qnas.map((data, index) => {
                                     return (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={index}>
                                             <td className="p-4 xs:hidden"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.id}</Link></td>
                                             <td className="p-4"><Link className="flex items-center">{data.title}</Link></td>
-                                            <td className="p-4 text-end">{data.writer}</td>
-                                            <td className="p-4 text-end xs:hidden">{data.created_at}</td>
-                                            <td className="p-4 text-center">{data.is_answered === true ? "답변 완료" : "미답변"}</td>
+                                            <td className="p-4 text-center">{data.writer?.name}</td>
+                                            <td className="p-4 text-center">{data.isAnswered === true ? "답변 완료" : "미답변"}</td>
+                                            <td className="p-4 text-center xs:hidden">{data.answerer?.name}</td>
+                                            <td className="p-4 text-center xs:hidden">{data.createdAt.slice(0,10)}</td>
                                         </tr>
 
                                     )})}
