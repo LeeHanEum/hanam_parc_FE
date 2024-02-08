@@ -45,7 +45,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: 'NanumSquareNeo'; /* 4 */
   -webkit-font-feature-settings: normal;
           font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
@@ -109,7 +109,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family: 'NanumSquareNeo'; /* 1 */
   font-size: 1em; /* 2 */
 }
 /*

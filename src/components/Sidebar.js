@@ -56,9 +56,9 @@ export default function Sidebar(){
                         <Link to="#" onClick={(e)=>{setSubManu(subManu === "app-item" ? "" : "app-item")}}><AiOutlineAppstore className=" me-3 icon "/>온라인 접수 관리</Link>
                         <div className={`sidebar-submenu ${["chat","email","calendar","app-item"].includes(subManu)? "block" : ""}`}>
                             <ul>
-                                <li><Link to='/program-form'>프로그램 추가</Link></li>
+                                <li><Link to='/admin-programForm'>프로그램 추가</Link></li>
                                 <li><Link to='/admin-programs'>프로그램 목록</Link></li>
-                                <li><Link to='/a'>신청 현황</Link></li>
+                                <li><Link to='/admin-applicaions'>신청 현황</Link></li>
                             </ul>
                         </div>
                     </li>

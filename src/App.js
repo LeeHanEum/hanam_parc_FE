@@ -25,6 +25,8 @@ import AnnouncementList from "./page/admin/notification/AnnouncementList";
 import QnAList from "./page/admin/notification/QnAList";
 import RecruitmentList from "./page/admin/notification/RecruitmentList";
 import ManagementList from "./page/admin/notification/ManagementList";
+import ApplicationList from "./page/admin/program/ApplicationList";
+import ProgramForm from "./page/admin/program/ProgramForm";
 
 export default function App() {
     return (
@@ -54,6 +56,8 @@ export default function App() {
                     <Route path="/admin-recruitment" element={<RecruitmentList />} />
                     <Route path="/admin-management" element={<ManagementList />} />
                     <Route path="/admin-programs" element={<Programs />} />
+                    <Route path="/admin-applicaions" element={<ApplicationList />} />
+                    <Route path="/admin-programForm" element={<ProgramForm />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

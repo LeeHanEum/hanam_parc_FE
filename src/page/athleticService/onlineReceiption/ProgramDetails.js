@@ -1,10 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from "../../../components/Navbar";
 import SubFooter from "../../../components/SubFooter";
 import rowing from "../../../asset/image/affiliate/조정.jpg";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 export default function ProgramDetails() {
+
+    const location = useLocation();
+    const programId = location.state ? location.state.programId : null;
+
+    useEffect(() => {
+        console.log(programId);
+    }, []);
+
+
 
     return (
         <>
