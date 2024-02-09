@@ -31,7 +31,7 @@ export default function Establishment() {
                 </div>
             </section>
 
-            <section className="relative md:py-12 py-8 ">
+            <section className="relative md:py-12 py-8 mb-10">
                 <div className="container relative">
                     <h3 className="md:text-4xl text-3xl md:leading-normal leading-normal font-semibold text-center">하남시 장애인 체육회 연혁</h3>
                     <VerticalTimeline>
