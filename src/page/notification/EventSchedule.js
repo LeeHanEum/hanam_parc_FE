@@ -78,7 +78,7 @@ export default function EventSchedule() {
                                 customButtons={{
                                     'list': {
                                         text: '목록 보기',
-                                        click: handleListButtonClick
+                                        click: handleListButtonClick,
                                     }
                                 }}
                             />
