@@ -10,14 +10,13 @@ import QnA from "./page/notification/QnA";
 import Recruitment from "./page/notification/Recruitment";
 import Management from "./page/notification/Management";
 import PageComingsoon from "./page/pageComingsoon";
-import EventSchdule from "./page/notification/EventSchedule";
+import EventSchedule from "./page/notification/EventSchedule";
 import Greetings from "./page/introduction/Greetings";
 import Establishment from "./page/introduction/Establishment";
 import Affiliate from "./page/affiliate/Affiliate";
 import ProgramList from "./page/athleticService/onlineReceiption/ProgramList";
 import Programs from "./page/admin/program/Programs";
 import ProgramDetails from "./page/athleticService/onlineReceiption/ProgramDetails";
-import ReceiptForm from "./page/athleticService/onlineReceiption/ReceiptForm";
 import AuthProvider from "./auth/AuthProvider";
 import Home from "./page/admin/Home";
 import MemberList from "./page/admin/member/MemberList";
@@ -27,7 +26,6 @@ import RecruitmentList from "./page/admin/notification/RecruitmentList";
 import ManagementList from "./page/admin/notification/ManagementList";
 import ApplicationList from "./page/admin/program/ApplicationList";
 import ProgramForm from "./page/admin/program/ProgramForm";
-import EventSchedule from "./page/notification/EventSchedule";
 import EventScheduleList from "./page/notification/EventScheduleList";
 
 export default function App() {
@@ -50,7 +48,6 @@ export default function App() {
                     <Route path="/affiliate" element={<Affiliate />} />
                     <Route path="/program-list" element={<ProgramList />} />
                     <Route path={"/program/:id"} element={<ProgramDetails />} />
-                    <Route path="/receipt-form" element={<ReceiptForm />} />
                     <Route path="/admin-home" element={<Home />} />
                     <Route path="/admin-member" element={<MemberList />} />
                     <Route path="/admin-announcement" element={<AnnouncementList />} />

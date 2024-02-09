@@ -35,7 +35,7 @@ export default function ProgramList() {
 
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <section className="relative table w-full py-16 lg:py-40 bg-no-repeat bg-center bg-cover"
                      style={{backgroundImage: `url(${join_soccer})`,}}>
                 <div className="absolute inset-0 bg-black opacity-20"></div>
@@ -54,27 +54,20 @@ export default function ProgramList() {
                             console.log(item.id);
                             return(
                                 <div key={index} className="blog relative rounded-md shadow dark:shadow-gray-800">
-                                    <img src={item.thumbnail} alt=""/>
-                                    <div className="content p-6">
-                                        <p className="text-slate-500 mt-3 text-xl">{item.name}</p>
-                                        <p className="text-slate-400 mt-3 text-lg">{item.applyEnd}</p>
-                                    </div>
-
-                                    {item.programStatus === "ACCEPTING" ?
-                                        <span className="content m-6 px-3 py-1 rounded-md border-2 text-white font-bold" style={{backgroundColor : "skyblue", borderColor : "skyblue"}}>접수중</span>
-                                        :
-                                        <span className="content m-6 px-3 py-1 rounded-md border-2 text-white font-bold" style={{backgroundColor : "lightgray"}}>
-                                            {item.programStatus}
-                                        </span>
-                                    }
-                                    <div className="relative text-end" style={{float : "right", marginTop : "-10px"}}>
-                                        <Link to={{
-                                            pathname: `/program/${item.id}`,
-                                            state: {programId: item.id}
-                                        }} className="py-2 px-3 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">상세보기</Link>
-                                    </div>
-
-                                    <div className="content p-3"></div>
+                                    <Link to={`/program/${item.id}`}>
+                                        <img src={item.thumbnail} alt="" className="pb-32"/>
+                                        <div className="content p-6" style={{bottom : 0, position:"absolute"}}>
+                                            <p className="text-slate-500 mt-3 text-xl inline-block">{item.name}</p>
+                                            {item.programStatus === "ACCEPTING" ?
+                                                <span className="content mx-2 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "skyblue", borderColor : "skyblue"}}>접수중</span>
+                                                :
+                                                <span className="content mx-2 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "lightgray"}}>
+                                                    {item.programStatus}
+                                                </span>
+                                            }
+                                            <p className="text-slate-400 mt-3 text-lg">{item.applyEnd}</p>
+                                        </div>
+                                    </Link>
                                 </div>
                             )
                         })}
