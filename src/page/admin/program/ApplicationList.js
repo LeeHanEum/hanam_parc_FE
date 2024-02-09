@@ -65,7 +65,7 @@ export default function ApplicationList(){
                                             <td className="p-3 text-center xs:hidden">{application.id}</td>
                                             <td className="p-3 text-start">{application.member?.name}</td>
                                             <td className="p-3 text-center ">{application.program?.name}</td>
-                                            <td className="p-3 text-center xs:hidden">{application.member?.phone}</td>
+                                            <td className="p-3 text-center xs:hidden">{application.phone}</td>
                                             <td className="p-3 text-center ">{application.status}</td>
                                             <td className="p-3 text-center xs:hidden">{application.createdAt}</td>
                                             <td className="p-3 text-center xs:hidden"><Link to="#"

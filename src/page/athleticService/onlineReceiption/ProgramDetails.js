@@ -15,6 +15,11 @@ export default function ProgramDetails() {
 
     const context = useContext(AuthContext);
 
+    const [phone, setPhone] = useState(context.user?.phone || '');
+    const [address, setAddress] = useState(context.user?.address || '');
+    const [guardianName, setGuardianName] = useState(context.user?.guardianName || '');
+    const [guardianPhone, setGuardianPhone] = useState(context.user?.guardianPhone || '');
+
     const disabilityTypeOptions = [
         { value: '0', label: '선택하세요'},
         { value: '1', label: '시각장애' },
@@ -28,11 +33,29 @@ export default function ProgramDetails() {
         { value: '9', label: '해당없음'}
     ]
 
+    const disabilityType = [
+        { value: '1', label: 'BLIND' },
+        { value: '2', label: 'DEAF' },
+        { value: '3', label: 'MUTE' },
+        { value: '4', label: 'PHYSICAL' },
+        { value: '5', label: 'INTELLECTUAL' },
+        { value: '6', label: 'MENTAL' },
+        { value: '7', label: 'MULTIPLE' },
+        { value: '8', label: 'ETC' },
+        { value: '9', label: 'NONE'}
+    ]
+
     const genderOptions = [
         { value: '0', label: '선택하세요'},
         { value: '1', label: '남성' },
         { value: '2', label: '여성' },
     ]
+
+    const gender = [
+        { value: '1', label: 'MEN' },
+        { value: '2', label: 'WOMEN' },
+    ];
+
 
     const handleToggle = () => {
         setToggle(!toggle);
@@ -69,37 +92,40 @@ export default function ProgramDetails() {
         }
     }
 
-    const handleGender = (gender) => {
-        if (gender === "MEN") {
-            return 1;
-        }else if (gender === "WOMEN") {
-            return 2;
-        }else {
-            return 0;
-        }
-    }
+    const handleApplicationSubmit = async () => {
+        try {
 
-    const handleDisabilityType = (disabilityType) => {
-        if (disabilityType === "BLIND") {
-            return 1;
-        }else if (disabilityType === "DEAF") {
-            return 2;
-        }else if (disabilityType === "MUTE") {
-            return 3;
-        }else if (disabilityType === "PHYSICAL") {
-            return 4;
-        }else if (disabilityType === "INTELLECTUAL") {
-            return 5;
-        }else if (disabilityType === "MENTAL") {
-            return 6;
-        }else if (disabilityType === "MULTIPLE") {
-            return 7;
-        }else if (disabilityType === "ETC") {
-            return 8;
-        }else if (disabilityType === "NONE"){
-            return 9;
-        }else {
-            return 0;
+            const applicationData = {
+                programId: program.id,
+                memberId: context.user.id,
+                address: document.getElementById("address").value,
+                phone: document.getElementById("phone").value,
+                gender: context.user?.gender,
+                disabilityType: context.user?.disabilityType,
+                guardianName: document.getElementById("guardianName").value,
+                guardianPhone: document.getElementById("guardianPhone").value,
+                remarks: document.getElementById("etc").value,
+            };
+
+            const response = await fetch('/application', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(applicationData),
+            });
+
+            if (response.ok) {
+                console.log('Application submitted successfully');
+                console.log(applicationData);
+                alert("신청서가 제출되었습니다.");
+                // 여기에 성공 메시지를 표시하거나 다른 동작을 수행할 수 있습니다.
+            } else {
+                console.error('Error submitting application:', response.statusText);
+                // 여기에 실패 메시지를 표시하거나 다른 동작을 수행할 수 있습니다.
+            }
+        } catch (error) {
+            console.error("Error submitting application:", error);
         }
     }
 
@@ -116,7 +142,7 @@ export default function ProgramDetails() {
                 </div>
             </section>
 
-            <section className="relative md:pb-12 md:pt-24 pb-8 pt-12">
+            <section className="relative md:pb-12 md:pt-24 pb-8 pt-12 mb-10">
                 <div className="container relative">
                     <div className="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                         <div className="lg:col-span-8 md:col-span-6">
@@ -166,14 +192,10 @@ export default function ProgramDetails() {
                                                 <td className="xs:px-2 p-4 xs:hidden">참가비 : </td>
                                                 <td className="xs:px-2 p-4">{program.cost}</td>
                                             </tr>
-                                            <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">참가 장애인 유형 : </td>
-                                                <td className="xs:px-2 p-4">전체</td>
-                                            </tr>
                                         </table>
                                     </div>
 
-                                    <h5 className="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center mt-12">상세 정보</h5>
+                                    <h5 className="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center mt-8">상세 정보</h5>
                                     <div className="text-center mt-8">
                                         <table className="w-full text-start text-slate-500">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
@@ -199,7 +221,7 @@ export default function ProgramDetails() {
                                         </table>
                                     </div>
 
-                                    <h5 className="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center mt-12">문의</h5>
+                                    <h5 className="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center mt-8">문의</h5>
                                     <div className="text-center mt-8">
                                         <table className="w-full text-start text-slate-500">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
@@ -241,22 +263,44 @@ export default function ProgramDetails() {
 
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="phone">전화번호 :</label>
-                                <input id="phone" type="tel" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.phone} />
+                                <input
+                                    id="phone"
+                                    type="tel"
+                                    className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                />
                             </div>
 
                             <div className="mb-4">
-                                <label className="font-semibold" htmlFor="email">이메일:</label>
-                                <input id="email" type="email" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.email} />
+                                <label className="font-semibold" htmlFor="address">주소 :</label>
+                                <input
+                                    id="address"
+                                    type="text"
+                                    className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
+                                    placeholder="주소를 입력하세요"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                />
                             </div>
 
                             <div className="mb-4">
                                 <label className="font-semibold mr-2 block" htmlFor="gender">성별 :</label>
-                                <Select id="gender" className="my-3" options={genderOptions} defaultValue={genderOptions[handleGender(context.user?.gender)]}/>
+                                <Select
+                                    id="gender"
+                                    className="my-3"
+                                    options={genderOptions}
+                                    defaultValue={genderOptions[0]}
+                                />
                             </div>
 
                             <div className="mb-4">
-                                <label className="font-semibold block" htmlFor="disabilityType">장애유형 :</label>
-                                <Select id="disabilityType" options={disabilityTypeOptions} defaultValue={disabilityTypeOptions[handleDisabilityType(context.user?.disabilityType)]}/>
+                                <label className="font-semibold block" htmlFor="disability_type">장애유형 :</label>
+                                <Select
+                                    id="disability_type"
+                                    options={disabilityTypeOptions}
+                                    defaultValue={disabilityTypeOptions[0]}
+                                />
                             </div>
                         </div>
 
@@ -268,26 +312,35 @@ export default function ProgramDetails() {
 
                             <div className="mb-4">
                                 <label className="font-semibold mr-2" htmlFor="guardianName">보호자 이름 :</label>
-                                <input id="guardianName" type="text" className="form-input mt-3 py-2 w-full px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="보호자 이름을 입력하세요" value={context.user?.guardianName} />
+                                <input
+                                    id="guardianName"
+                                    type="text"
+                                    className="form-input mt-3 py-2 w-full px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
+                                    placeholder="보호자 이름을 입력하세요"
+                                    value={guardianName}
+                                    onChange={(e) => setGuardianName(e.target.value)}
+                                />
                             </div>
 
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="guardianPhone">보호자 연락처 :</label>
-                                <input id="guardianPhone" type="tel" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="보호자 전화번호를 입력하세요" value={context.user?.guardianPhone} />
-                            </div>
-
-                            <div className="mb-4">
-                                <label className="font-semibold" htmlFor="address">주소 :</label>
-                                <input id="address" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="주소를 입력하세요" value={context.user?.address}/>
+                                <input
+                                    id="guardianPhone"
+                                    type="tel"
+                                    className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
+                                    placeholder="보호자 전화번호를 입력하세요"
+                                    value={guardianPhone}
+                                    onChange={(e) => setGuardianPhone(e.target.value)}
+                                />
                             </div>
 
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="etc">기타사항 :</label>
-                                <input id="etc" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="기타사항을 입력하세요" />
+                                <textarea id="etc" style={{resize:"none"}} className="form-input mt-3 w-full py-2 px-3 h-32 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="기타사항을 입력하세요" />
                             </div>
 
-                            <div className="mt-12">
-                                <Link to="/#" className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">신청서 전송하기</Link>
+                            <div className="mt-8">
+                                <Link onClick={handleApplicationSubmit} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">신청서 전송하기</Link>
                             </div>
                         </div>
                     </div>

@@ -74,7 +74,6 @@ export default function ProgramForm() {
 
             // 프로그램이 성공적으로 추가되면 추가적인 작업을 수행할 수 있습니다.
             alert("프로그램이 성공적으로 추가되었습니다.");
-            window.location.reload();
 
         } catch (error) {
             console.error("Error adding program:", error.message);

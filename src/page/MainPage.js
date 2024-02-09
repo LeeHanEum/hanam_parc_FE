@@ -69,7 +69,6 @@ export default function MainPage(){
                         console.log('User data fetched:', data.data);
                     } else {
                         // 토큰이 유효하지 않거나 오류가 발생한 경우 로그아웃 또는 다른 처리 수행
-                        alert('사용자 정보를 가져오는데 실패했습니다.')
                         context.logout();
                         console.error('Failed to fetch user data');
                     }
