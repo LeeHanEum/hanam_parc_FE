@@ -146,7 +146,7 @@ export default function Navbar(props) {
                                 <li><Link to="/greetings">인사말</Link></li>
                                 <li><Link to="/establishment">설립 목적 및 연혁</Link></li>
                                 <li><Link to="/executives">임원 현황</Link></li>
-                                <li><Link to="/page-comming-soon">직원 현황</Link></li>
+                                <li><Link to="/employee">직원 현황</Link></li>
                                 <li><Link to="/page-comming-soon">주요 사업</Link></li>
                                 <li><Link to="/page-comming-soon">관련 규정</Link></li>
                                 <li><Link to="/page-comming-soon">찾아오시는 길</Link></li>

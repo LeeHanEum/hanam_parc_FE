@@ -28,6 +28,7 @@ import ApplicationList from "./page/admin/program/ApplicationList";
 import ProgramForm from "./page/admin/program/ProgramForm";
 import EventScheduleList from "./page/notification/EventScheduleList";
 import Executives from "./page/introduction/Executives";
+import Employee from "./page/introduction/Employee";
 
 export default function App() {
     return (
@@ -60,6 +61,7 @@ export default function App() {
                     <Route path="/admin-programForm" element={<ProgramForm />} />
                     <Route path="/event-schedule-list" element={<EventScheduleList />} />
                     <Route path="/executives" element={<Executives />} />
+                    <Route path="/employee" element={<Employee />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
