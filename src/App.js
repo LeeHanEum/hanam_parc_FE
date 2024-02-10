@@ -30,6 +30,7 @@ import EventScheduleList from "./page/notification/EventScheduleList";
 import Executives from "./page/introduction/Executives";
 import Employee from "./page/introduction/Employee";
 import Business from "./page/introduction/Business";
+import VisitingService from "./page/athleticService/VisitingService";
 
 export default function App() {
     return (
@@ -64,6 +65,7 @@ export default function App() {
                     <Route path="/executives" element={<Executives />} />
                     <Route path="/employee" element={<Employee />} />
                     <Route path="/business" element={<Business />} />
+                    <Route path="/visiting-service" element={<VisitingService />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
