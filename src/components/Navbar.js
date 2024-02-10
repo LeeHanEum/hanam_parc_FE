@@ -147,9 +147,9 @@ export default function Navbar(props) {
                                 <li><Link to="/establishment">설립 목적 및 연혁</Link></li>
                                 <li><Link to="/executives">임원 현황</Link></li>
                                 <li><Link to="/employee">직원 현황</Link></li>
-                                <li><Link to="/page-comming-soon">주요 사업</Link></li>
-                                <li><Link to="/page-comming-soon">관련 규정</Link></li>
-                                <li><Link to="/page-comming-soon">찾아오시는 길</Link></li>
+                                <li><Link to="/business">주요 사업</Link></li>
+                                {/*<li><Link to="/page-comming-soon">관련 규정</Link></li>*/}
+                                {/*<li><Link to="/page-comming-soon">찾아오시는 길</Link></li>*/}
                             </ul>
                         </li>
 
@@ -163,12 +163,12 @@ export default function Navbar(props) {
                         <li className="has-submenu parent-parent-menu-item">
                             <Link to="#!">대회 정보</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
-                                <li><Link to="/page-comming-soon">전국 장애인 체육대회</Link></li>
-                                <li><Link to="/page-comming-soon">전국 장애인 동계 체육대회</Link></li>
-                                <li><Link to="/page-comming-soon">전국 장애 학생 체육대회</Link></li>
-                                <li><Link to="/page-comming-soon">경기도 장애인 체육대회</Link></li>
-                                <li><Link to="/page-comming-soon">경기도 장애인 생활 체육대회</Link></li>
-                                <li><Link to="/page-comming-soon">각종 대회 자료실</Link></li>
+                                <li><Link>전국 장애인 체육대회</Link></li>
+                                <li><Link>전국 장애인 동계 체육대회</Link></li>
+                                <li><Link>전국 장애 학생 체육대회</Link></li>
+                                <li><Link>경기도 장애인 체육대회</Link></li>
+                                <li><Link>경기도 장애인 생활 체육대회</Link></li>
+                                <li><Link>각종 대회 자료실</Link></li>
                             </ul>
                         </li>
 
