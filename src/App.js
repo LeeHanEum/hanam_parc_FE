@@ -33,6 +33,7 @@ import Business from "./page/introduction/Business";
 import VisitingService from "./page/athleticService/VisitingService";
 import CurrentTeacher from "./page/athleticService/CurrentTeacher";
 import TeacherInfo from "./page/athleticService/TeacherInfo";
+import AthleticPrograms from "./page/athleticService/AthleticPrograms";
 
 export default function App() {
     return (
@@ -70,6 +71,7 @@ export default function App() {
                     <Route path="/visiting-service" element={<VisitingService />} />
                     <Route path="/current-teacher" element={<CurrentTeacher />} />
                     <Route path="/teacher-info" element={<TeacherInfo />} />
+                    <Route path="/athletic-programs" element={<AthleticPrograms />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
