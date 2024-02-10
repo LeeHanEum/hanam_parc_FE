@@ -53,11 +53,6 @@ export default function Management() {
 
             <section className="relative md:py-24 py-16">
 
-                <div className="container relative text-end">
-                    <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">새 글쓰기</Link>
-                </div>
-
-
                 <div className="container relative">
                     <div className="grid md:grid-cols-1 grid-cols-1 pt-6 gap-[30px]">
                         <div className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">

@@ -45,11 +45,6 @@ export default function AthleticPrograms() {
 
 ]
 
-
-    // 하남시 장애인게이트볼클럽
-    // 하남시 장애인 텐덤사이클 클럽
-    // 하남시 데프생활체육클럽(슐런)
-
     const clubData = [
         {
             id : 1,
