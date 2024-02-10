@@ -31,6 +31,7 @@ import Executives from "./page/introduction/Executives";
 import Employee from "./page/introduction/Employee";
 import Business from "./page/introduction/Business";
 import VisitingService from "./page/athleticService/VisitingService";
+import CurrentTeacher from "./page/athleticService/CurrentTeacher";
 
 export default function App() {
     return (
@@ -66,6 +67,7 @@ export default function App() {
                     <Route path="/employee" element={<Employee />} />
                     <Route path="/business" element={<Business />} />
                     <Route path="/visiting-service" element={<VisitingService />} />
+                    <Route path="current-teacher" element={<CurrentTeacher />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

@@ -176,9 +176,9 @@ export default function Navbar(props) {
                             <Link to="#!">생활 체육 서비스</Link><span className="menu-arrow"></span>
                             <ul className="submenu">
                                 <li><Link to="/visiting-service">찾아가는 생활 체육 서비스</Link></li>
+                                <li><Link to="/current-teacher">지도자 배치현황</Link></li>
                                 <li><Link to="/page-comming-soon">생활 체육 프로그램</Link></li>
                                 <li><Link to="/page-comming-soon">생활 체육 지도자 현황</Link></li>
-                                <li><Link to="/page-comming-soon">지도자 배치현황</Link></li>
                                 <li><Link to="/page-comming-soon">장애인 체육시설</Link></li>
                                 <li><Link to="/program-list">온라인 접수</Link></li>
                             </ul>
