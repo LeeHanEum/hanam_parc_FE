@@ -22,10 +22,11 @@ export default function CurrentTeacher() {
             </section>
 
             {/*본문 내용 시작*/}
-            <section className="relative md:py-12 py-8 mb-10">
+            <section className="relative md:py-12 py-8 mb-10 xs:text-xs">
                 <div className="container relative">
+                    <div className="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
 
-                    <div className="w-64 inline-block mx-4" style={{float : "left"}}>
+                    <div className="lg:col-span-3 md:col-span-3">
                         <div className="team p-6 rounded-md shadow-md dark:shadow-gray-800 dark:border-gray-700 bg-white dark:bg-slate-900 relative">
                             <div className="bg-red-600/10 dark:bg-red-600/30 absolute inset-0 rounded-md -mt-[10px] -ms-[10px] h-[98%] w-[98%] -z-1"></div>
                             <img src={vacantProfile} className="h-24 w-24 rounded-full shadow-md dark:shadow-gray-800" alt="" />
@@ -40,8 +41,7 @@ export default function CurrentTeacher() {
                         </div>
                     </div>
 
-                    <div className="grid md:grid-cols-1 grid-cols-1 gap-[30px]" >
-                        <div className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
+                        <div className="lg:col-span-9 md:col-span-9 relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
                             <table className="w-full text-start">
                                 <thead>
                                 <tr>
@@ -103,10 +103,11 @@ export default function CurrentTeacher() {
 
                                 </tbody>
                             </table>
-                        </div>
+                    </div>
                     </div>
 
-                    <div className="w-64 mt-16 inline-block mx-4" style={{float : "left"}}>
+                    <div className="grid md:grid-cols-12 grid-cols-1 gap-[30px] mt-16">
+                    <div className="lg:col-span-3 md:col-span-3">
                         <div className="team p-6 rounded-md shadow-md dark:shadow-gray-800 dark:border-gray-700 bg-white dark:bg-slate-900 relative">
                             <div className="bg-sky-600/10 dark:bg-sky-600/30 absolute inset-0 rounded-md -mt-[10px] -ms-[10px] h-[98%] w-[98%] -z-1"></div>
                             <img src={vacantProfile} className="h-24 w-24 rounded-full shadow-md dark:shadow-gray-800" alt="" />
@@ -121,8 +122,7 @@ export default function CurrentTeacher() {
                         </div>
                     </div>
 
-                    <div className="grid md:grid-cols-1 grid-cols-1 mt-10 pt-6 gap-[30px]">
-                        <div className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
+                        <div className="lg:col-span-9 md:col-span-9 relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
                             <table className="w-full text-start">
                                 <thead>
                                 <tr>

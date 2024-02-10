@@ -43,7 +43,7 @@ export default function Executives() {
             </section>
 
             {/*본문 내용 시작*/}
-            <section className="relative md:py-24 py-16 ">
+            <section className="relative md:py-24 py-16 xs:text-xs ">
                 <div className="container relative">
                     <h3 className="md:text-4xl text-3xl md:leading-normal leading-normal font-semibold text-center mb-16">조직도 사진 예정</h3>
                     <table className="w-full text-start">
