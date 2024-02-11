@@ -108,7 +108,7 @@ export default function NotificationDetails(){
                                             src={`${process.env.PUBLIC_URL}/${imageUrl}`}
                                             className="rounded-md m-auto"
                                             alt={`Image ${index + 1}`}
-                                            width="50%"
+                                            width="90%"
                                         />
                                     ))}
                                 </div>

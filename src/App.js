@@ -35,6 +35,7 @@ import CurrentTeacher from "./page/athleticService/CurrentTeacher";
 import TeacherInfo from "./page/athleticService/TeacherInfo";
 import AthleticPrograms from "./page/athleticService/AthleticPrograms";
 import NotificationDetails from "./page/notification/NotificationDetails";
+import MyHome from "./page/myPage/MyHome";
 
 export default function App() {
     return (
@@ -57,6 +58,7 @@ export default function App() {
                     <Route path="/program-list" element={<ProgramList />} />
                     <Route path={"/program/:id"} element={<ProgramDetails />} />
                     <Route path="/admin-home" element={<Home />} />
+                    <Route path="/my-home" element={<MyHome />} />
                     <Route path="/admin-member" element={<MemberList />} />
                     <Route path="/admin-announcement" element={<AnnouncementList />} />
                     <Route path="/admin-qna" element={<QnAList />} />
