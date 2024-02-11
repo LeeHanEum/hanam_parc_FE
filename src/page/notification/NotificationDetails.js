@@ -14,6 +14,7 @@ export default function NotificationDetails(){
     const id = pathSegments[2];
 
     const [board, setBoard] = useState({});
+    const [boardImage, setBoardImage] = useState([]);
 
     let categoryText = "";
     switch (boardCategory) {
@@ -35,16 +36,33 @@ export default function NotificationDetails(){
     }
 
     useEffect(() => {
-        fetchProgram();
+        fetchBoard();
+        fetchBoardImage();
+
     }, []);
 
-    const fetchProgram = async () => {
+    const fetchBoard = async () => {
         try {
             const response = await fetch(`/board?id=${id}`);
             if (response.ok) {
                 const data = await response.json();
                 setBoard(data.data);
-                console.log(data.data);
+            } else {
+                console.error("Error fetching program:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error fetching program:", error);
+        }
+    }
+
+    const fetchBoardImage = async () => {
+        try {
+            const response = await fetch(`/board/image?id=${id}`);
+            if (response.ok) {
+                const data = await response.json();
+
+                setBoardImage(data.data.boardImageList);
+                console.log(data.data.boardImageList)
             } else {
                 console.error("Error fetching program:", response.statusText);
             }
@@ -84,7 +102,15 @@ export default function NotificationDetails(){
                                 </div>
 
                                 <div className="mt-8 ">
-                                    이미지 첨부
+                                    {boardImage.map((imageUrl, index) => (
+                                        <img
+                                            key={index}
+                                            src={`${process.env.PUBLIC_URL}/${imageUrl}`}
+                                            className="rounded-md m-auto"
+                                            alt={`Image ${index + 1}`}
+                                            width="50%"
+                                        />
+                                    ))}
                                 </div>
 
                             </div>
@@ -97,20 +123,20 @@ export default function NotificationDetails(){
                                     <div className="text-center mt-8">
                                         <table className="w-full text-start text-slate-500">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">작성자 : </td>
-                                                <td className="xs:px-2 p-4"></td>
+                                                <td className="xs:px-2 py-4 px-2 w-28">작성자 : </td>
+                                                <td className="xs:px-2 py-4">{board.writer?.name}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">첨부 파일 : </td>
-                                                <td className="xs:px-2 p-4"></td>
+                                                <td className="xs:px-2 py-4 px-2 w-28">첨부 파일 : </td>
+                                                <td className="xs:px-2 py-4"></td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">작성 시각 : </td>
-                                                <td className="xs:px-2 p-4"></td>
+                                                <td className="xs:px-2 py-4 px-2 w-28">작성 날짜 : </td>
+                                                <td className="xs:px-2 py-4 ">{board.createdAt?.slice(0,10)}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">수정 시각 : </td>
-                                                <td className="xs:px-2 p-4"></td>
+                                                <td className="xs:px-2 py-4 px-2 w-28">수정 날짜 : </td>
+                                                <td className="xs:px-2 py-4">{board.updatedAt?.slice(0,10)}</td>
                                             </tr>
                                         </table>
                                     </div>
