@@ -10,6 +10,7 @@ import {board_main, course_main, footer_img, photo_main} from "../asset/data/dat
 import TinySlider from "tiny-slider-react";
 import AuthContext from "../auth/AuthContext";
 import mainPhoto from "../asset/image/mainWheelchair.jpeg";
+import MainNotification from "../components/MainNotification";
 
 export default function MainPage(){
 
@@ -122,61 +123,7 @@ export default function MainPage(){
                 </div>
             </section>
 
-            <section className="relative md:py-15 py-16">
-                <div className="container relative">
-                    <div className="grid grid-cols-1">
-                        <h5 className="text-3xl font-semibold mb-5">알림마당</h5>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 grid-cols-1 pt-6 gap-[30px]">
-
-                        {
-                            board_main.map((data, index) => {
-                                return (
-
-                                    <div key={index}>
-                                        <h5 className="text-2xl font-semibold mb-5">{data.heading}</h5>
-
-                                        <div className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
-                                            <table className="w-full text-start">
-                                                <thead>
-                                                <tr>
-                                                    <th className="px-4 py-5 text-start">목록</th>
-                                                </tr>
-                                                </thead>
-
-                                                <tbody>
-                                                <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                    <td className="p-4"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.ls1}</Link></td>
-                                                </tr>
-
-                                                <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                    <td className="p-4"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.ls2}</Link></td>
-                                                </tr>
-
-                                                <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                    <td className="p-4"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.ls3}</Link></td>
-                                                </tr>
-
-                                                <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                    <td className="p-4"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.ls4}</Link></td>
-                                                </tr>
-
-                                                <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                    <td className="p-4"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.ls5}</Link></td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                )
-                            })
-                        }
-
-                    </div>
-                    </div>
-
-                </section>
+            <MainNotification />
 
                 <section className="relative md:py-24 py-16" style={{backgroundColor : "#F6F6F6"}}>
                     <div className="container relative">
