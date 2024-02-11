@@ -73,7 +73,7 @@ export default function EventScheduleList() {
                                     return (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={data.id}>
                                             <td className="p-3 text-center ">{data.id}</td>
-                                            <td className="p-3 text-start">{data.title}</td>
+
                                             <td className="p-3 text-center">{data.start}</td>
                                             <td className="p-3 text-center">{data.end}</td>
                                             <td className="p-3 text-center xs:hidden">{data.createdAt.slice(0,10)}</td>

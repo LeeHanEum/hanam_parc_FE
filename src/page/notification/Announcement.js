@@ -71,8 +71,8 @@ export default function Announcement() {
                                     {boards.map((data, index) => {
                                         return (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={index}>
-                                            <td className="xs:px-2 p-4 xs:hidden"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.id}</Link></td>
-                                            <td className="xs:px-2 p-4"><Link className="flex items-center">{data.title}</Link></td>
+                                            <td className="xs:px-2 p-4 xs:hidden"><LiaClipboardListSolid className="me-1 inline"/> {data.id}</td>
+                                            <td className="xs:px-2 p-4"><Link to={`/announcement/${data.id}`}>{data.title}</Link></td>
                                             <td className="xs:px-2 p-4 text-end">{data.writer?.name}</td>
                                             <td className="xs:px-2 p-4 text-center">{data.createdAt.slice(0,10)}</td>
                                         </tr>

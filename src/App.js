@@ -34,6 +34,7 @@ import VisitingService from "./page/athleticService/VisitingService";
 import CurrentTeacher from "./page/athleticService/CurrentTeacher";
 import TeacherInfo from "./page/athleticService/TeacherInfo";
 import AthleticPrograms from "./page/athleticService/AthleticPrograms";
+import NotificationDetails from "./page/notification/NotificationDetails";
 
 export default function App() {
     return (
@@ -72,6 +73,10 @@ export default function App() {
                     <Route path="/current-teacher" element={<CurrentTeacher />} />
                     <Route path="/teacher-info" element={<TeacherInfo />} />
                     <Route path="/athletic-programs" element={<AthleticPrograms />} />
+                    <Route path={"/announcement/:id"} element={<NotificationDetails />} />
+                    <Route path={"/recruitment/:id"} element={<NotificationDetails />} />
+                    <Route path={"/management/:id"} element={<NotificationDetails />} />
+                    <Route path={"/event/:id"} element={<NotificationDetails />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>
