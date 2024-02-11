@@ -50,7 +50,7 @@ export default function MainNotification() {
 
     return (
         <>
-            <section className="relative md:py-15 py-16 mb-10">
+            <section className="relative md:py-15 py-16 mb-10" style={{backgroundColor : "#F6F6F6"}}>
                 <div className="container relative">
                     <div className="grid grid-cols-1">
                         <h5 className="text-3xl font-semibold mb-5 text-center">알림마당</h5>

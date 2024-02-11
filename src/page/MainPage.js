@@ -5,12 +5,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import CountUp from 'react-countup';
-import {LiaClipboardListSolid} from "../assets/icons/icons";
-import {board_main, course_main, footer_img, photo_main} from "../asset/data/data";
+import {footer_img, photo_main} from "../asset/data/data";
 import TinySlider from "tiny-slider-react";
 import AuthContext from "../auth/AuthContext";
 import mainPhoto from "../asset/image/mainWheelchair.jpeg";
 import MainNotification from "../components/MainNotification";
+import MainAthletic from "../components/MainAthletic";
 
 export default function MainPage(){
 
@@ -125,46 +125,9 @@ export default function MainPage(){
 
             <MainNotification />
 
-                <section className="relative md:py-24 py-16" style={{backgroundColor : "#F6F6F6"}}>
-                    <div className="container relative">
-                    <div className="grid grid-cols-1 pb-8 text-center">
-                        <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">생활 체육 서비스</h3>
+            <MainAthletic />
 
-                        <p className="text-slate-400 max-w-xl mx-auto">하남시 장애인 체육회와 함께하는 다양한 생활 체육 프로그램을 소개합니다.</p>
-                    </div>
-
-                        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
-                            {
-                                course_main.map((data,index) => {
-                                    return (
-
-                                        <div className="group relative rounded-md shadow hover:shadow-lg dark:shadow-gray-800 duration-500 ease-in-out overflow-hidden" key={index}>
-                                            <div className="relative overflow-hidden">
-                                                <img src={data.image} className="group-hover:scale-110 duration-500 ease-in-out" alt="" style={{width : "100%", maxHeight : "250px"}}/>
-                                                <div className="absolute inset-0 bg-slate-900/50 opacity-0 group-hover:opacity-100 duration-500 ease-in-out"></div>
-                                            </div>
-
-                                            <div className="content p-6 relative">
-                                                {/*<Link to={`/course-detail/${data.id}`} className="font-medium block text-indigo-600">{data.field}</Link>*/}
-                                                <Link to={`/course-detail/${data.id}`} className="text-lg font-medium block hover:text-indigo-600 duration-500 ease-in-out mt-2">{data.desc}</Link>
-                                                <p className="text-slate-400 mt-3 mb-4">This program is supported by hanam-si.</p>
-
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
-
-                        </div>
-
-                        <div className="relative mt-8 text-center">
-                            <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">생활 체육 서비스 더보기</Link>
-                        </div>
-
-                </div>
-                </section>
-
-            <section className="relative md:py-24 py-16">
+            <section className="relative md:py-24 py-16" >
                 <div className="relative">
                     <div className="container relative">
                         <div className="grid grid-cols-1 pb-8 text-center">
@@ -193,7 +156,7 @@ export default function MainPage(){
                 </div>
             </section>
 
-            <section className="relative">
+            <section className="relative" >
                 <div className="container relative text-center">
                     {footer_img.map((data, index) => (
                         <div
