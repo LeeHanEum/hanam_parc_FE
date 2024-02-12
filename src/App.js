@@ -37,6 +37,7 @@ import AthleticPrograms from "./page/athleticService/AthleticPrograms";
 import NotificationDetails from "./page/notification/NotificationDetails";
 import MyHome from "./page/myPage/MyHome";
 import MyInfo from "./page/myPage/MyInfo";
+import MyApplication from "./page/myPage/MyApplication";
 
 export default function App() {
     return (
@@ -81,6 +82,7 @@ export default function App() {
                     <Route path={"/management/:id"} element={<NotificationDetails />} />
                     <Route path={"/event/:id"} element={<NotificationDetails />} />
                     <Route path="/my-info" element={<MyInfo />} />
+                    <Route path="/my-application" element={<MyApplication />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

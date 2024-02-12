@@ -40,7 +40,7 @@ export default function MySidebar(){
                 <SimpleBarReact style={{height:"calc(100% - 70px)"}}>
                     <ul className="sidebar-menu border-t border-white/10">
                         <li className={`text-xl px-1 my-5 ${["" ,"index","index-crypto",].includes(manu)? "active" : ""}`}>
-                            <Link to="" ><AiOutlineLineChart className=" me-3 icon "/>대시보드</Link>
+                            <Link to="my-home" ><AiOutlineLineChart className=" me-3 icon "/>대시보드</Link>
                         </li>
 
                         <li className={`text-xl my-5 ${["profile","profile-billing","profile-payment","profile-social","profile-notification","profile-setting"].includes(manu)? "active" : ""}`}>
@@ -48,7 +48,7 @@ export default function MySidebar(){
                         </li>
 
                         <li className={`text-xl my-5  ${["chat","email","calendar"].includes(manu)? "active" : ""}`}>
-                            <Link to="#" ><AiOutlineAppstore className=" me-3 icon "/>나의 신청 내역</Link>
+                            <Link to="/my-application" ><AiOutlineAppstore className=" me-3 icon "/>나의 신청 내역</Link>
                         </li>
 
                         <li className={`text-xl my-5 ${["index-dark","index-rtl","index-dark-rtl","index-sidebar-light","index-sidebar-colored"].includes(manu)? "active" : ""}`}>

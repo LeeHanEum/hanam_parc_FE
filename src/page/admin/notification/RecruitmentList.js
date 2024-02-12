@@ -57,7 +57,7 @@ export default function RecruitmentList() {
                                         <th className="px-3 py-5 text-center ">작성자</th>
                                         <th className="px-3 py-5 text-center xs:hidden">작성시각</th>
                                         <th className="px-3 py-5 text-center xs:hidden">수정시각</th>
-                                        <th className="px-3 py-5 text-center xs:hidden">상세</th>
+                                        <th className="px-3 py-5 text-center">상세</th>
                                     </tr>
                                     </thead>
 
@@ -69,8 +69,9 @@ export default function RecruitmentList() {
                                             <td className="p-3 text-center ">{board.writer?.name}</td>
                                             <td className="p-3 text-center xs:hidden">{board.createdAt}</td>
                                             <td className="p-3 text-center xs:hidden">{board.updatedAt}</td>
-                                            <td className="p-3 text-center xs:hidden"><Link to="#"
-                                                                                            className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">상세보기</Link>
+                                            <td className="p-3 text-center">
+                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
+                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
                                             </td>
                                         </tr>
                                     ))}
