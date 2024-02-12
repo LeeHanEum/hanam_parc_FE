@@ -38,6 +38,7 @@ import NotificationDetails from "./page/notification/NotificationDetails";
 import MyHome from "./page/myPage/MyHome";
 import MyInfo from "./page/myPage/MyInfo";
 import MyApplication from "./page/myPage/MyApplication";
+import MyQna from "./page/myPage/MyQna";
 
 export default function App() {
     return (
@@ -83,6 +84,7 @@ export default function App() {
                     <Route path={"/event/:id"} element={<NotificationDetails />} />
                     <Route path="/my-info" element={<MyInfo />} />
                     <Route path="/my-application" element={<MyApplication />} />
+                    <Route path="/my-qna" element={<MyQna />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

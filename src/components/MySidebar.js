@@ -6,13 +6,7 @@ import logo from "../asset/image/wlogo.png";
 import SimpleBarReact from "simplebar-react";
 import 'simplebar-react/dist/simplebar.min.css';
 
-import {
-    AiOutlineAppstore,
-    AiOutlineCamera,
-    AiOutlineLineChart,
-    AiOutlineUser,
-    PiBrowsersBold
-} from '../asset/icon/vander'
+import {AiOutlineAppstore, AiOutlineLineChart, AiOutlineUser, PiBrowsersBold} from '../asset/icon/vander'
 
 import "../assets/css/dashboard.css";
 
@@ -52,7 +46,7 @@ export default function MySidebar(){
                         </li>
 
                         <li className={`text-xl my-5 ${["index-dark","index-rtl","index-dark-rtl","index-sidebar-light","index-sidebar-colored"].includes(manu)? "active" : ""}`}>
-                            <Link to="#" ><PiBrowsersBold className=" me-3 icon "/>나의 QnA 문의</Link>
+                            <Link to="/my-qna" ><PiBrowsersBold className=" me-3 icon "/>나의 QnA 문의</Link>
                         </li>
 
                     </ul>
