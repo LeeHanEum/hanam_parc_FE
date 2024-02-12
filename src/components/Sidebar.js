@@ -15,6 +15,7 @@ import {
 } from '../asset/icon/vander'
 
 import "../assets/css/dashboard.css";
+import {LiaFileInvoiceDollarSolid} from "react-icons/lia";
 
 export default function Sidebar(){
     const [manu , setManu] = useState('');
@@ -83,6 +84,16 @@ export default function Sidebar(){
                                 <li className="text-lg ml-1"><Link to='/'>보도자료</Link></li>
                                 <li className="text-lg"><Link to='/'>멀티미디어 자료실</Link></li>
                                 <li className="text-lg"><Link to='/'>문서 자료실</Link></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li className={`text-xl my-5 sidebar-dropdown ${["invoice-list","invoice"].includes(manu)? "active" : ""}`}>
+                        <Link to="#" onClick={(e)=>{setSubManu(subManu === "invoice-item" ? "" : "invoice-item")}}><LiaFileInvoiceDollarSolid className=" me-3 icon "/>팝업 관리</Link>
+                        <div className={`sidebar-submenu ${["invoice-list","invoice","invoice-item"].includes(subManu)? "block" : ""}`}>
+                            <ul>
+                                <li className="text-lg ml-1"><Link to='/popup-add'>팝업 추가</Link></li>
+                                <li className="text-lg"><Link to='/popup-list'>팝업 목록</Link></li>
                             </ul>
                         </div>
                     </li>

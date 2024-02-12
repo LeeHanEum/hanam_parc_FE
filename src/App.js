@@ -40,6 +40,8 @@ import MyInfo from "./page/myPage/MyInfo";
 import MyApplication from "./page/myPage/MyApplication";
 import MyQna from "./page/myPage/MyQna";
 import MyApplicationDetails from "./page/myPage/MyApplicationDetails";
+import PopUpForm from "./page/admin/popup/PopUpForm";
+import PopUpList from "./page/admin/popup/PopUpList";
 
 export default function App() {
     return (
@@ -87,6 +89,8 @@ export default function App() {
                     <Route path="/my-application" element={<MyApplication />} />
                     <Route path="/my-qna" element={<MyQna />} />
                     <Route path={"/my-application-details/:id"} element={<MyApplicationDetails/>} />
+                    <Route path="/popup-add" element={<PopUpForm />} />
+                    <Route path="/popup-list" element={<PopUpList />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

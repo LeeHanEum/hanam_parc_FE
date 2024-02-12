@@ -38,6 +38,24 @@ export default function MyApplication(){
         }
     };
 
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`/application?id=${id}`, {
+                method: "DELETE",
+                headers: {}
+            });
+            if (response.ok) {
+                alert("신청이 취소되었습니다.");
+                fetchApplication();
+            } else {
+                console.error("Error deleting application:", response.statusText);
+            }
+
+        } catch (error) {
+            console.error("Error deleting application:", error);
+        }
+    }
+
     return(
         <>
             <div className={`page-wrapper  ${toggle ? "toggled" : ""}`}>
@@ -70,7 +88,11 @@ export default function MyApplication(){
                                             <td className="p-3 text-center xs:hidden">{application.createdAt.slice(0,16)}</td>
                                             <td className="p-3 text-center">
                                                 <Link to={`/my-application-details/${application.id}`} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">취소</Link>
+                                                <Link onClick={
+                                                    () => {
+                                                        handleDelete(application.id);
+                                                    }
+                                                } className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">취소</Link>
                                             </td>
                                         </tr>
                                     ))}
