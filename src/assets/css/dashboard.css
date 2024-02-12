@@ -41,7 +41,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
+  font-family: "NanumSquare", sans-serif;
   -webkit-font-feature-settings: normal;
           font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
@@ -105,7 +105,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-family: "NanumSquare", monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 /*
@@ -2244,7 +2244,7 @@ video {
   vertical-align: middle !important;
 }
 .font-nunito{
-  font-family: "Nunito", sans-serif !important;
+  font-family: "NanumSquare", sans-serif !important;
 }
 .text-2xl{
   font-size: 1.5rem !important;
@@ -2841,7 +2841,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
   content: "󰅂" !important;
-  font-family: "Material Design Icons";
+  font-family: "NanumSquare";
 }
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active > a::after{
   inset-inline-end: 17px;
@@ -3637,7 +3637,7 @@ html[dir=rtl] .tns-visually-hidden {
 }
 
 .apexcharts-legend-text{
-  font-family: "Nunito", sans-serif !important;
+  font-family: "NanumSquare", sans-serif !important;
   font-size: 14px !important;
   font-weight: 600 !important;
   --tw-text-opacity: 1 !important;
