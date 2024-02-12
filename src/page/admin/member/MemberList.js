@@ -36,7 +36,7 @@ export default function MemberList() {
         <>
             <div className={`page-wrapper  ${toggle ? "toggled" : ""}`}>
                 <Sidebar />
-                <main className="page-content bg-gray-50 dark:bg-slate-800">
+                <main className="page-content bg-gray-50 dark:bg-slate-800 h-screen">
                     <Topnav toggle={toggle} setToggle={setToggle}/>
 
                     <div className="mt-32 relative mx-6">

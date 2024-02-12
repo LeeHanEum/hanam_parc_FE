@@ -36,6 +36,7 @@ import TeacherInfo from "./page/athleticService/TeacherInfo";
 import AthleticPrograms from "./page/athleticService/AthleticPrograms";
 import NotificationDetails from "./page/notification/NotificationDetails";
 import MyHome from "./page/myPage/MyHome";
+import MyInfo from "./page/myPage/MyInfo";
 
 export default function App() {
     return (
@@ -79,6 +80,7 @@ export default function App() {
                     <Route path={"/recruitment/:id"} element={<NotificationDetails />} />
                     <Route path={"/management/:id"} element={<NotificationDetails />} />
                     <Route path={"/event/:id"} element={<NotificationDetails />} />
+                    <Route path="/my-info" element={<MyInfo />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

@@ -38,7 +38,7 @@ export default function ApplicationList(){
         <>
             <div className={`page-wrapper  ${toggle ? "toggled" : ""}`}>
                 <Sidebar />
-                <main className="page-content bg-gray-50 dark:bg-slate-800">
+                <main className="page-content bg-gray-50 dark:bg-slate-800 h-screen">
                     <Topnav toggle={toggle} setToggle={setToggle}/>
 
                     <div className="mt-32 relative mx-6">
@@ -67,7 +67,7 @@ export default function ApplicationList(){
                                             <td className="p-3 text-center ">{application.program?.name}</td>
                                             <td className="p-3 text-center xs:hidden">{application.phone}</td>
                                             <td className="p-3 text-center ">{application.status}</td>
-                                            <td className="p-3 text-center xs:hidden">{application.createdAt}</td>
+                                            <td className="p-3 text-center xs:hidden">{application.createdAt.slice(0,16)}</td>
                                             <td className="p-3 text-center xs:hidden"><Link to="#"
                                                                                             className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">상세보기</Link>
                                             </td>
