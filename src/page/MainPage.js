@@ -11,6 +11,7 @@ import AuthContext from "../auth/AuthContext";
 import mainPhoto from "../asset/image/mainWheelchair.jpeg";
 import MainNotification from "../components/MainNotification";
 import MainAthletic from "../components/MainAthletic";
+import MainPopUp from "../components/MainPopUp";
 
 export default function MainPage(){
 
@@ -122,6 +123,8 @@ export default function MainPage(){
                     </div>
                 </div>
             </section>
+
+            <MainPopUp />
 
             <MainNotification />
 
