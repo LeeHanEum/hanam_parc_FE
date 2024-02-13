@@ -34,6 +34,23 @@ export default function Programs() {
         }
     };
 
+    const deleteProgram = async (id) => {
+        try {
+            const response = await fetch(`/program?id=${id}`, {
+                method: 'DELETE',
+                headers: {}
+            });
+            if (response.ok) {
+                alert("프로그램이 삭제되었습니다.")
+                fetchBoards();
+            } else {
+                console.error("Error deleting program:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error deleting program:", error);
+        }
+    }
+
     return (
         <>
             <div className={`page-wrapper  ${toggle ? "toggled" : ""}`}>
@@ -70,7 +87,7 @@ export default function Programs() {
                                             <td className="p-3 text-center xs:hidden">{program.createdAt.slice(0,16)}</td>
                                             <td className="p-3 text-center">
                                                 <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
+                                                <Link onClick={() => deleteProgram(program.id)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
                                             </td>
                                         </tr>
                                     ))}

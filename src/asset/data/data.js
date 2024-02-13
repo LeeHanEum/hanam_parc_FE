@@ -1,13 +1,16 @@
 import basketball from '../image/basketball.jpg'
 import baseball from '../image/baseball.jpg'
 import marathon from '../image/marathon.jpg'
-import marathon2 from '../image/marathon2.jpg'
-import racket from '../image/racket.jpg'
-import wheelchair from '../image/wheelchair.jpg'
 import munhwa from '../image/문화체육관광부.jpeg'
 import deahan from '../image/대한장애인체육회.jpeg'
 import GyonggiDP from '../image/경기도장애인체육회.jpeg'
 import hanam from '../image/하남시.jpeg'
+import 농구 from '../image/농구.jpg'
+import 희망풍선 from '../image/희망풍선.jpg'
+import 도민체전 from '../image/도민체전.jpg'
+import 게이트볼 from '../image/게이트볼.jpg'
+import 판뒤집기 from '../image/판뒤집기.jpg'
+import 단체사진 from '../image/단체사진.jpg'
 
 export const board_main = [
     {
@@ -52,28 +55,24 @@ export const course_main = [
 export const photo_main = [
     {
         id:1,
-        image: marathon2,
+        image: 농구,
     },
     {
         id:2,
-        image: racket,
+        image: 희망풍선,
     },
     {
         id:3,
-        image: wheelchair,
+        image: 게이트볼,
     },
     {
-        id:4,
-        image: basketball,
+        id: 4,
+        image: 판뒤집기,
     },
     {
         id:5,
-        image: baseball,
-    },
-    {
-        id:6,
-        image: marathon,
-    },
+        image: 단체사진,
+    }
 ]
 
 export const footer_img = [

@@ -155,13 +155,13 @@ export default function ProgramDetails() {
                                     <h3 className="my-3 text-[26px] font-semibold">{program.name}</h3>
 
                                     <ul className="list-none mt-6">
-                                        <li className="inline-block font-semibold text-slate-400 mx-4"> <span className="text-slate-900 dark:text-white block">모집인원 :</span> <span className="block">{program.available}명</span></li>
-                                        <li className="inline-block font-semibold text-slate-400 mx-4"> <span className="text-slate-900 dark:text-white block">모집기한 :</span> <span className="block">{program.applyEnd?.slice(0,10)} {program.applyEnd?.slice(11,16)}</span></li>
+                                        <li className="inline-block font-semibold text-slate-900 mx-4"> <span className="text-slate-900 dark:text-white block">모집인원 :</span> <span className="block">{program.available}명</span></li>
+                                        <li className="inline-block font-semibold text-slate-900 mx-4"> <span className="text-slate-900 dark:text-white block">모집기한 :</span> <span className="block">{program.applyEnd?.slice(0,10)} {program.applyEnd?.slice(11,16)}</span></li>
                                     </ul>
                                 </div>
 
                                 <div className="mt-6">
-                                    <p className="text-slate-400" style={{lineHeight : "35px"}}>
+                                    <p className="text-slate-900" style={{lineHeight : "35px"}}>
                                         {program.description}
                                     </p>
                                 </div>
@@ -179,7 +179,7 @@ export default function ProgramDetails() {
                                 <div className="sticky top-20">
                                     <h5 className="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center">신청 정보</h5>
                                     <div className="text-center mt-8">
-                                        <table className="w-full text-start text-slate-500">
+                                        <table className="w-full text-start text-slate-900">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
                                                 <td className="xs:px-2 p-4 xs:hidden">프로그램 이름 :</td>
                                                 <td className="xs:px-2 p-4">{program.name}</td>
@@ -197,7 +197,7 @@ export default function ProgramDetails() {
 
                                     <h5 className="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center mt-8">상세 정보</h5>
                                     <div className="text-center mt-8">
-                                        <table className="w-full text-start text-slate-500">
+                                        <table className="w-full text-start text-slate-900">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
                                                 <td className="xs:px-2 p-4 xs:hidden">장소 : </td>
                                                 <td className="xs:px-2 p-4">{program.location}</td>
@@ -223,7 +223,7 @@ export default function ProgramDetails() {
 
                                     <h5 className="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center mt-8">문의</h5>
                                     <div className="text-center mt-8">
-                                        <table className="w-full text-start text-slate-500">
+                                        <table className="w-full text-start text-slate-900">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
                                                 <td className="xs:px-2 p-4 xs:hidden">담당자 : </td>
                                                 <td className="xs:px-2 p-4">{program.manager?.name}</td>
@@ -258,7 +258,7 @@ export default function ProgramDetails() {
 
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="birth">생년월일 :</label>
-                                <input id="birth" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.birth} readOnly />
+                                <input id="birth" type="date" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.birth} />
                             </div>
 
                             <div className="mb-4">

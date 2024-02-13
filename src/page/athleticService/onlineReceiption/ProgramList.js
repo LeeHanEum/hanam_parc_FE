@@ -57,15 +57,17 @@ export default function ProgramList() {
                                     <Link to={`/program/${item.id}`}>
                                         <img src={item.thumbnail} alt="" className="pb-32"/>
                                         <div className="content p-6" style={{bottom : 0, position:"absolute"}}>
-                                            <p className="text-slate-500 mt-3 text-xl inline-block">{item.name}</p>
+                                            <p className="text-slate-900 mt-3 text-xl inline-block">{item.name}</p>
+                                            <p>
                                             {item.programStatus === "ACCEPTING" ?
-                                                <span className="content mx-2 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "skyblue", borderColor : "skyblue"}}>접수중</span>
+                                                <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "rgb(0,128,0)", borderColor : "rgb(0,128,0)"}}>접수중</span>
                                                 :
-                                                <span className="content mx-2 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "lightgray"}}>
+                                                <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "lightgray"}}>
                                                     {item.programStatus}
                                                 </span>
                                             }
-                                            <p className="text-slate-400 mt-3 text-lg">{item.applyEnd}</p>
+                                            </p>
+                                            <p className="text-slate-900 mt-3 text-lg">접수 마감 : {item.applyEnd}</p>
                                         </div>
                                     </Link>
                                 </div>

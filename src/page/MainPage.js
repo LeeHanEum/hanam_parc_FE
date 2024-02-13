@@ -11,7 +11,6 @@ import AuthContext from "../auth/AuthContext";
 import mainPhoto from "../asset/image/mainWheelchair.jpeg";
 import MainNotification from "../components/MainNotification";
 import MainAthletic from "../components/MainAthletic";
-import MainPopUp from "../components/MainPopUp";
 
 export default function MainPage(){
 
@@ -26,21 +25,20 @@ export default function MainPage(){
         autoplayTimeout: 3000,
         navPosition: "bottom",
         speed: 400,
-        gutter: 12,
+        gutter: 50,
+        edgePadding: 40,
         pagination : false,
         responsive: {
-            992: {
-                items: 4,
+            0: {
+                items: 1
             },
-
-            767: {
-                items: 2,
+            600: {
+                items: 1
             },
-
-            320: {
-                items: 1,
-            },
-        },
+            1024: {
+                items: 2
+            }
+        }
     }
 
 
@@ -81,6 +79,7 @@ export default function MainPage(){
         }
     }, []); // useEffect가 처음 한 번만 실행되도록 빈 의존성 배열
 
+
     return(
         <>
             <Navbar navClass="nav-light" />
@@ -95,7 +94,8 @@ export default function MainPage(){
                     </div>
 
                     <div className="relative mt-8">
-                        <Link to="/greetings" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2">장애인 체육회 소개</Link>
+                        {/*<Link to="/greetings" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2">장애인 체육회 소개</Link>*/}
+                        <Link to="/program-list" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-3xl text-start bg-red-500 border-red-600 text-white rounded-md me-2">온라인 신청 접수 <br /><span className="text-xl">(회원가입 후 접수하세요)</span></Link>
                     </div>
                 </div>
 
@@ -124,27 +124,26 @@ export default function MainPage(){
                 </div>
             </section>
 
-            <MainPopUp />
+            {/*<MainPopUp />*/}
 
             <MainNotification />
 
             <MainAthletic />
 
-            <section className="relative md:py-24 py-16" >
-                <div className="relative">
+            <section className="relative md:py-24 py-16" style={{overflow : "hidden"}} >
                     <div className="container relative">
                         <div className="grid grid-cols-1 pb-8 text-center">
-                            <h3 className="mb-4 md:text-3xl md:leading-normal text-2xl leading-normal font-semibold">포토 갤러리</h3>
+                            <h3 className="mb-4 md:text-3xl md:leading-normal text-3xl leading-normal font-semibold">포토 갤러리</h3>
 
-                            <p className="text-slate-400 max-w-xl mx-auto">한 눈에 보는 하남시 장애인 체육회의 활동 사진 자료실 입니다.</p>
+                            <p className="text-slate-500 max-w-xl mx-auto text-lg">한 눈에 보는 하남시 장애인 체육회의 활동 사진 자료실 입니다.</p>
                         </div>
-                    </div>
+
                         <div className="grid grid-cols-1 mt-8">
-                            <div className="tiny-three-item" style={{overflow : "hidden"}}>
-                                <TinySlider settings={settings}>
+                            <div className="tiny-three-item">
+                                <TinySlider settings={settings} >
                                     {photo_main.map((item, index) => (
                                         <span className="tiny-slide text-center" key={index}>
-                                            <img src={item.image} className="inline shadow-md mx-auto" alt=""  style={{width : "350px", height:"250px"}}/>
+                                            <img src={item?.image} className="inline shadow-md mx-auto" alt=""  style={{width : "15%", height:"10%"}}/>
                                         </span>
                                     ))}
                                 </TinySlider>
@@ -155,8 +154,7 @@ export default function MainPage(){
                                 <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">사진 더보기</Link>
                             </div>
                         </div>
-
-                </div>
+                    </div>
             </section>
 
             <section className="relative" >

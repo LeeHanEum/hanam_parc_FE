@@ -20,7 +20,7 @@ export default function Navbar(props) {
 
     useEffect(() => {
         console.log(context);
-    });
+    },[]);
 
 
     useEffect(()=>{
