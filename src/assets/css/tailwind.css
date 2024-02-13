@@ -8655,6 +8655,10 @@ html[dir=rtl] .tns-visually-hidden {
     content: var(--tw-content) !important;
     width: 50rem !important;
   }
+  .sm\:text-2xl{
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
 }
 
 @media (min-width: 768px){
@@ -10166,6 +10170,21 @@ ul li:first-child{
   .xs\:text-xs{
     font-size: 0.75rem !important;
     line-height: 1rem !important;
+  }
+  .xs\:text-sm{
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+  }
+  .xs\:text-xl{
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+  .xs\:text-2xl{
+    font-size: 1.6rem !important;
+    line-height: 2.15rem !important;
+  }
+  .xs\:pb-10 {
+    padding-bottom: 2.5rem !important;
   }
 }
 

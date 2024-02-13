@@ -89,8 +89,8 @@ export default function MainPage(){
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-800 to-slate-800/40"></div>
                 <div className="container relative">
                     <div className="grid grid-cols-1 mt-10">
-                        <h4 className="lg:leading-normal leading-normal text-white text-6xl lg:text-6xl mb-5 font-bold">스포츠의 힘으로<br /> 인생의 무한한 가능성을 열다.</h4>
-                        <p className="text-slate-400 text-3xl ">Open your boundless possibilities in life with the power of sports</p>
+                        <h4 className="lg:leading-normal leading-normal text-white mb-5 font-bold lg:text-5xl md:text-3xl sm:text-2xl xs:text-2xl" >스포츠의 힘으로<br /> 인생의 무한한 가능성을 열다.</h4>
+                        <p className="text-slate-400 lg:text-3xl md:text-3xl sm:text-2xl xs:text-xl xs:pb-10">Open your boundless possibilities in life with the power of sports</p>
                     </div>
 
                     <div className="relative mt-8">
@@ -99,7 +99,7 @@ export default function MainPage(){
                     </div>
                 </div>
 
-                <div className="container absolute bottom-0 start-0 end-0">
+                <div className="container absolute bottom-0 start-0 end-0 xs:hidden">
                     <div className="grid grid-cols-1">
                         <div className="p-6 border-t border-dashed border-white/30">
                             <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-3 gap-[30px] xs:hidden">
