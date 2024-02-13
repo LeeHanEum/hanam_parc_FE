@@ -46,7 +46,10 @@ export default function AnnouncementList() {
                     <Topnav toggle={toggle} setToggle={setToggle}/>
 
                     <div className="mt-32 relative mx-6">
-                        <h3 className="text-3xl mx-2 font-semibold">공지사항 목록</h3>
+                        <h3 className="text-3xl mx-2 font-semibold inline">공지사항 목록</h3>
+                        <div className="text-end inline-block">
+                            <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">새 공지사항 쓰기</Link>
+                        </div>
                         <div className="grid md:grid-cols-1 grid-cols-1 pt-6 gap-[30px]">
                             <div
                                 className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">

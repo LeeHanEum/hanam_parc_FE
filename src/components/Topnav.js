@@ -1,10 +1,6 @@
 import React, {useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-
-import logoDark from '../assets/images/logo-dark.png'
-import logoLight from '../assets/images/logo-light.png'
 import smallLogo from '../asset/image/small_logo.png'
-import client5 from '../assets/images/client/05.jpg'
 
 
 import * as Icon from 'react-feather'
@@ -20,6 +16,8 @@ import {
 import 'simplebar-react/dist/simplebar.min.css';
 import {User} from "feather-icons-react";
 import AuthContext from "../auth/AuthContext";
+import logo from '../asset/image/logo.png'
+import wlogo from '../asset/image/wlogo.png'
 
 export default function Topnav({setToggle, toggle}){
     let [country, setCountry] = useState(false)
@@ -63,11 +61,11 @@ export default function Topnav({setToggle, toggle}){
             <div className="top-header">
                 <div className="header-bar flex justify-between">
                     <div className="flex items-center space-x-1">
-                        <Link to="/" className="xl:hidden block me-2">
+                        <Link to="/" className="xl:hidden block" >
                             <img src={smallLogo} className="md:hidden inline-block w-8" alt=""/>
                             <span className="md:block hidden">
-                                <img src={logoDark} className="inline-block dark:hidden" alt=""/>
-                                <img src={logoLight} className="hidden dark:inline-block" alt=""/>
+                                {/*<img src={logo} className="inline-block dark:hidden" alt="" width="30%"/>*/}
+                                <img src={wlogo} className="hidden dark:inline-block" width="30%" alt=""/>
                             </span>
                         </Link>
 

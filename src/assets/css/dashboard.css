@@ -41,7 +41,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: "NanumSquare", sans-serif;
+  font-family: "NanumSquareNeo", sans-serif;
   -webkit-font-feature-settings: normal;
           font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
@@ -105,7 +105,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: "NanumSquare", monospace; /* 1 */
+  font-family: "NanumSquareNeo", monospace; /* 1 */
   font-size: 1em; /* 2 */
 }
 /*
@@ -2244,7 +2244,7 @@ video {
   vertical-align: middle !important;
 }
 .font-nunito{
-  font-family: "NanumSquare", sans-serif !important;
+  font-family: "NanumSquareNeo", sans-serif !important;
 }
 .text-2xl{
   font-size: 1.5rem !important;
@@ -2841,7 +2841,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
   content: "󰅂" !important;
-  font-family: "NanumSquare";
+  font-family: "NanumSquareNeo";
 }
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active > a::after{
   inset-inline-end: 17px;
@@ -2891,7 +2891,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul li a:before {
   content: "󰧟" !important;
-  font-family: "Material Design Icons";
+  font-family: "NanumSquareNeo";
 }
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul li a .badge,
 .page-wrapper .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul li a .label{
@@ -3637,7 +3637,7 @@ html[dir=rtl] .tns-visually-hidden {
 }
 
 .apexcharts-legend-text{
-  font-family: "NanumSquare", sans-serif !important;
+  font-family: "NanumSquareNeo", sans-serif !important;
   font-size: 14px !important;
   font-weight: 600 !important;
   --tw-text-opacity: 1 !important;

@@ -45,7 +45,7 @@ html {
   -moz-tab-size: 4; /* 3 */
   -o-tab-size: 4;
      tab-size: 4; /* 3 */
-  font-family: 'NanumSquare'; /* 4 */
+  font-family: 'NanumSquareNeo'; /* 4 */
   -webkit-font-feature-settings: normal;
           font-feature-settings: normal; /* 5 */
   font-variation-settings: normal; /* 6 */
@@ -109,7 +109,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: 'NanumSquare'; /* 1 */
+  font-family: 'NanumSquareNeo'; /* 1 */
   font-size: 1em; /* 2 */
 }
 /*
@@ -3618,16 +3618,16 @@ video {
   vertical-align: middle !important;
 }
 .font-cursive-alex{
-  font-family: "NanumSquare", cursive !important;
+  font-family: "NanumSquareNeo", cursive !important;
 }
 .font-cursive-kaushan{
-  font-family: "NanumSquare", cursive !important;
+  font-family: "NanumSquareNeo", cursive !important;
 }
 .font-head-ebgaramond{
-  font-family: "NanumSquare", serif !important;
+  font-family: "NanumSquareNeo", serif !important;
 }
 .font-nunito{
-  font-family: "NanumSquare", sans-serif !important;
+  font-family: "NanumSquareNeo", sans-serif !important;
 }
 .text-2xl{
   font-size: 1.5rem !important;
@@ -4444,7 +4444,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 }
 #topnav .buy-button .search-bar .searchform:after {
   content: "󰍉";
-  font-family: "NanumSquare";
+  font-family: "NanumSquareNeo";
 }
 #topnav .buy-button .dropdown .dropdown-toggle::after,
 #topnav .buy-menu-btn .dropdown .dropdown-toggle::after{
@@ -5519,7 +5519,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   }
 }
 .spa-css{
-  font-family: "NanumSquare", sans-serif !important;
+  font-family: "NanumSquareNeo", sans-serif !important;
 }
 .spa-css #topnav .navigation-menu > li > a{
   padding-left: 12px !important;
@@ -5747,7 +5747,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 /*****************/
 .swiper-slider-hero .swiper-container .swiper-button-prev:before,
 .swiper-slider-hero .swiper-container .swiper-button-next:before {
-  font-family: "NanumSquare";
+  font-family: "NanumSquareNeo";
 }
 .swiper-slider-hero .swiper-container .swiper-button-prev:before {
   content: "󰅁";
@@ -5998,7 +5998,7 @@ html[dir=rtl] .tns-visually-hidden {
 }
 .choices[data-type*=select-one]:after {
   content: "󰅀" !important;
-  font-family: "NanumSquare";
+  font-family: "NanumSquareNeo";
 }
 
 /*********************************/
