@@ -4,7 +4,7 @@ import logo from '../asset/image/logo.png';
 
 export default function Footer() {
     return (
-        <footer className="footer bg-dark-footer relative text-gray-200 dark:text-gray-200">
+        <footer className="footer bg-dark-footer relative text-gray-200 dark:text-gray-200 xs:text-sm">
             <div className="container relative">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">
@@ -15,9 +15,11 @@ export default function Footer() {
                                         <img src={logo} alt="" style={{filter: "grayscale(100%)", width : "70%"}}/>
                                     </Link>
                                     <p className="mt-6">주소 : 경기도 하남시 아리수로 600 (망월동) 하남국민체육센터 3층</p>
-                                    <p>TEL : 031-796-5213<span style={{width : "100px", display:"inline-block"}}></span>FAX : 031-796-5124</p>
+                                    <p>TEL : 031-796-5213</p>
+                                    <p>FAX : 031-796-5124</p>
                                     <p className="mt-6">대표자 : 이현재</p>
-                                    <p>고유번호 : 126-82-97671 <span style={{width : "50px", display:"inline-block"}}></span>개인정보관리책임자 : 이수현</p>
+                                    <p>고유번호 : 126-82-97671</p>
+                                    <p>개인정보관리책임자 : 이수현</p>
                                     <p className="mt-6">이메일 : hanamsad@naver.com (하남시장애인체육회)</p>
 
                                 </div>

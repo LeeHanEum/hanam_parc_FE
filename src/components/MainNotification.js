@@ -53,14 +53,14 @@ export default function MainNotification() {
             <section className="relative md:py-15 py-16 mb-10" style={{backgroundColor : "#F6F6F6"}}>
                 <div className="container relative">
                     <div className="grid grid-cols-1">
-                        <h5 className="text-3xl font-semibold mb-5 text-center">알림마당</h5>
+                        <h5 className="lg:text-3xl md:text-3xl xs:text-xl font-semibold mb-5 text-center xs:hidden">알림마당</h5>
                     </div>
 
                     <div className="grid md:grid-cols-2 grid-cols-1 pt-6 gap-[30px]">
                         <div>
-                            <h5 className="text-2xl font-semibold mb-5 text-center">공지사항</h5>
+                            <h5 className="lg:text-2xl md:text-2xl xs:text-xl font-semibold mb-5 text-center">공지사항</h5>
                             <div className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
-                                <table className="w-full text-start">
+                                <table className="w-full text-start xs:text-sm ">
                                     <thead>
                                     <tr>
                                         <th className="px-4 py-5 text-center">제목</th>
@@ -82,9 +82,9 @@ export default function MainNotification() {
                         </div>
 
                         <div>
-                            <h5 className="text-2xl font-semibold mb-5 text-center">채용공고</h5>
+                            <h5 className="lg:text-2xl md:text-2xl xs:text-xl font-semibold mb-5 text-center">채용공고</h5>
                             <div className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
-                                <table className="w-full text-start">
+                                <table className="w-full text-start xs:text-sm">
                                     <thead>
                                     <tr>
                                         <th className="px-4 py-5 text-center">제목</th>

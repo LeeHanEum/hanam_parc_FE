@@ -84,12 +84,12 @@ export default function MainPage(){
         <>
             <Navbar navClass="nav-light" />
 
-            <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover bg-fixed"
+            <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover"
                     style={{backgroundImage: `url(${mainPhoto})`,}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-800 to-slate-800/40"></div>
                 <div className="container relative">
                     <div className="grid grid-cols-1 mt-10">
-                        <h4 className="lg:leading-normal leading-normal text-white mb-5 font-bold lg:text-5xl md:text-3xl sm:text-2xl xs:text-2xl" >스포츠의 힘으로<br /> 인생의 무한한 가능성을 열다.</h4>
+                        <h4 className="lg:leading-normal leading-normal text-white mb-5 font-bold lg:text-5xl md:text-3xl sm:text-2xl xs:text-2xl xs:mt-36" >스포츠의 힘으로<br /> 인생의 무한한 가능성을 열다.</h4>
                         <p className="text-slate-400 lg:text-3xl md:text-3xl sm:text-2xl xs:text-xl xs:pb-10">Open your boundless possibilities in life with the power of sports</p>
                     </div>
 
@@ -133,7 +133,7 @@ export default function MainPage(){
             <section className="relative md:py-24 py-16" style={{overflow : "hidden"}} >
                     <div className="container relative">
                         <div className="grid grid-cols-1 pb-8 text-center">
-                            <h3 className="mb-4 md:text-3xl md:leading-normal text-3xl leading-normal font-semibold">포토 갤러리</h3>
+                            <h3 className="mb-4 md:text-3xl md:leading-normal lg:text-3xl md:text-3xl xs:text-xl leading-normal font-semibold">포토 갤러리</h3>
 
                             <p className="text-slate-500 max-w-xl mx-auto text-lg">한 눈에 보는 하남시 장애인 체육회의 활동 사진 자료실 입니다.</p>
                         </div>
@@ -185,7 +185,7 @@ export default function MainPage(){
                 </div>
             </section>
 
-            <section className="relative py-2" style={{backgroundColor : "#F6F6F6"}}>
+            <section className="relative py-2 xs:hidden" style={{backgroundColor : "#F6F6F6"}}>
                 <div className="container relative" style={{color : "gray"}}>
                     <span>개인정보처리방침 | </span>
                     <span>이메일무단수집거부 | </span>
