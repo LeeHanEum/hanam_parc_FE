@@ -18,6 +18,7 @@ export default function Footer() {
                                     <p>TEL : 031-796-5213<span style={{width : "100px", display:"inline-block"}}></span>FAX : 031-796-5124</p>
                                     <p className="mt-6">대표자 : 이현재</p>
                                     <p>고유번호 : 126-82-97671 <span style={{width : "50px", display:"inline-block"}}></span>개인정보관리책임자 : 이수현</p>
+                                    <p className="mt-6">이메일 : hanamsad@naver.com (하남시장애인체육회)</p>
 
                                 </div>
 

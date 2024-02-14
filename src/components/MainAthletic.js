@@ -48,7 +48,7 @@ export default function MainAthletic() {
                                     <div className="content p-6" style={{bottom : 0, position:"absolute"}}>
                                         <p className="text-slate-500 mt-3 text-xl inline-block">{item.name}</p>
                                         {item.programStatus === "ACCEPTING" ?
-                                            <span className="content mx-2 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "skyblue", borderColor : "skyblue"}}>접수중</span>
+                                            <span className="content mx-2 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "rgb(0,128,0)", borderColor : "rgb(0,128,0)"}}>접수중</span>
                                             :
                                             <span className="content mx-2 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "lightgray"}}>
                                                     {item.programStatus}

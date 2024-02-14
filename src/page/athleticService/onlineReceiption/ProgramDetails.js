@@ -61,6 +61,14 @@ export default function ProgramDetails() {
         setToggle(!toggle);
     }
 
+    const handleApply = () => {
+        if (context.user) {
+            setToggle(!toggle);
+        } else {
+            alert("로그인이 필요한 서비스입니다.");
+        }
+    }
+
     useEffect(() => {
         fetchProgram();
     }, []);
@@ -145,13 +153,13 @@ export default function ProgramDetails() {
             <section className="relative md:pb-12 md:pt-24 pb-8 pt-12 mb-10">
                 <div className="container relative">
                     <div className="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
-                        <div className="lg:col-span-8 md:col-span-6">
+                        <div className="lg:col-span-7 md:col-span-6">
                             <div className="p-6 rounded-md shadow dark:shadow-gray-800">
                                 <img src={`${process.env.PUBLIC_URL}/${program.thumbnail}`} className="rounded-md m-auto" alt="" width="50%"/>
 
                                 <div className="text-center mt-8">
                                     <span className="inline-block text-white text-lg px-2.5 py-0.5 rounded-full border-2 font-bold"
-                                            style={{backgroundColor : "skyblue", borderColor : "skyblue"}}>{handleStatus(program.programStatus)}</span>
+                                            style={{backgroundColor : "rgb(0,128,0)", borderColor : "rgb(0,128,0)"}}>{handleStatus(program.programStatus)}</span>
                                     <h3 className="my-3 text-[26px] font-semibold">{program.name}</h3>
 
                                     <ul className="list-none mt-6">
@@ -162,19 +170,25 @@ export default function ProgramDetails() {
 
                                 <div className="mt-6">
                                     <p className="text-slate-900" style={{lineHeight : "35px"}}>
-                                        {program.description}
+                                        {program.description && program.description.split('<br />').map((line, index) => (
+                                            <p key={index} className="text-slate-900" style={{ lineHeight: "35px" }}>{line}</p>
+                                        ))}
                                     </p>
                                 </div>
                             </div>
 
                             <div className="mt-8">
-                                <Link onClick={handleToggle} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">
-                                    {toggle === false ? "프로그램 신청하기" : "신청서 닫기"}
-                                </Link>
+                                {
+                                    toggle === false ?
+                                        <Link onClick={() =>handleApply()} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">프로그램 신청하기</Link>
+                                        :
+                                        <Link onClick={() =>handleToggle()} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">신청서 닫기</Link>
+                                }
+
                             </div>
                         </div>
 
-                        <div className="lg:col-span-4 md:col-span-6">
+                        <div className="lg:col-span-5 md:col-span-6">
                             <div>
                                 <div className="sticky top-20">
                                     <h5 className="text-lg font-semibold bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center">신청 정보</h5>
@@ -203,15 +217,15 @@ export default function ProgramDetails() {
                                                 <td className="xs:px-2 p-4">{program.location}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">시작 날짜 : </td>
+                                                <td className="xs:px-2 p-3 xs:hidden">시작 날짜 :</td>
                                                 <td className="xs:px-2 p-4">{program.startDate}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">종료 날짜 : </td>
+                                                <td className="xs:px-2 p-3 xs:hidden">종료 날짜 :</td>
                                                 <td className="xs:px-2 p-4">{program.endDate}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">진행 시간 : </td>
+                                                <td className="xs:px-2 p-3 xs:hidden">진행 시간 : </td>
                                                 <td className="xs:px-2 p-4">{program.time}분</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
