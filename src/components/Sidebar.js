@@ -68,6 +68,7 @@ export default function Sidebar(){
                         <Link to="#"  onClick={(e)=>{setSubManu(subManu === "index-item" ? "" : "index-item")}}><PiBrowsersBold className=" me-3 icon "/>알림마당 관리</Link>
                         <div className={`sidebar-submenu ${["index-dark","index-rtl","index-dark-rtl","index-sidebar-light","index-sidebar-colored","index-item"].includes(subManu)? "block" : ""}`}>
                             <ul>
+                                <li className="text-lg ml-1"><Link to='/new-board'>새 글 쓰기</Link></li>
                                 <li className="text-lg ml-1"><Link to='/admin-announcement'>공지사항</Link></li>
                                 <li className="text-lg"><Link to='/admin-qna'>문의사항</Link></li>
                                 <li className="text-lg"><Link to='/admin-recruitment'>채용공고</Link></li>

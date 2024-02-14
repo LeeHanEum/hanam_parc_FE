@@ -17,7 +17,7 @@ export default function ProgramForm() {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [description, setDescription] = useState('');
-    const [thumbnail, setThumbnail] = useState(null);
+    const [thumbnail, setThumbnail] = useState('');
 
     const [admins, setAdmins] = useState([]);
     const [adminOptions, setAdminOptions] = useState([]);
@@ -25,6 +25,12 @@ export default function ProgramForm() {
     useEffect(() => {
         fetchAdmins();
     }, []);
+
+    const handleFileChange = (e) => {
+        // Update the state for the file input
+        setThumbnail(e.target.files[0]);
+    };
+
 
     const fetchAdmins = async () => {
         try {
@@ -48,10 +54,6 @@ export default function ProgramForm() {
         }
     };
 
-    const handleFileChange = (e) => {
-        // Update the state for the file input
-        setThumbnail(e.target.files[0]);
-    };
 
     const handleProgramAdd = async () => {
         try {
@@ -60,14 +62,18 @@ export default function ProgramForm() {
             formData.append('available', available);
             formData.append('location', location);
             formData.append('time', time);
-            formData.append('cost', cost);
+            formData.append('cost', "무료");
             formData.append('material', material);
             formData.append('managerId', selectedManager ? selectedManager.value : null);
             formData.append('applyEnd', `${applyEnd}T${applyEndTime}`);
             formData.append('startDate', startDate);
             formData.append('endDate', endDate);
             formData.append('description', description);
-            formData.append('thumbnail', thumbnail);
+            if (thumbnail) {
+                formData.append('thumbnail', thumbnail);
+            } else {
+                throw new Error('No file selected');
+            }
 
             // Make a POST request using fetch
             const response = await fetch('/program/create', {
@@ -124,7 +130,7 @@ export default function ProgramForm() {
 
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="cost">참가비 :</label>
-                                    <input id="cost" type="text" value={cost} onChange={(e) => setCost(e.target.value)} className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="참가비를 입력하세요." />
+                                    <input id="cost" type="text" value="무료" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" readOnly />
                                 </div>
 
                                 <div className="mb-4">

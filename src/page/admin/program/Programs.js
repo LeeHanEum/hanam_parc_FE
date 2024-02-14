@@ -36,7 +36,7 @@ export default function Programs() {
 
     const deleteProgram = async (id) => {
         try {
-            const response = await fetch(`/program?id=${id}`, {
+            const response = await fetch(`/program/delete?id=${id}`, {
                 method: 'DELETE',
                 headers: {}
             });

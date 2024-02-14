@@ -156,7 +156,6 @@ export default function ProgramDetails() {
                         <div className="lg:col-span-7 md:col-span-6">
                             <div className="p-6 rounded-md shadow dark:shadow-gray-800">
                                 <img src={`${process.env.PUBLIC_URL}/${program.thumbnail}`} className="rounded-md m-auto" alt="" width="50%"/>
-
                                 <div className="text-center mt-8">
                                     <span className="inline-block text-white text-lg px-2.5 py-0.5 rounded-full border-2 font-bold"
                                             style={{backgroundColor : "rgb(0,128,0)", borderColor : "rgb(0,128,0)"}}>{handleStatus(program.programStatus)}</span>
@@ -170,8 +169,11 @@ export default function ProgramDetails() {
 
                                 <div className="mt-6">
                                     <p className="text-slate-900" style={{lineHeight : "35px"}}>
-                                        {program.description && program.description.split('<br />').map((line, index) => (
-                                            <p key={index} className="text-slate-900" style={{ lineHeight: "35px" }}>{line}</p>
+                                        {program.description && program.description.split(/<br\s*\/?>|\r?\n/).map((line, index) => (
+                                            <React.Fragment key={index}>
+                                                {line}
+                                                <br />
+                                            </React.Fragment>
                                         ))}
                                     </p>
                                 </div>
@@ -196,15 +198,15 @@ export default function ProgramDetails() {
                                         <table className="w-full text-start text-slate-900">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
                                                 <td className="xs:px-2 p-4 xs:hidden">프로그램 이름 :</td>
-                                                <td className="xs:px-2 p-4">{program.name}</td>
+                                                <td className="xs:px-2 p-4 text-start">{program.name}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
                                                 <td className="xs:px-2 p-4 xs:hidden">모집 인원 : </td>
-                                                <td className="xs:px-2 p-4">{program.available}명</td>
+                                                <td className="xs:px-2 p-4 text-start">{program.available}명</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
                                                 <td className="xs:px-2 p-4 xs:hidden">참가비 : </td>
-                                                <td className="xs:px-2 p-4">{program.cost}</td>
+                                                <td className="xs:px-2 p-4 text-start">{program.cost}</td>
                                             </tr>
                                         </table>
                                     </div>
