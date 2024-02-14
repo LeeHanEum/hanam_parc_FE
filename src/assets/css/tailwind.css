@@ -4542,7 +4542,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 #topnav.nav-sticky .navigation-menu .has-submenu .menu-arrow {
   border-width: 0 2px 2px 0;
   position: absolute;
-  inset-inline-end: 0px;
+  inset-inline-end: 10px;
   top: 2rem;
   display: inline-block;
   --tw-rotate: 45deg;
@@ -4632,6 +4632,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   --tw-shadow: var(--tw-shadow-colored);
 }
 #topnav.nav-sticky .navigation-menu.nav-light > li > a{
+  --tw-text-opacity: 1 !important;
+  color: rgb(22 28 45 / var(--tw-text-opacity)) !important;
+}
+#topnav .navigation-menu.nav-light > li > a{
   --tw-text-opacity: 1 !important;
   color: rgb(22 28 45 / var(--tw-text-opacity)) !important;
 }
@@ -4933,15 +4937,28 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     padding-bottom: 25px;
   }
 }
-@media (max-width: 991px) {
+@media (max-width: 1560px) {
   #topnav{
     min-height: 74px;
     --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    background-color: transparent;
     --tw-shadow: 0 0 3px rgb(60 72 88 / 0.15);
     --tw-shadow-colored: 0 0 3px var(--tw-shadow-color);
     -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+  #topnav .navigation-menu > li > a{
+    display: block !important;
+    background-color: transparent !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    line-height: 1.5rem !important;
+    letter-spacing: 1px !important;
+    --tw-text-opacity: 1 !important;
+    color: rgb(22 28 45 / var(--tw-text-opacity)) !important;
   }
   :is(.dark #topnav){
     --tw-bg-opacity: 1;
@@ -4959,7 +4976,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     width: auto;
   }
   #topnav #navigation{
-    max-height: 400px;
+    max-height: 500px;
     --tw-shadow: 0 0 3px rgb(60 72 88 / 0.15);
     --tw-shadow-colored: 0 0 3px var(--tw-shadow-color);
     -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -5093,13 +5110,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
   #navigation{
     position: absolute;
     top: 74px;
-    inset-inline-start: 0px;
+    right: 0px;
+    /*inset-inline-start: 0px;*/
     display: none;
     height: auto;
-    width: 100%;
+    width: 75%;
     overflow: auto;
     --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 1rem;
   }
 
   :is(.dark #navigation){

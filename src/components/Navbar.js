@@ -141,7 +141,7 @@ export default function Navbar(props) {
                     <ul className={`navigation-menu ${navClass} ${navJustify}`}>
 
                         <li className="has-submenu parent-parent-menu-item" >
-                            <Link to="#!">체육회 소개</Link><span className="menu-arrow"></span>
+                            <Link to="#!">체육회 소개</Link><span className="menu-arrow xs:hidden"></span>
                             <ul className="submenu">
                                 <li><Link to="/greetings">인사말</Link></li>
                                 <li><Link to="/establishment">설립 목적 및 연혁</Link></li>
@@ -154,14 +154,14 @@ export default function Navbar(props) {
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
-                            <Link to="#!">가맹 종목 단체</Link><span className="menu-arrow"></span>
+                            <Link to="#!">가맹 종목 단체</Link><span className="menu-arrow xs:hidden"></span>
                             <ul className="submenu">
                                 <li><Link to="/affiliate">가맹 단체 현황</Link></li>
                             </ul>
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
-                            <Link to="#!">대회 정보</Link><span className="menu-arrow"></span>
+                            <Link to="#!">대회 정보</Link><span className="menu-arrow xs:hidden"></span>
                             <ul className="submenu">
                                 <li><Link>전국 장애인 체육대회</Link></li>
                                 <li><Link>전국 장애인 동계 체육대회</Link></li>
@@ -173,7 +173,7 @@ export default function Navbar(props) {
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
-                            <Link to="#!">생활 체육 서비스</Link><span className="menu-arrow"></span>
+                            <Link to="#!">생활 체육 서비스</Link><span className="menu-arrow xs:hidden"></span>
                             <ul className="submenu">
                                 <li><Link to="/visiting-service">찾아가는 생활 체육 서비스</Link></li>
                                 <li><Link to="/current-teacher">지도자 배치현황</Link></li>
@@ -185,7 +185,7 @@ export default function Navbar(props) {
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
-                            <Link to="#!">알림 마당</Link><span className="menu-arrow"></span>
+                            <Link to="#!">알림 마당</Link><span className="menu-arrow xs:hidden"></span>
                             <ul className="submenu">
                                 <li><Link to="/announcement">공지사항</Link></li>
                                 <li><Link to="/qna">문의사항</Link></li>
@@ -196,7 +196,7 @@ export default function Navbar(props) {
                         </li>
 
                         <li className="has-submenu parent-parent-menu-item">
-                            <Link to="#!">통합 자료실</Link><span className="menu-arrow"></span>
+                            <Link to="#!">통합 자료실</Link><span className="menu-arrow xs:hidden"></span>
                             <ul className="submenu">
                                 <li><Link to="/page-comming-soon">보도 자료</Link></li>
                                 <li><Link to="/page-comming-soon">멀티미디어 자료실</Link></li>
