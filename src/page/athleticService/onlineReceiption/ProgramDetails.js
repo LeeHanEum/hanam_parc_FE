@@ -197,15 +197,15 @@ export default function ProgramDetails() {
                                     <div className="text-center mt-8">
                                         <table className="w-full text-start text-slate-900">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">프로그램 이름 :</td>
+                                                <td className="xs:px-2 p-3 xs:hidden">프로그램 이름 :</td>
                                                 <td className="xs:px-2 p-4 text-start">{program.name}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">모집 인원 : </td>
+                                                <td className="xs:px-2 p-3 xs:hidden">모집 인원 : </td>
                                                 <td className="xs:px-2 p-4 text-start">{program.available}명</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">참가비 : </td>
+                                                <td className="xs:px-2 p-3 xs:hidden">참가비 : </td>
                                                 <td className="xs:px-2 p-4 text-start">{program.cost}</td>
                                             </tr>
                                         </table>
@@ -215,7 +215,7 @@ export default function ProgramDetails() {
                                     <div className="text-center mt-8">
                                         <table className="w-full text-start text-slate-900">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">장소 : </td>
+                                                <td className="xs:px-2 p-3 xs:hidden">장소 : </td>
                                                 <td className="xs:px-2 p-4">{program.location}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
@@ -241,11 +241,11 @@ export default function ProgramDetails() {
                                     <div className="text-center mt-8">
                                         <table className="w-full text-start text-slate-900">
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">담당자 : </td>
+                                                <td className="xs:px-2 p-3 xs:hidden">담당자 : </td>
                                                 <td className="xs:px-2 p-4">{program.manager?.name}</td>
                                             </tr>
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 p-4 xs:hidden">전화번호 : </td>
+                                                <td className="xs:px-2 p-3 xs:hidden">전화번호 : </td>
                                                 <td className="xs:px-2 p-4">{program.manager?.phone}</td>
                                             </tr>
                                         </table>
