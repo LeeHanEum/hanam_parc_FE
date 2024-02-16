@@ -43,6 +43,7 @@ import MyApplicationDetails from "./page/myPage/MyApplicationDetails";
 import PopUpForm from "./page/admin/popup/PopUpForm";
 import PopUpList from "./page/admin/popup/PopUpList";
 import NewBoard from "./page/admin/notification/NewBoard";
+import UpdateProgram from "./page/admin/program/UpdateProgram";
 
 export default function App() {
     return (
@@ -93,6 +94,7 @@ export default function App() {
                     <Route path="/popup-add" element={<PopUpForm />} />
                     <Route path="/popup-list" element={<PopUpList />} />
                     <Route path="/new-board" element={<NewBoard />} />
+                    <Route path={"/update-program/:id"} element={<UpdateProgram />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

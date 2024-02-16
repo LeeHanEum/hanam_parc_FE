@@ -12,6 +12,7 @@ export default function ProgramDetails() {
     const param = location.pathname.split("/")[2];
     const [program, setProgram] = useState({});
     const [toggle, setToggle] = useState(false);
+    const [agree, setAgree] = useState(false);
 
     const context = useContext(AuthContext);
 
@@ -56,6 +57,9 @@ export default function ProgramDetails() {
         { value: '2', label: 'WOMEN' },
     ];
 
+    const handleAgree = () => {
+        setAgree(!agree);
+    }
 
     const handleToggle = () => {
         setToggle(!toggle);
@@ -102,6 +106,10 @@ export default function ProgramDetails() {
 
     const handleApplicationSubmit = async () => {
         try {
+            if (!agree) {
+                alert('개인 정보 수집에 동의해주세요.');
+                return;
+            }
 
             const applicationData = {
                 programId: program.id,
@@ -353,6 +361,14 @@ export default function ProgramDetails() {
                             <div className="mb-4">
                                 <label className="font-semibold" htmlFor="etc">기타사항 :</label>
                                 <textarea id="etc" style={{resize:"none"}} className="form-input mt-3 w-full py-2 px-3 h-32 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="기타사항을 입력하세요" />
+                            </div>
+
+                            <div className="mb-4">
+                                <div className="flex items-center w-full mb-0">
+                                    <input className="form-checkbox rounded border-gray-200 dark:border-gray-800 text-green-600 focus:border-green-300 focus:ring focus:ring-offset-0 focus:ring-green-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="AcceptT&C"
+                                           onClick={handleAgree} />
+                                    <label className="form-check-label text-slate-900" htmlFor="AcceptT&C">개인 정보 수집에 동의 합니다.</label>
+                                </div>
                             </div>
 
                             <div className="mt-8">

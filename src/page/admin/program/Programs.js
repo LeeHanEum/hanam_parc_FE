@@ -80,13 +80,13 @@ export default function Programs() {
                                     {programs.map((program) => (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={program.id}>
                                             <td className="p-3 text-center xs:hidden">{program.id}</td>
-                                            <td className="p-3 text-start">{program.name}</td>
+                                            <td className="p-3 text-start"><Link to={`/program/${program.id}`}>{program.name}</Link></td>
                                             <td className="p-3 text-center ">{program.programStatus}</td>
                                             <td className="p-3 text-center ">{program.manager?.name}</td>
                                             <td className="p-3 text-center ">{program.applyEnd}</td>
                                             <td className="p-3 text-center xs:hidden">{program.createdAt.slice(0,16)}</td>
                                             <td className="p-3 text-center">
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
+                                                <Link to={`/update-program/${program.id}`} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
                                                 <Link onClick={() => deleteProgram(program.id)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
                                             </td>
                                         </tr>
