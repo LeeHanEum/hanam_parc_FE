@@ -3,6 +3,7 @@ import Topnav from "../../../components/Topnav";
 import {Link} from "react-router-dom";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import React, {useEffect, useState} from "react";
+import Select from "react-select";
 
 export default function ApplicationList(){
 
@@ -12,6 +13,10 @@ export default function ApplicationList(){
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(20);
     const [totalPages, setTotalPages] = useState(0);
+
+    const [status, setStatus] = useState("");
+    const [isUpdate, setIsUpdate] = useState(false);
+    let [updateId, setUpdateId] = useState(0);
 
     useEffect(() => {
         // 페이지 로딩 시 API 호출
@@ -33,6 +38,43 @@ export default function ApplicationList(){
             console.error("Error fetching applications:", error);
         }
     };
+
+    const toggleUpdate = (id) => {
+        if (isUpdate) {
+            setIsUpdate(false);
+            setUpdateId(0);
+        } else {
+            setIsUpdate(true);
+            setUpdateId(id);
+        }
+    }
+
+    const handleUpdate = async (application, status) => {
+        try {
+            if (status === "") {
+                status = application.status;
+            }
+            const response = await fetch(`/application/status?id=${application.id}&status=${status}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    status: status,
+                })
+            });
+            if (response.ok) {
+                alert("신청 상태가 변경되었습니다.");
+                fetchBoards();
+                setIsUpdate(false);
+            } else {
+                console.error("Error updating application:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error updating application:", error);
+        }
+    }
+
 
     return (
         <>
@@ -66,11 +108,28 @@ export default function ApplicationList(){
                                             <td className="p-3 text-start">{application.member?.name}</td>
                                             <td className="p-3 text-center ">{application.program?.name}</td>
                                             <td className="p-3 text-center xs:hidden">{application.phone}</td>
-                                            <td className="p-3 text-center ">{application.status}</td>
+                                            { isUpdate && updateId === application.id ?
+                                                <td className="p-3 text-center xs:hidden">
+                                                    <Select className="w-full"
+                                                            options={[
+                                                                { value: 'WAITING', label: 'WAITING' },
+                                                                { value: 'ACCEPTED', label: 'ACCEPTED'},
+                                                                { value: 'CANCELED', label: 'CANCELED'}
+                                                            ]}
+                                                            onChange={(e) => setStatus(e.value)}
+                                                            defaultValue={{ value: application.status, label: application.status }}
+                                                    />
+                                                </td>
+                                                :
+                                                <td className="p-3 text-center xs:hidden">{application.status}</td>
+                                            }
                                             <td className="p-3 text-center xs:hidden">{application.createdAt.slice(0,16)}</td>
                                             <td className="p-3 text-center">
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
+                                                { isUpdate && updateId === application.id ?
+                                                    <Link onClick={() => handleUpdate(application, status)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">저장</Link>
+                                                    :
+                                                    <Link onClick={() => toggleUpdate(application.id)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
+                                                }
                                             </td>
                                         </tr>
                                     ))}
