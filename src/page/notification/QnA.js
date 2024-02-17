@@ -77,7 +77,7 @@ export default function QnA() {
                                     return (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={index}>
                                             <td className="p-4 xs:hidden"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.id}</Link></td>
-                                            <td className="p-4"><Link className="flex items-center">{data.title}</Link></td>
+                                            <td className="p-4"><Link to={`/qna/${data.id}`}>{data.title}</Link></td>
                                             <td className="p-4 text-center">{data.writer?.name}</td>
                                             <td className="p-4 text-center">{data.isAnswered === true ? "답변 완료" : "미답변"}</td>
                                             <td className="p-4 text-center xs:hidden">{data.answerer?.name}</td>

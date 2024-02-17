@@ -11,7 +11,7 @@ export default function ApplicationList(){
     const [applications, setApplications] = useState([]);
 
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(20);
+    const [size, setSize] = useState(15);
     const [totalPages, setTotalPages] = useState(0);
 
     const [status, setStatus] = useState("");
@@ -21,7 +21,7 @@ export default function ApplicationList(){
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchBoards();
-    }, []);
+    }, [page, size]);
 
     const fetchBoards = async () => {
         try {

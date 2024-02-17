@@ -65,7 +65,7 @@ export default function RecruitmentList() {
                                     {boards.map((board) => (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={board.id}>
                                             <td className="p-3 text-center ">{board.id}</td>
-                                            <td className="p-3 text-start">{board.title}</td>
+                                            <td className="p-3 text-start"><Link to={`/recruitment/${board.id}`}>{board.title}</Link></td>
                                             <td className="p-3 text-center ">{board.writer?.name}</td>
                                             <td className="p-3 text-center xs:hidden">{board.createdAt}</td>
                                             <td className="p-3 text-center xs:hidden">{board.updatedAt}</td>

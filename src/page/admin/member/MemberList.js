@@ -10,7 +10,7 @@ export default function MemberList() {
     const [toggle, setToggle] = useState(true)
     const [members, setMembers] = useState([]);
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(20);
+    const [size, setSize] = useState(15);
     const [totalPages, setTotalPages] = useState(0);
     const [isUpdate, setIsUpdate] = useState(false);
     const [memberRole, setMemberRole] = useState("");
@@ -20,7 +20,7 @@ export default function MemberList() {
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchMembers();
-    }, []);
+    }, [page, size]);
 
     const toggleUpdate = (id) => {
         if (isUpdate) {
@@ -46,23 +46,6 @@ export default function MemberList() {
             console.error("Error fetching members:", error);
         }
     };
-
-    const deleteMember = async (id) => {
-        try {
-            const response = await fetch(`/member?id=${id}`, {
-                method: "DELETE",
-                headers : {}
-            });
-            if (response.ok) {
-                alert("해당 사용자가 삭제되었습니다.");
-                fetchMembers();
-            } else {
-                console.error("Error deleting member:", response.statusText);
-            }
-        } catch (error) {
-            console.error("Error deleting member:", error);
-        }
-    }
 
     const handleUpdate = async (member, memberRole, memberStatus) => {
         try {
@@ -170,7 +153,6 @@ export default function MemberList() {
                                                     :
                                                     <Link onClick={() => toggleUpdate(member.id)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
                                                 }
-                                                <Link onClick={() => deleteMember(member.id)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
                                             </td>
                                         </tr>
                                     ))}

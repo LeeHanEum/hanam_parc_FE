@@ -65,7 +65,7 @@ export default function AnnouncementList() {
                                     {qnas.map((qna) => (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={qna.id}>
                                             <td className="p-3 text-center xs:hidden">{qna.id}</td>
-                                            <td className="p-3 text-start">{qna.title}</td>
+                                            <td className="p-3 text-start"><Link to={`/qna/${qna.id}`}>{qna.title}</Link></td>
                                             <td className="p-3 text-center ">{qna.isAnswered ? "답변완료" : "답변대기"}</td>
                                             <td className="p-3 text-center ">{qna.writer?.name}</td>
                                             <td className="p-3 text-center ">{qna.answerer?.name}</td>

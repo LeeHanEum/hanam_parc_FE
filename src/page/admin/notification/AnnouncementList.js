@@ -11,7 +11,7 @@ export default function AnnouncementList() {
     const [boards, setBoards] = useState([]);
 
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(20);
+    const [size, setSize] = useState(15);
     const [totalPages, setTotalPages] = useState(0);
 
     const ANNOUNCEMENT = "ANNOUNCEMENT";
@@ -19,7 +19,7 @@ export default function AnnouncementList() {
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchBoards();
-    }, []);
+    }, [page, size]);
 
     const fetchBoards = async () => {
         try {
@@ -66,7 +66,7 @@ export default function AnnouncementList() {
                                     {boards.map((board) => (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={board.id}>
                                             <td className="p-3 text-center ">{board.id}</td>
-                                            <td className="p-3 text-start">{board.title}</td>
+                                            <td className="p-3 text-start"><Link to={`/announcement/${board.id}`}>{board.title}</Link></td>
                                             <td className="p-3 text-center ">{board.writer?.name}</td>
                                             <td className="p-3 text-center xs:hidden">{board.createdAt.slice(0,16)}</td>
                                             <td className="p-3 text-center xs:hidden">{board.updatedAt.slice(0,16)}</td>
