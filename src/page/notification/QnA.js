@@ -13,7 +13,7 @@ export default function QnA() {
     const [qnas, setQnA] = useState([]);
 
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(20);
+    const [size, setSize] = useState(10);
     const [totalPages, setTotalPages] = useState(0);
 
     const context = useContext(authContext);

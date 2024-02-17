@@ -18,12 +18,12 @@ export default function MainPage(){
         container: '.tiny-three-item',
         controls: false,
         mouseDrag: true,
+        nav: false,
         loop: true,
         rewind: true,
         autoplay: true,
         autoplayButtonOutput: false,
         autoplayTimeout: 3000,
-        navPosition: "bottom",
         speed: 400,
         gutter: 50,
         edgePadding: 40,
@@ -150,7 +150,7 @@ export default function MainPage(){
 
                             </div>
 
-                            <div className="relative mt-8 text-center">
+                            <div className="relative mt-16 text-center">
                                 <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">사진 더보기</Link>
                             </div>
                         </div>
