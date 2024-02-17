@@ -32,7 +32,6 @@ import Employee from "./page/introduction/Employee";
 import Business from "./page/introduction/Business";
 import VisitingService from "./page/athleticService/VisitingService";
 import CurrentTeacher from "./page/athleticService/CurrentTeacher";
-import TeacherInfo from "./page/athleticService/TeacherInfo";
 import AthleticPrograms from "./page/athleticService/AthleticPrograms";
 import NotificationDetails from "./page/notification/NotificationDetails";
 import MyHome from "./page/myPage/MyHome";
@@ -81,7 +80,6 @@ export default function App() {
                     <Route path="/business" element={<Business />} />
                     <Route path="/visiting-service" element={<VisitingService />} />
                     <Route path="/current-teacher" element={<CurrentTeacher />} />
-                    <Route path="/teacher-info" element={<TeacherInfo />} />
                     <Route path="/athletic-programs" element={<AthleticPrograms />} />
                     <Route path={"/announcement/:id"} element={<NotificationDetails />} />
                     <Route path={"/recruitment/:id"} element={<NotificationDetails />} />
