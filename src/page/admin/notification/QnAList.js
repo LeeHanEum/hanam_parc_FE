@@ -4,19 +4,19 @@ import {Link} from "react-router-dom";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import React, {useEffect, useState} from "react";
 
-export default function AnnouncementList() {
+export default function QnAList() {
 
     const [toggle, setToggle] = useState(true)
     const [qnas, setQnA] = useState([]);
 
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(20);
+    const [size, setSize] = useState(15);
     const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchQNA();
-    }, []);
+    }, [page, size]);
 
     const fetchQNA = async () => {
         try {
@@ -33,6 +33,22 @@ export default function AnnouncementList() {
             console.error("Error fetching qna:", error);
         }
     };
+
+    const deleteQnA = async (id) => {
+        try {
+            const response = await fetch(`/qna/delete?id=${id}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                alert('문의사항이 삭제되었습니다.');
+                fetchQNA();
+            } else {
+                console.error("Error deleting qna:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error deleting qna:", error);
+        }
+    }
 
 
     return (
@@ -56,7 +72,6 @@ export default function AnnouncementList() {
                                         <th className="px-3 py-5 text-center ">질문자</th>
                                         <th className="px-3 py-5 text-center ">답변자</th>
                                         <th className="px-3 py-5 text-center xs:hidden">작성날짜</th>
-                                        <th className="px-3 py-5 text-center xs:hidden">수정날짜</th>
                                         <th className="px-3 py-5 text-center">상세</th>
                                     </tr>
                                     </thead>
@@ -70,10 +85,9 @@ export default function AnnouncementList() {
                                             <td className="p-3 text-center ">{qna.writer?.name}</td>
                                             <td className="p-3 text-center ">{qna.answerer?.name}</td>
                                             <td className="p-3 text-center xs:hidden">{qna.createdAt.slice(0,10)}</td>
-                                            <td className="p-3 text-center xs:hidden">{qna.updatedAt.slice(0,10)}</td>
                                             <td className="p-3 text-center">
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
+                                                <Link to={`/admin-qna-answer/${qna.id}`} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">답변</Link>
+                                                <Link onClick={() => deleteQnA(qna.id)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
                                             </td>
                                         </tr>
                                     ))}
