@@ -45,12 +45,11 @@ export default function NewBoard() {
 
     const handleSubmit = async () => {
         try {
-            let text = content.replace(/(?:\r\n|\r|\n)/g,'<br/>');
             const formData = new FormData();
 
             formData.append('title', title);
-            formData.append('category', category.value);
-            formData.append('content', text);
+            formData.append('boardCategory', category.value);
+            formData.append('content', content);
 
             imageInputs.forEach((input, index) => {
                 formData.append(`image${index}`, input);

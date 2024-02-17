@@ -97,7 +97,12 @@ export default function NotificationDetails(){
 
                                 <div className="mt-6 px-5">
                                     <p className="text-slate-400" style={{lineHeight : "35px"}}>
-                                        {board.content}
+                                        {board.content && board.content.split(/<br\s*\/?>|\r?\n/).map((line, index) => (
+                                            <React.Fragment key={index}>
+                                                {line}
+                                                <br />
+                                            </React.Fragment>
+                                        ))}
                                     </p>
                                 </div>
 
