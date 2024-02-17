@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import Navbar from "../../components/Navbar";
 import join_soccer from "../../asset/image/join_soccer.jpg";
 import {Link} from "react-router-dom";
@@ -6,6 +6,7 @@ import {LiaClipboardListSolid} from "../../assets/icons/icons";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import {board_qna} from "../../asset/data/data";
 import SubFooter from "../../components/SubFooter";
+import authContext from "../../auth/AuthContext";
 
 export default function QnA() {
 
@@ -15,10 +16,12 @@ export default function QnA() {
     const [size, setSize] = useState(20);
     const [totalPages, setTotalPages] = useState(0);
 
+    const context = useContext(authContext);
+
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchQNA();
-    }, []);
+    }, [page,size]);
 
     const fetchQNA = async () => {
         try {
@@ -51,9 +54,12 @@ export default function QnA() {
 
             <section className="relative md:py-24 py-16">
 
+                { context.user !== null ?
                 <div className="container relative text-end">
-                    <Link to="#" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">새 문의 쓰기</Link>
+                    <Link to="/new-qna" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">새 문의 쓰기</Link>
                 </div>
+                    : null
+                }
 
 
                 <div className="container relative">
