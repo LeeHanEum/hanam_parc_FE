@@ -46,6 +46,7 @@ import UpdateProgram from "./page/admin/program/UpdateProgram";
 import NewQnA from "./page/notification/NewQnA";
 import QnaAnswer from "./page/admin/notification/QnaAnswer";
 import QnADetails from "./page/notification/QnADetails";
+import UpdateBoard from "./page/admin/notification/UpdateBoard";
 
 export default function App() {
     return (
@@ -99,6 +100,7 @@ export default function App() {
                     <Route path="/new-qna" element={<NewQnA />} />
                     <Route path={"/admin-qna-answer/:id"} element={<QnaAnswer />} />
                     <Route path={"/qna/:id"} element={<QnADetails />} />
+                    <Route path={"/update-board/:id"} element={<UpdateBoard/>} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

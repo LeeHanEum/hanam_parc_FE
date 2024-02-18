@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import React, {useEffect, useState} from "react";
 import members from "../../../assets/libs/feather-icons/feather.min";
+import {deleteBoard} from "../../../api/Api";
 
 export default function AnnouncementList() {
 
@@ -71,8 +72,12 @@ export default function AnnouncementList() {
                                             <td className="p-3 text-center xs:hidden">{board.createdAt.slice(0,16)}</td>
                                             <td className="p-3 text-center xs:hidden">{board.updatedAt.slice(0,16)}</td>
                                             <td className="p-3 text-center">
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
-                                                <Link to="#" className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
+                                                <Link to={`/update-board/${board.id}`} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
+                                                <Link onClick={
+                                                    () => {
+                                                        deleteBoard(board.id).then(() => fetchBoards())
+                                                    }
+                                                } className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-red-700 border-red-600 hover:border-red-700 text-red-600 hover:text-white rounded-md">삭제</Link>
                                             </td>
                                         </tr>
                                     ))}

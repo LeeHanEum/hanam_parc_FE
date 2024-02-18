@@ -1,13 +1,13 @@
 import Sidebar from "../../../components/Sidebar";
 import Topnav from "../../../components/Topnav";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import Select from "react-select";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import ImageInput from "../../../components/ImageInput";
 import FileInput from "../../../components/FileInput";
 import AuthContext from "../../../auth/AuthContext";
 
-export default function NewBoard() {
+export default function UpdateBoard() {
 
     const [toggle, setToggle] = useState(true)
     const [title, setTitle] = useState('');
@@ -15,6 +15,9 @@ export default function NewBoard() {
     const [imageInputs, setImageInputs] = useState([<ImageInput key={0} />]);
     const [fileInputs, setFileInputs] = useState([<FileInput key={0} />]);
     const [content, setContent] = useState('');
+
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
 
     const context = useContext(AuthContext);
 
@@ -40,7 +43,40 @@ export default function NewBoard() {
         { value: 'ANNOUNCEMENT', label: '공지사항' },
         { value: 'RECRUITMENT', label: '채용공고' },
         { value: 'MANAGEMENT', label: '경영공시' },
-        ];
+    ];
+
+    useEffect(() => {
+        fetchBoard();
+    }, []);
+
+    const getCategoryLabel = (value) => {
+        switch (value) {
+            case 'ANNOUNCEMENT':
+                return '공지사항';
+            case 'RECRUITMENT':
+                return '채용공고';
+            case 'MANAGEMENT':
+                return '경영공시';
+            default:
+                return '';
+        }
+    }
+
+    const fetchBoard = async () => {
+        try {
+            const response = await fetch(`/board?id=${id}`);
+            if (response.ok) {
+                const data = await response.json();
+                setTitle(data.data.title);
+                setContent(data.data.content);
+                setCategory({ value: data.data.boardCategory, label: getCategoryLabel(data.data.boardCategory) });
+            } else {
+                console.error("Error fetching program:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error fetching program:", error);
+        }
+    }
 
     const handleSubmit = async () => {
         try {
@@ -50,8 +86,8 @@ export default function NewBoard() {
                 boardCategory: category.value,
             }
 
-            const response = await fetch(`/board/create`, {
-                method: 'POST',
+            const response = await fetch(`/board/update?id=${id}`, {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -83,7 +119,7 @@ export default function NewBoard() {
                     <div className="container relative flex justify-center mt-32">
                         <div className="w-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md p-8">
                             <div className="lg:col-span-6 md:col-span-6">
-                            <h5 className="my-6 text-xl font-semibold">새 글 쓰기</h5>
+                                <h5 className="my-6 text-xl font-semibold">새 글 쓰기</h5>
                                 <div className="grid grid-cols-1">
 
                                     <div className="mb-4 w-40">
