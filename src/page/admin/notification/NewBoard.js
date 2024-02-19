@@ -1,11 +1,10 @@
 import Sidebar from "../../../components/Sidebar";
 import Topnav from "../../../components/Topnav";
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import Select from "react-select";
 import {Link} from "react-router-dom";
 import ImageInput from "../../../components/ImageInput";
 import FileInput from "../../../components/FileInput";
-import AuthContext from "../../../auth/AuthContext";
 
 export default function NewBoard() {
 
@@ -16,11 +15,9 @@ export default function NewBoard() {
     const [fileInputs, setFileInputs] = useState([<FileInput key={0} />]);
     const [content, setContent] = useState('');
 
-    const context = useContext(AuthContext);
-
     const handleAddImageInput = () => {
         const newInputKey = imageInputs.length;
-        setImageInputs([...imageInputs, <ImageInput key={newInputKey} />]);
+        setImageInputs([...imageInputs, <ImageInput key={newInputKey} />]); // onSelectImage prop 추가
     };
 
     const handleDeleteImageInput = (key) => {
@@ -58,20 +55,57 @@ export default function NewBoard() {
                 body: JSON.stringify(BoardRequestDto),
             });
 
-            console.log(BoardRequestDto);
-
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            alert('게시글이 등록되었습니다.')
+            const responseData = await response.json();
+            const boardId = responseData.data; // 게시판 ID 값을 받아옵니다.
 
+            // 이미지를 업로드합니다.
+            await uploadImages(boardId);
+
+            alert('게시글이 등록되었습니다.');
 
         } catch (error) {
             console.error('Error submitting the form:', error);
             // Handle errors or display an error message to the user
         }
     }
+
+// 게시판 ID를 받아서 해당 ID에 이미지를 업로드합니다.
+    const uploadImages = async (boardId) => {
+        try {
+            const imageFiles = []; // 이미지 파일을 저장할 배열
+            // 이미지 input에서 선택된 파일을 가져옵니다.
+            imageInputs.forEach((input) => {
+                const file = input.props.file;
+                if (file) {
+                    imageFiles.push(file);
+                }
+            });
+
+            // FormData를 사용하여 이미지 파일을 전송할 준비를 합니다.
+            const formData = new FormData();
+            imageFiles.forEach((file, index) => {
+                formData.append(`image${index}`, file);
+            });
+
+            const response = await fetch(`/files/${boardId}`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+        } catch (error) {
+            console.error('Error uploading images:', error);
+            // Handle errors or display an error message to the user
+        }
+    }
+
 
     return (
         <>

@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function ImageInput({ key, onDelete }) {
+export default function ImageInput({ key }) {
+
     return (
         <div className="mb-4" key={key}>
             <label className="font-semibold block" htmlFor={`url${key}`}>

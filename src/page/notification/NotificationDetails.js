@@ -110,7 +110,7 @@ export default function NotificationDetails(){
                                     {boardImage.map((imageUrl, index) => (
                                         <img
                                             key={index}
-                                            src={`${process.env.PUBLIC_URL}/${imageUrl}`}
+                                            src={`${process.env.PUBLIC_URL}${imageUrl}`}
                                             className="rounded-md m-auto"
                                             alt={`Image ${index + 1}`}
                                             width="90%"

@@ -4,7 +4,6 @@ import join_soccer from "../../asset/image/join_soccer.jpg";
 import {Link} from "react-router-dom";
 import {LiaClipboardListSolid} from "../../assets/icons/icons";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
-import {board_qna} from "../../asset/data/data";
 import SubFooter from "../../components/SubFooter";
 import authContext from "../../auth/AuthContext";
 
@@ -21,7 +20,7 @@ export default function QnA() {
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchQNA();
-    }, [page,size]);
+    }, [page, size]);
 
     const fetchQNA = async () => {
         try {
