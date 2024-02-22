@@ -73,7 +73,6 @@ export default function NewBoard() {
         }
     }
 
-// 게시판 ID를 받아서 해당 ID에 이미지를 업로드합니다.
     const uploadImages = async (boardId) => {
         try {
             const imageFiles = []; // 이미지 파일을 저장할 배열

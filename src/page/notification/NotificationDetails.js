@@ -3,6 +3,7 @@ import join_soccer from "../../asset/image/join_soccer.jpg";
 import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import SubFooter from "../../components/SubFooter";
+import * as url from "url";
 
 export default function NotificationDetails(){
 
@@ -89,14 +90,13 @@ export default function NotificationDetails(){
                     <div className="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                         <div className="lg:col-span-8 md:col-span-6">
                             <div className="p-6 rounded-md shadow dark:shadow-gray-800">
-                                {/*<img src={} className="rounded-md m-auto" alt="" width="50%"/>*/}
 
                                 <div className="text-center mt-8">
                                     <h3 className="my-3 text-[26px] font-semibold">{board.title}</h3>
                                 </div>
 
                                 <div className="mt-6 px-5">
-                                    <p className="text-slate-400" style={{lineHeight : "35px"}}>
+                                    <p className="text-slate-900" style={{lineHeight : "35px"}}>
                                         {board.content && board.content.split(/<br\s*\/?>|\r?\n/).map((line, index) => (
                                             <React.Fragment key={index}>
                                                 {line}
@@ -111,7 +111,7 @@ export default function NotificationDetails(){
                                         <img
                                             key={index}
                                             src={`${process.env.PUBLIC_URL}${imageUrl}`}
-                                            className="rounded-md m-auto"
+                                            className="rounded-md m-auto mb-2"
                                             alt={`Image ${index + 1}`}
                                             width="90%"
                                         />
