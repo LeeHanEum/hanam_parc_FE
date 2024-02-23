@@ -15,27 +15,26 @@ export const deleteBoard = async (id) => {
     }
 }
 
-export const fetchBoardImage = async (boardId, file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-
+export const fetchProgramNameList = async () => {
     try {
-        const response = await fetch(`/files/${boardId}`, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                // 필요한 경우 다른 헤더도 추가할 수 있습니다.
-            }
-        });
-
+        const response = await fetch('/program/list');
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            alert('프로그램 이름 리스트를 불러오지 못했습니다.');
         }
-
-        const data = await response.json();
-        return data;
+        return await response.json();
     } catch (error) {
-        console.error('Error:', error);
-        throw error;
+        console.error('Error fetching program name list:', error);
     }
-};
+}
+
+export const fetchApplicationByProgramId = async (programId) => {
+    try {
+        const response = await fetch(`/application/program?programId=${programId}`);
+        if (!response.ok) {
+            alert('프로그램 신청서를 불러오지 못했습니다.');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching application by program id:', error);
+    }
+}

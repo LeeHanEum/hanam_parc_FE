@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import React, {useEffect, useState} from "react";
 import Select from "react-select";
+import {fetchApplicationByProgramId, fetchProgramNameList} from "../../../api/Api";
 
 export default function ApplicationList(){
 
@@ -18,10 +19,19 @@ export default function ApplicationList(){
     const [isUpdate, setIsUpdate] = useState(false);
     let [updateId, setUpdateId] = useState(0);
 
+    const [programNameList, setProgramNameList] = useState([]);
+    const [programId, setProgramId] = useState(0);
+
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchBoards();
     }, [page, size]);
+
+    useEffect(() => {
+        fetchProgramNameList().then((data) => {
+            setProgramNameList(data.data && data.data.map((program) => ({ value: program.id, label: program.name })));
+        });
+    }, []);
 
     const fetchBoards = async () => {
         try {
@@ -84,7 +94,12 @@ export default function ApplicationList(){
                     <Topnav toggle={toggle} setToggle={setToggle}/>
 
                     <div className="mt-32 relative mx-6">
-                        <h3 className="text-3xl mx-2 font-semibold">프로그램 신청 목록</h3>
+                        <h3 className="text-3xl mx-2 font-semibold inline-block">프로그램 신청 목록</h3>
+                        <Select className="w-72 inline-block mx-6 border-1 border-green-600 rounded-md"
+                                options={programNameList}
+                                placeholder="조회할 프로그램을 선택하세요"
+                                onChange={(e) => {setProgramId(e.value); fetchApplicationByProgramId(e.value).then((data) => setApplications(data.data)); }}
+                        />
                         <div className="grid md:grid-cols-1 grid-cols-1 pt-6 gap-[30px]">
                             <div
                                 className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
