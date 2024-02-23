@@ -66,6 +66,10 @@ export default function ProgramDetails() {
     }
 
     const handleApply = () => {
+        if(program.programStatus !== "ACCEPTING") {
+            alert("접수기간이 아닙니다.");
+            return;
+        }
         if (context.user) {
             setToggle(!toggle);
         } else {
@@ -89,18 +93,6 @@ export default function ProgramDetails() {
             }
         } catch (error) {
             console.error("Error fetching program:", error);
-        }
-    }
-
-    const handleStatus = (status) => {
-        if (status === "ACCEPTING") {
-            return "접수중";
-        }else if (status === "WAITING") {
-            return "대기중";
-        }else if (status === "COMPLETED") {
-            return "마감";
-        }else if (status === "HOLDING") {
-            return "보류";
         }
     }
 
@@ -165,8 +157,15 @@ export default function ProgramDetails() {
                             <div className="p-6 rounded-md shadow dark:shadow-gray-800">
                                 <img src={`${process.env.PUBLIC_URL}/${program.thumbnail}`} className="rounded-md m-auto" alt="" width="50%"/>
                                 <div className="text-center mt-8">
-                                    <span className="inline-block text-white text-lg px-2.5 py-0.5 rounded-full border-2 font-bold"
-                                            style={{backgroundColor : "rgb(0,128,0)", borderColor : "rgb(0,128,0)"}}>{handleStatus(program.programStatus)}</span>
+                                    {   program.programStatus === "ACCEPTING" ?
+                                        <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(0,128,0)", borderColor: "rgb(0,128,0)"}}>접수중</span>
+                                        : program.programStatus === "COMPLETED" ?
+                                            <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(105,105,105)", borderColor: "rgb(105,105,105)"}}>접수마감</span>
+                                            :
+                                            <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "lightgray"}}>
+                                                        {program.programStatus}
+                                                        </span>
+                                    }
                                     <h3 className="my-3 text-[26px] font-semibold">{program.name}</h3>
 
                                     <ul className="list-none mt-6">
