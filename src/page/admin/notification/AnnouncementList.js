@@ -3,7 +3,6 @@ import Topnav from "../../../components/Topnav";
 import {Link} from "react-router-dom";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import React, {useEffect, useState} from "react";
-import members from "../../../assets/libs/feather-icons/feather.min";
 import {deleteBoard} from "../../../api/Api";
 
 export default function AnnouncementList() {
