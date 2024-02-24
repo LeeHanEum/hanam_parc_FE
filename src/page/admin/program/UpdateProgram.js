@@ -3,12 +3,16 @@ import Topnav from "../../../components/Topnav";
 import React, {useEffect, useState} from "react";
 import Select from "react-select";
 import {useLocation} from "react-router-dom";
+import {uploadProgramThumbnail} from "../../../api/Api";
 
 export default function UpdateProgram() {
     const lo = useLocation();
     const param = lo.pathname.split("/")[2];
 
     const [toggle, setToggle] = useState(true);
+    const [thumbnailModal, setThumbnailModal] = useState(false);
+
+
     const [program, setProgram] = useState({});
     const [name, setName] = useState('');
     const [available, setAvailable] = useState(0);
@@ -23,9 +27,14 @@ export default function UpdateProgram() {
     const [endDate, setEndDate] = useState('');
     const [description, setDescription] = useState('');
     const [programStatus, setProgramStatus] = useState('');
+    const [thumbnail, setThumbnail] = useState([]);
 
     const [admins, setAdmins] = useState([]);
     const [adminOptions, setAdminOptions] = useState([]);
+
+    const toggleChangeThumbnail = () => {
+        setThumbnailModal(!thumbnailModal);
+    }
 
     useEffect(() => {
         fetchProgram();
@@ -115,16 +124,25 @@ export default function UpdateProgram() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            const responseData = await response.json();
-            console.log("Program added successfully:", responseData);
+            await response.json();
+            if (thumbnailModal) {
+                const imgRes = await uploadProgramThumbnail(id, thumbnail);
+                if (!imgRes.ok) {
+                    alert("이미지 업로드에 실패했습니다.");
+                }
+            }
 
             // 프로그램이 성공적으로 추가되면 추가적인 작업을 수행할 수 있습니다.
-            alert("프로그램이 성공적으로 수정하였습니다.");
+            alert("프로그램을 성공적으로 수정하였습니다.");
 
         } catch (error) {
             console.error("Error adding program:", error.message);
         }
     };
+
+    const handleImageChange = (e) => {
+        setThumbnail([...e.target.files]);
+    }
 
     return (
         <>
@@ -133,7 +151,7 @@ export default function UpdateProgram() {
                 <main className="page-content bg-gray-50 dark:bg-slate-800 h-full">
                     <Topnav toggle={toggle} setToggle={setToggle} />
 
-                    <div className="container relative flex justify-center mt-32">
+                    <div className="container relative flex justify-center mt-32 mb-10">
                         <div className="w-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md p-8">
                             <div className="lg:col-span-6 md:col-span-6">
                                 <h5 className="my-6 text-xl font-semibold">프로그램 수정</h5>
@@ -180,6 +198,24 @@ export default function UpdateProgram() {
                                     />
                                 </div>
 
+                                <div className="mb-4">
+                                    <button onClick={toggleChangeThumbnail} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center rounded-md me-2">
+                                        {thumbnailModal ? "취소" : "대표 이미지 변경"}
+                                    </button>
+                                </div>
+
+                                {thumbnailModal && (
+                                    <div className="mb-4">
+                                        <label className="font-semibold" htmlFor="thumbnail">대표 이미지 :</label>
+                                        <input
+                                            id="thumbnail"
+                                            type="file"
+                                            onChange={handleImageChange}
+                                            className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
+                                        />
+                                    </div>
+                                )}
+
                             </div>
 
                             <div className="lg:col-span-6 md:col-span-6 lg:mt-16">
@@ -206,10 +242,10 @@ export default function UpdateProgram() {
                                         className="my-3"
                                         options={
                                             [
-                                                { value: "ACCEPTING", label: "ACCEPTING" },
-                                                { value: "WAITING", label: "WAITING" },
-                                                { value: "COMPLETED", label: "COMPLETED" },
-                                                { value: "HOLDING", label: "HOLDING" },
+                                                { value: "ACCEPTING", label: "접수중" },
+                                                { value: "WAITING", label: "대기중" },
+                                                { value: "COMPLETED", label: "접수마감" },
+                                                { value: "HOLDING", label: "보류" },
                                             ]
                                         }
                                         value={programStatus}
@@ -217,9 +253,10 @@ export default function UpdateProgram() {
                                     />
                                 </div>
 
+
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="description">프로그램 설명 :</label>
-                                    <textarea id="description" style={{ resize: "none" }} value={description} onChange={(e) => setDescription(e.target.value)} className="form-input mt-3 w-full py-2 px-3 h-32 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="설명을 입력하세요" />
+                                    <textarea id="description" style={{ resize: "none" }} value={description} onChange={(e) => setDescription(e.target.value)} className="form-input mt-3 w-full py-2 px-3 h-48 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" placeholder="설명을 입력하세요" />
                                 </div>
 
                                 <div className="mt-12">

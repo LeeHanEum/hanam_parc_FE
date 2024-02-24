@@ -10,13 +10,13 @@ export default function Programs() {
     const [programs, setPrograms] = useState([]);
 
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(20);
+    const [size, setSize] = useState(15);
     const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchBoards();
-    }, []);
+    }, [page,size]);
 
     const fetchBoards = async () => {
         try {

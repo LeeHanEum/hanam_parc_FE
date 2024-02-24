@@ -95,7 +95,7 @@ export default function ApplicationList(){
 
                     <div className="mt-32 relative mx-6">
                         <h3 className="text-3xl mx-2 font-semibold inline-block">프로그램 신청 목록</h3>
-                        <Select className="w-72 inline-block mx-6 border-1 border-green-600 rounded-md"
+                        <Select className="w-72 inline-block border-1 border-green-600 rounded-md"
                                 options={programNameList}
                                 placeholder="조회할 프로그램을 선택하세요"
                                 onChange={(e) => {setProgramId(e.value); fetchApplicationByProgramId(e.value).then((data) => setApplications(data.data)); }}
@@ -110,8 +110,9 @@ export default function ApplicationList(){
                                         <th className="px-3 py-5 text-start">이름</th>
                                         <th className="px-3 py-5 text-center">프로그램</th>
                                         <th className="px-3 py-5 text-center xs:hidden">전화번호</th>
+                                        <th className="px-3 py-5 text-center xs:hidden">생년월일</th>
                                         <th className="px-3 py-5 text-center">상태</th>
-                                        <th className="px-3 py-5 text-center xs:hidden">작성시각</th>
+                                        <th className="px-3 py-5 text-center xs:hidden">작성날짜</th>
                                         <th className="px-3 py-5 text-center">상세</th>
                                     </tr>
                                     </thead>
@@ -123,8 +124,9 @@ export default function ApplicationList(){
                                             <td className="p-3 text-start">{application.member?.name}</td>
                                             <td className="p-3 text-center ">{application.program?.name}</td>
                                             <td className="p-3 text-center xs:hidden">{application.phone}</td>
+                                            <td className="p-3 text-center xs:hidden">{application.member?.birth}</td>
                                             { isUpdate && updateId === application.id ?
-                                                <td className="p-3 text-center xs:hidden">
+                                                <td className="p-3 text-center">
                                                     <Select className="w-full"
                                                             options={[
                                                                 { value: 'WAITING', label: 'WAITING' },
@@ -136,9 +138,9 @@ export default function ApplicationList(){
                                                     />
                                                 </td>
                                                 :
-                                                <td className="p-3 text-center xs:hidden">{application.status}</td>
+                                                <td className="p-3 text-center">{application.status}</td>
                                             }
-                                            <td className="p-3 text-center xs:hidden">{application.createdAt.slice(0,16)}</td>
+                                            <td className="p-3 text-center xs:hidden">{application.createdAt.slice(0,10)}</td>
                                             <td className="p-3 text-center">
                                                 { isUpdate && updateId === application.id ?
                                                     <Link onClick={() => handleUpdate(application, status)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">저장</Link>

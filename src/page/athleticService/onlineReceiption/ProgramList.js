@@ -16,7 +16,7 @@ export default function ProgramList() {
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchBoards();
-    }, []);
+    }, [page, size]);
 
     const fetchBoards = async () => {
         try {
@@ -65,12 +65,15 @@ export default function ProgramList() {
                                                     : item.programStatus === "COMPLETED" ?
                                                         <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(105,105,105)", borderColor: "rgb(105,105,105)"}}>접수마감</span>
                                                         :
+                                                        item.programStatus === "WAITING" ?
+                                                            <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(255,165,0)", borderColor: "rgb(255,165,0)"}}>접수예정</span>
+                                                            :
                                                         <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "lightgray"}}>
                                                         {item.programStatus}
                                                         </span>
                                                 }
                                             </p>
-                                            <p className="text-slate-900 mt-3 text-lg">접수 마감 : {item.applyEnd}</p>
+                                            <p className="text-slate-900 mt-3 text-lg">접수 마감 : {item.applyEnd.slice(0,10)}</p>
                                         </div>
                                     </Link>
                                 </div>

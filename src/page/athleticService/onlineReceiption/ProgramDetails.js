@@ -155,14 +155,17 @@ export default function ProgramDetails() {
                     <div className="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                         <div className="lg:col-span-7 md:col-span-6">
                             <div className="p-6 rounded-md shadow dark:shadow-gray-800">
-                                <img src={`${process.env.PUBLIC_URL}/${program.thumbnail}`} className="rounded-md m-auto" alt="" width="50%"/>
+                                <img src={`${process.env.PUBLIC_URL}${program.thumbnail}`} className="rounded-md m-auto" alt="" width="70%"/>
                                 <div className="text-center mt-8">
                                     {   program.programStatus === "ACCEPTING" ?
                                         <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(0,128,0)", borderColor: "rgb(0,128,0)"}}>접수중</span>
                                         : program.programStatus === "COMPLETED" ?
                                             <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(105,105,105)", borderColor: "rgb(105,105,105)"}}>접수마감</span>
                                             :
-                                            <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "lightgray"}}>
+                                            program.programStatus === "WAITING" ?
+                                                <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(255,165,0)", borderColor: "rgb(255,165,0)"}}>접수예정</span>
+                                                :
+                                                <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "lightgray"}}>
                                                         {program.programStatus}
                                                         </span>
                                     }

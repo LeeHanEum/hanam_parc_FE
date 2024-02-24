@@ -2,6 +2,7 @@ import Sidebar from "../../../components/Sidebar";
 import Topnav from "../../../components/Topnav";
 import React, {useEffect, useState} from "react";
 import Select from "react-select";
+import {uploadProgramThumbnail} from "../../../api/Api";
 
 export default function ProgramForm() {
     const [toggle, setToggle] = useState(true);
@@ -17,7 +18,7 @@ export default function ProgramForm() {
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
     const [description, setDescription] = useState('');
-    const [thumbnail, setThumbnail] = useState('');
+    const [thumbnail, setThumbnail] = useState([]);
 
     const [admins, setAdmins] = useState([]);
     const [adminOptions, setAdminOptions] = useState([]);
@@ -26,10 +27,9 @@ export default function ProgramForm() {
         fetchAdmins();
     }, []);
 
-    const handleFileChange = (e) => {
-        // Update the state for the file input
-        setThumbnail(e.target.files[0]);
-    };
+    const handleImageChange = (e) => {
+        setThumbnail([...e.target.files]);
+    }
 
 
     const fetchAdmins = async () => {
@@ -69,11 +69,6 @@ export default function ProgramForm() {
             formData.append('startDate', startDate);
             formData.append('endDate', endDate);
             formData.append('description', description);
-            if (thumbnail) {
-                formData.append('thumbnail', thumbnail);
-            } else {
-                throw new Error('No file selected');
-            }
 
             // Make a POST request using fetch
             const response = await fetch('/program/create', {
@@ -86,9 +81,10 @@ export default function ProgramForm() {
             }
 
             const responseData = await response.json();
-            console.log("Program added successfully:", responseData);
+            const id = responseData.data;
 
-            // 프로그램이 성공적으로 추가되면 추가적인 작업을 수행할 수 있습니다.
+            await uploadProgramThumbnail(id, thumbnail)
+
             alert("프로그램이 성공적으로 추가되었습니다.");
 
         } catch (error) {
@@ -174,7 +170,7 @@ export default function ProgramForm() {
                                     <input
                                         id="thumbnail"
                                         type="file"
-                                        onChange={handleFileChange}
+                                        onChange={handleImageChange}
                                         className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
                                     />
                                 </div>

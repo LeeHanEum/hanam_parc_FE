@@ -47,12 +47,17 @@ export default function MainAthletic() {
                                     <img src={item.thumbnail} alt="" className="pb-32"/>
                                     <div className="content p-6" style={{bottom : 0, position:"absolute"}}>
                                         <p className="text-slate-500 mt-3 mb-2 text-xl">{item.name}</p>
-                                        {item.programStatus === "ACCEPTING" ?
-                                            <span className="content px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "rgb(0,128,0)", borderColor : "rgb(0,128,0)"}}>접수중</span>
-                                            :
-                                            <span className="content px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor : "lightgray"}}>
-                                                    {item.programStatus}
-                                                </span>
+                                        {   item.programStatus === "ACCEPTING" ?
+                                            <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(0,128,0)", borderColor: "rgb(0,128,0)"}}>접수중</span>
+                                            : item.programStatus === "COMPLETED" ?
+                                                <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(105,105,105)", borderColor: "rgb(105,105,105)"}}>접수마감</span>
+                                                :
+                                                item.programStatus === "WAITING" ?
+                                                    <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "rgb(255,165,0)", borderColor: "rgb(255,165,0)"}}>접수예정</span>
+                                                    :
+                                                    <span className="content my-1 px-1 py-0.5 rounded-md border-2 text-white font-bold" style={{backgroundColor: "lightgray"}}>
+                                                        {item.programStatus}
+                                                        </span>
                                         }
                                         <p className="text-slate-400 mt-3 text-lg">마감 : {item.applyEnd.slice(0,10)}</p>
                                     </div>

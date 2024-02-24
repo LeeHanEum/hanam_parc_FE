@@ -102,6 +102,7 @@ export default function NewBoard() {
                                             options={categoryOptions}
                                             value={category}
                                             onChange={(e) => setCategory(e)}
+                                            placeholder="카테고리 선택"
                                         />
                                     </div>
 

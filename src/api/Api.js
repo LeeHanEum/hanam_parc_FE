@@ -38,3 +38,23 @@ export const fetchApplicationByProgramId = async (programId) => {
         console.error('Error fetching application by program id:', error);
     }
 }
+
+export const uploadProgramThumbnail = async (programId, thumbnail) => {
+    try {
+        console.log(thumbnail);
+
+        const formData = new FormData();
+        formData.append('image', thumbnail[0]);
+
+        const response = await fetch(`/files/program/${programId}`, {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (!response.ok) {
+            alert('이미지 업로드에 실패했습니다.');
+        }
+    } catch (error) {
+        console.error('Error uploading images:', error);
+    }
+}
