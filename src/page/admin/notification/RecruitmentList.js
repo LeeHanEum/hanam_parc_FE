@@ -56,8 +56,8 @@ export default function RecruitmentList() {
                                         <th className="px-4 py-5 text-center ">번호</th>
                                         <th className="px-3 py-5 text-start">제목</th>
                                         <th className="px-3 py-5 text-center ">작성자</th>
-                                        <th className="px-3 py-5 text-center xs:hidden">작성시각</th>
-                                        <th className="px-3 py-5 text-center xs:hidden">수정시각</th>
+                                        <th className="px-3 py-5 text-center xs:hidden">작성날짜</th>
+                                        <th className="px-3 py-5 text-center xs:hidden">수정날짜</th>
                                         <th className="px-3 py-5 text-center">상세</th>
                                     </tr>
                                     </thead>
@@ -68,8 +68,8 @@ export default function RecruitmentList() {
                                             <td className="p-3 text-center ">{board.id}</td>
                                             <td className="p-3 text-start"><Link to={`/recruitment/${board.id}`}>{board.title}</Link></td>
                                             <td className="p-3 text-center ">{board.writer?.name}</td>
-                                            <td className="p-3 text-center xs:hidden">{board.createdAt}</td>
-                                            <td className="p-3 text-center xs:hidden">{board.updatedAt}</td>
+                                            <td className="p-3 text-center xs:hidden">{board.createdAt.slice(0,10)}</td>
+                                            <td className="p-3 text-center xs:hidden">{board.updatedAt.slice(0,10)}</td>
                                             <td className="p-3 text-center">
                                                 <Link to={`/update-board/${board.id}`} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
                                                 <Link onClick={

@@ -409,3 +409,102 @@ export const board_recuritment = [
         updated_at: '2020-10-03',
     },
 ]
+
+export const sports = [
+    {
+        id : 1,
+        title : "양궁"
+    },
+    {
+        id : 2,
+        title : "육상"
+    },
+    {
+        id : 3,
+        title : "배드민턴"
+    },
+    {
+        id : 4,
+        title : "보치아"
+    },
+    {
+        id : 5,
+        title : "볼링"
+    },
+    {
+        id : 6,
+        title : "사이클"
+    },
+    {
+        id : 7,
+        title : "축구"
+    },
+    {
+        id : 8,
+        title : "골볼"
+    },
+    {
+        id : 9,
+        title : "유도"
+    },
+    {
+        id : 10,
+        title : "론볼"
+    },
+    {
+        id : 11,
+        title : "역도"
+    },
+    {
+        id : 12,
+        title : "사격"
+    },
+    {
+        id : 13,
+        title : "좌식배구"
+    },
+    {
+        id : 14,
+        title : "수영"
+    },
+    {
+        id : 15,
+        title : "탁구"
+    },
+    {
+        id : 16,
+        title : "농구"
+    },
+    {
+        id : 17,
+        title : "휠체어펜싱"
+    },
+    {
+        id : 18,
+        title : "휠체어테니스"
+    },
+    {
+        id : 19,
+        title : "휠체어럭비"
+    },
+    {
+        id : 20,
+        title : "댄스스포츠"
+    },
+    {
+        id : 21,
+        title : "조정"
+    },
+    {
+        id : 22,
+        title : "요트"
+    },
+    {
+        id : 23,
+        title : "파크골프(시범)"
+    },
+    {
+        id : 24,
+        title : "씨름(전시)"
+    }
+    ]

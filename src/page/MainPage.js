@@ -94,8 +94,8 @@ export default function MainPage(){
                     </div>
 
                     <div className="relative mt-8">
-                        {/*<Link to="/greetings" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2">장애인 체육회 소개</Link>*/}
-                        <Link to="/program-list" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-3xl text-start bg-red-500 border-red-600 text-white rounded-md me-2">온라인 신청 접수</Link>
+                        <Link to="/greetings" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2">장애인 체육회 소개</Link>
+                        {/*<Link to="/program-list" className="py-2 px-5 inline-block font-semibold tracking-wide border align-middle duration-500 text-3xl text-start bg-red-500 border-red-600 text-white rounded-md me-2">온라인 신청 접수</Link>*/}
                     </div>
                 </div>
 

@@ -6,13 +6,23 @@ import {Link, useLocation} from "react-router-dom";
 
 export default function UpdateBoard() {
 
-    const [toggle, setToggle] = useState(true)
+    const [toggle, setToggle] = useState(true);
+    const [imageModal, setImageModal] = useState(false);
+    const [fileModal, setFileModal] = useState(false);
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
     const [content, setContent] = useState('');
 
     const location = useLocation();
     const id = location.pathname.split("/")[2];
+
+    const toggleImageModal = () => {
+        setImageModal(!imageModal);
+    }
+
+    const toggleFileModal = () => {
+        setFileModal(!fileModal);
+    }
 
     const categoryOptions = [
         { value: 'ANNOUNCEMENT', label: '공지사항' },
@@ -45,6 +55,7 @@ export default function UpdateBoard() {
                 setTitle(data.data.title);
                 setContent(data.data.content);
                 setCategory({ value: data.data.boardCategory, label: getCategoryLabel(data.data.boardCategory) });
+
             } else {
                 console.error("Error fetching program:", response.statusText);
             }
@@ -75,7 +86,7 @@ export default function UpdateBoard() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            alert('게시글이 등록되었습니다.')
+            alert('게시글이 성공적으로 수정되었습니다.')
 
 
         } catch (error) {
@@ -83,6 +94,8 @@ export default function UpdateBoard() {
             // Handle errors or display an error message to the user
         }
     }
+
+
 
     return (
         <>
@@ -94,7 +107,7 @@ export default function UpdateBoard() {
                     <div className="container relative flex justify-center mt-32">
                         <div className="w-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md p-8">
                             <div className="lg:col-span-6 md:col-span-6">
-                                <h5 className="my-6 text-xl font-semibold">새 글 쓰기</h5>
+                                <h5 className="my-6 text-xl font-semibold">글 수정하기</h5>
                                 <div className="grid grid-cols-1">
 
                                     <div className="mb-4 w-40">
@@ -124,6 +137,13 @@ export default function UpdateBoard() {
                                         />
                                     </div>
 
+                                    <div className="mb-4 mt-4">
+                                        <button onClick={toggleImageModal} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center rounded-md me-2">
+                                            {imageModal ? "취소" : "첨부 이미지 변경 (기존 이미지 삭제됨)"}
+                                        </button>
+                                    </div>
+
+                                    {imageModal && (
                                     <div className="mb-4">
                                         <label className="font-semibold block" htmlFor="image">
                                             이미지 첨부 :
@@ -135,7 +155,15 @@ export default function UpdateBoard() {
                                             className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
                                         />
                                     </div>
+                                    )}
 
+                                    <div className="mb-4 mt-4">
+                                        <button onClick={toggleFileModal} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center rounded-md me-2">
+                                            {fileModal ? "취소" : "첨부 파일 변경 (기존 파일 삭제됨)"}
+                                        </button>
+                                    </div>
+
+                                    {fileModal && (
                                     <div className="mb-4">
                                         <label className="font-semibold block" htmlFor="file">
                                             파일 첨부 :
@@ -147,6 +175,7 @@ export default function UpdateBoard() {
                                             className="form-input mt-3 w-[400px] py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
                                         />
                                     </div>
+                                    )}
                                 </div>
 
                             </div>
