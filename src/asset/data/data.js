@@ -556,3 +556,163 @@ export const studentSports = [
         title : "실내조정(시범)"
     }
     ]
+export const GyonggiSports = [
+    {
+        id : 1,
+        title : "육상"
+    },
+    {
+        id : 2,
+        title : "축구"
+    },
+    {
+        id : 3,
+        title : "테니스"
+    },
+    {
+        id : 4,
+        title : "탁구"
+    },
+    {
+        id : 5,
+        title : "배드민턴"
+    },
+    {
+        id : 6,
+        title : "농구"
+    },
+    {
+        id : 7,
+        title : "볼링"
+    },
+    {
+        id : 8,
+        title : "수영"
+    },
+    {
+        id : 9,
+        title : "역도"
+    },
+    {
+        id : 10,
+        title : "게이트볼"
+    },
+    {
+        id : 11,
+        title : "당구"
+    },
+    {
+        id : 12,
+        title : "댄스스포츠"
+    },
+    {
+        id : 13,
+        title : "파크골프"
+    },
+    {
+        id : 14,
+        title : "론볼"
+    },
+    {
+        id : 15,
+        title : "보치아"
+    },
+    {
+        id : 16,
+        title : "조정"
+    },
+    {
+        id : 17,
+        title : "e-스포츠"
+    },
+    {
+        id : 18,
+        title : "실내조정(시범)"
+    }
+    ]
+
+// 생활체육 : 탁구, 농구, 태권도, 게이트볼, 당구, 족구, 댄스스포츠, 파크골프, 론볼, 보치아, 조정
+// 명랑운동회 : 단체줄넘기, 디스크골프, 슐런, 쇼다운, 윷놀이, 투호, 한궁, 훌라후프, 휠체어경주
+
+export const lifeSports = [
+    {
+        id : 1,
+        title : "탁구"
+    },
+    {
+        id : 2,
+        title : "농구"
+    },
+    {
+        id : 3,
+        title : "태권도"
+    },
+    {
+        id : 4,
+        title : "게이트볼"
+    },
+    {
+        id : 5,
+        title : "당구"
+    },
+    {
+        id : 6,
+        title : "족구"
+    },
+    {
+        id : 7,
+        title : "댄스스포츠"
+    },
+    {
+        id : 8,
+        title : "파크골프"
+    },
+    {
+        id : 9,
+        title : "론볼"
+    },
+    {
+        id : 10,
+        title : "보치아"
+    },
+    {
+        id : 11,
+        title : "조정"
+    },
+    {
+        id : 12,
+        title : "디스크골프"
+    },
+    {
+        id : 13,
+        title : "슐런"
+    },
+    {
+        id : 14,
+        title : "쇼다운"
+    },
+    {
+        id : 15,
+        title : "윷놀이"
+    },
+    {
+        id : 16,
+        title : "투호"
+    },
+    {
+        id : 17,
+        title : "한궁"
+    },
+    {
+        id : 18,
+        title : "훌라후프"
+    },
+    {
+        id : 19,
+        title : "휠체어경주"
+    },
+    {
+        id : 20,
+        title : "단체줄넘기"
+    }
+    ]

@@ -30,6 +30,7 @@ export default function National() {
                     <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
                         <div className="lg:col-span-6 md:col-span-6">
                             <img src={nationalImg} className="shadow w-full rounded-md" alt="" />
+                            <p className="text-xs text-gray-400 mt-1">출처:대한장애인체육회(역대대회)</p>
                         </div>
 
                         <div className="lg:col-span-6 md:col-span-6">

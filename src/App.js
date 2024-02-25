@@ -50,6 +50,8 @@ import UpdateBoard from "./page/admin/notification/UpdateBoard";
 import National from "./page/competitionInfo/National";
 import Winter from "./page/competitionInfo/Winter";
 import Student from "./page/competitionInfo/Student";
+import Gyonggi from "./page/competitionInfo/Gyonggi";
+import Life from "./page/competitionInfo/Life";
 
 export default function App() {
     return (
@@ -107,6 +109,8 @@ export default function App() {
                     <Route path="/national" element={<National />} />
                     <Route path="/winter" element={<Winter />} />
                     <Route path="/student" element={<Student />} />
+                    <Route path="/gyonggi" element={<Gyonggi />} />
+                    <Route path="/life" element={<Life />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

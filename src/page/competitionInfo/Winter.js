@@ -27,6 +27,7 @@ export default function Winter() {
                     <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
                         <div className="lg:col-span-6 md:col-span-6">
                             <img src={winter} className="shadow w-full rounded-md" alt="" />
+                            <p className="text-xs text-gray-400 mt-1">출처:대한장애인체육회(역대대회)</p>
                         </div>
 
                         <div className="lg:col-span-6 md:col-span-6">
@@ -36,7 +37,7 @@ export default function Winter() {
                                 <p className="text-slate-500 max-w-xl m-3">동계스포츠에 대한 장애인 참여인구가 증가함에 따라 동계체육대회를 개최하게 되었다. 전국장애인동계체육대회를 통해 급변하는 국제 동계장애인스포츠에 능동적으로 대처하고 동계장애인 올림픽대회를 대비해 우수 선수와 신인 선수를 발굴, 육성코자 한다.</p>
 
                                 <p className="text-slate-500 max-w-xl m-3">
-                                    아가 2014년 동게올림픽대회를 유치할 수 있는 범국민적 분위기를 조성하고 장애인 동계스포츠에 대한 대국민 인식개선을 실현코자 한다.
+                                    나아가 2014년 동게올림픽대회를 유치할 수 있는 범국민적 분위기를 조성하고 장애인 동계스포츠에 대한 대국민 인식개선을 실현코자 한다.
                                 </p>
 
                             </div>
