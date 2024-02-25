@@ -164,7 +164,7 @@ export default function Navbar(props) {
                             <Link to="#!">대회 정보</Link><span className="menu-arrow xs:hidden"></span>
                             <ul className="submenu">
                                 <li><Link to="/national">전국 장애인 체육대회</Link></li>
-                                <li><Link>전국 장애인 동계 체육대회</Link></li>
+                                <li><Link to="/winter">전국 장애인 동계 체육대회</Link></li>
                                 <li><Link>전국 장애 학생 체육대회</Link></li>
                                 <li><Link>경기도 장애인 체육대회</Link></li>
                                 <li><Link>경기도 장애인 생활 체육대회</Link></li>

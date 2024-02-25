@@ -48,6 +48,7 @@ import QnaAnswer from "./page/admin/notification/QnaAnswer";
 import QnADetails from "./page/notification/QnADetails";
 import UpdateBoard from "./page/admin/notification/UpdateBoard";
 import National from "./page/competitionInfo/National";
+import Winter from "./page/competitionInfo/Winter";
 
 export default function App() {
     return (
@@ -103,6 +104,7 @@ export default function App() {
                     <Route path={"/qna/:id"} element={<QnADetails />} />
                     <Route path={"/update-board/:id"} element={<UpdateBoard/>} />
                     <Route path="/national" element={<National />} />
+                    <Route path="/winter" element={<Winter />} />
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

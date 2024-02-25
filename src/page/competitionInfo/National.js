@@ -5,8 +5,6 @@ import SubFooter from "../../components/SubFooter";
 import join_soccer from "../../asset/image/join_soccer.jpg";
 import 'react-vertical-timeline-component/style.min.css';
 import nationalImg from "../../asset/image/전국장애인체육대회.png";
-import mayor from "../../asset/image/mayor.jpg";
-import Purpose from "../../components/Purpose";
 import CompetitionPurpose from "../../components/CompetitionPurpose";
 import {sports} from "../../asset/data/data";
 import {Link} from "react-router-dom";
