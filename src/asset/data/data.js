@@ -508,3 +508,51 @@ export const sports = [
         title : "씨름(전시)"
     }
     ]
+// 골볼, 농구, 배구, 보치아, 수영, 육상, 축구, 탁구, 씨름, e스포츠
+
+export const studentSports = [
+    {
+        id : 1,
+        title : "골볼"
+    },
+    {
+        id : 2,
+        title : "농구"
+    },
+    {
+        id : 3,
+        title : "배구"
+    },
+    {
+        id : 4,
+        title : "보치아"
+    },
+    {
+        id : 5,
+        title : "수영"
+    },
+    {
+        id : 6,
+        title : "육상"
+    },
+    {
+        id : 7,
+        title : "축구"
+    },
+    {
+        id : 8,
+        title : "탁구"
+    },
+    {
+        id : 9,
+        title : "씨름"
+    },
+    {
+        id : 10,
+        title : "e스포츠"
+    },
+    {
+        id : 11,
+        title : "실내조정(시범)"
+    }
+    ]
