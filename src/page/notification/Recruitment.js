@@ -72,7 +72,7 @@ export default function Recruitment() {
                                     return (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={index}>
                                             <td className="xs:px-2 p-4 xs:hidden"><Link className="flex items-center"><LiaClipboardListSolid className="me-1"/> {data.id}</Link></td>
-                                            <td className="xs:px-2 p-4"><Link className="flex items-center">{data.title}</Link></td>
+                                            <td className="xs:px-2 p-4"><Link to={`/recruitment/${data.id}`} className="flex items-center">{data.title}</Link></td>
                                             <td className="xs:px-2 p-4 text-end">{data.writer?.name}</td>
                                             <td className="xs:px-2 p-4 text-end">{data.createdAt.slice(0,10)}</td>
                                         </tr>
