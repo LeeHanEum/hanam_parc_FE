@@ -12,6 +12,7 @@ export default function UpdateBoard() {
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
     const [content, setContent] = useState('');
+    const [images, setImages] = useState([]); // 이미지 파일 상태 추가
 
     const location = useLocation();
     const id = location.pathname.split("/")[2];
@@ -86,6 +87,10 @@ export default function UpdateBoard() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
+            if (images.length > 0) {
+                await uploadImages(id);
+            }
+
             alert('게시글이 성공적으로 수정되었습니다.')
 
 
@@ -95,7 +100,42 @@ export default function UpdateBoard() {
         }
     }
 
+    const deleteImages = async (boardId) => {
+        try {
+            const response = await fetch(`/files/${boardId}`, {
+                method: 'DELETE',
+            });
 
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+        } catch (error) {
+            console.error('Error deleting images:', error);
+        }
+    }
+
+    const uploadImages = async (boardId) => {
+        try {
+            await deleteImages(boardId);
+
+            for (let i = 0; i < images.length; i++) {
+                const formData = new FormData();
+                formData.append('image', images[i]);
+
+                const response = await fetch(`/files/${boardId}`, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    alert('이미지 업로드에 실패했습니다.');
+                }
+            }
+        } catch (error) {
+            console.error('Error uploading images:', error);
+        }
+    }
 
     return (
         <>
