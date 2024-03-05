@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import CountUp from 'react-countup';
 import AuthContext from "../auth/AuthContext";
 import mainPhoto from "../asset/image/mainWheelchair.jpeg";
+import Loding from "../components/Loding";
 
 const MainNotification = React.lazy(() => import('../components/MainNotification'));
 const MainAthletic = React.lazy(() => import('../components/MainAthletic'));
@@ -97,7 +98,7 @@ export default function MainPage(){
                 </div>
             </section>
 
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loding />}>
 
             {/*<MainPopUp />*/}
 

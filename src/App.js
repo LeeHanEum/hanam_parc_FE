@@ -4,57 +4,8 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import { lazy, Suspense } from 'react';
 
 import MainPage from "./page/MainPage";
-// import AuthLogin from "./components/AuthLogin";
-// import AuthSignup from "./components/AuthSignup";
-// import AuthRePassword from "./components/AuthRePassword";
-// import Announcement from "./page/notification/Announcement";
-// import QnA from "./page/notification/QnA";
-// import Recruitment from "./page/notification/Recruitment";
-// import Management from "./page/notification/Management";
-// import PageComingsoon from "./page/pageComingsoon";
-// import EventSchedule from "./page/notification/EventSchedule";
-// import Greetings from "./page/introduction/Greetings";
-// import Establishment from "./page/introduction/Establishment";
-// import Affiliate from "./page/affiliate/Affiliate";
-// import ProgramList from "./page/athleticService/onlineReceiption/ProgramList";
-// import Programs from "./page/admin/program/Programs";
-// import ProgramDetails from "./page/athleticService/onlineReceiption/ProgramDetails";
-// import AuthProvider from "./auth/AuthProvider";
-// import Home from "./page/admin/Home";
-// import MemberList from "./page/admin/member/MemberList";
-// import AnnouncementList from "./page/admin/notification/AnnouncementList";
-// import QnAList from "./page/admin/notification/QnAList";
-// import RecruitmentList from "./page/admin/notification/RecruitmentList";
-// import ManagementList from "./page/admin/notification/ManagementList";
-// import ApplicationList from "./page/admin/program/ApplicationList";
-// import ProgramForm from "./page/admin/program/ProgramForm";
-// import EventScheduleList from "./page/notification/EventScheduleList";
-// import Executives from "./page/introduction/Executives";
-// import Employee from "./page/introduction/Employee";
-// import Business from "./page/introduction/Business";
-// import VisitingService from "./page/athleticService/VisitingService";
-// import CurrentTeacher from "./page/athleticService/CurrentTeacher";
-// import AthleticPrograms from "./page/athleticService/AthleticPrograms";
-// import NotificationDetails from "./page/notification/NotificationDetails";
-// import MyHome from "./page/myPage/MyHome";
-// import MyInfo from "./page/myPage/MyInfo";
-// import MyApplication from "./page/myPage/MyApplication";
-// import MyQna from "./page/myPage/MyQna";
-// import MyApplicationDetails from "./page/myPage/MyApplicationDetails";
-// import PopUpForm from "./page/admin/popup/PopUpForm";
-// import PopUpList from "./page/admin/popup/PopUpList";
-// import NewBoard from "./page/admin/notification/NewBoard";
-// import UpdateProgram from "./page/admin/program/UpdateProgram";
-// import NewQnA from "./page/notification/NewQnA";
-// import QnaAnswer from "./page/admin/notification/QnaAnswer";
-// import QnADetails from "./page/notification/QnADetails";
-// import UpdateBoard from "./page/admin/notification/UpdateBoard";
-// import National from "./page/competitionInfo/National";
-// import Winter from "./page/competitionInfo/Winter";
-// import Student from "./page/competitionInfo/Student";
-// import Gyonggi from "./page/competitionInfo/Gyonggi";
-// import Life from "./page/competitionInfo/Life";
-// const MainPage = lazy(() => import('./page/MainPage'));
+import Loding from "./components/Loding";
+
 const AuthLogin = lazy(() => import('./components/AuthLogin'));
 const AuthSignup = lazy(() => import('./components/AuthSignup'));
 const AuthRePassword = lazy(() => import('./components/AuthRePassword'));
@@ -111,7 +62,7 @@ export default function App() {
 
         <AuthProvider>
             <BrowserRouter>
-                <Suspense fallback={<div>...loding</div>}>
+                <Suspense fallback={<Loding />}>
                 <Routes>
                     <Route path="/" element={<MainPage />} />
                     <Route path="/login" element={<AuthLogin />} />
