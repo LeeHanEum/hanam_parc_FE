@@ -18,7 +18,7 @@ export default function PopUpList() {
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchPopoup();
-    }, []);
+    }, [page,size]);
 
     const fetchPopoup = async () => {
         try {

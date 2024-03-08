@@ -7,6 +7,7 @@ import CountUp from 'react-countup';
 import AuthContext from "../auth/AuthContext";
 import mainPhoto from "../asset/image/mainWheelchair.jpeg";
 import Loding from "../components/Loding";
+import MainPopUp from "../components/MainPopUp";
 
 const MainNotification = React.lazy(() => import('../components/MainNotification'));
 const MainAthletic = React.lazy(() => import('../components/MainAthletic'));
@@ -100,7 +101,7 @@ export default function MainPage(){
 
             <Suspense fallback={<Loding />}>
 
-            {/*<MainPopUp />*/}
+            <MainPopUp />
 
             <MainNotification />
 

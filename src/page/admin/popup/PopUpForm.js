@@ -21,45 +21,6 @@ export default function PopUpForm() {
         setUrl(e.target.files[0]);
     };
 
-    const handleSubmit = async () => {
-        try {
-            const formData = new FormData();
-
-            if (url) {
-                formData.append('url', url);
-            } else {
-                throw new Error('No file selected');
-            }
-
-            formData.append('name', name);
-            formData.append('size', size);
-            formData.append('isShow', isShow.value);
-
-            // Make a POST request using fetch
-            const response = await fetch('/popup', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            alert('팝업이 등록되었습니다.');
-
-            // Reset the form fields after successful submission
-            setName('');
-            setUrl(''); // Reset to an empty string
-            setSize('');
-            setIsShow(false);
-
-            // You can also add any additional logic or redirection here
-        } catch (error) {
-            console.error('Error submitting the form:', error);
-            // Handle errors or display an error message to the user
-        }
-    };
-
     return (
         <>
             <div className={`page-wrapper  ${toggle ? "toggled" : ""}`}>
@@ -67,8 +28,8 @@ export default function PopUpForm() {
                 <main className="page-content bg-gray-50 dark:bg-slate-800 h-full">
                     <Topnav toggle={toggle} setToggle={setToggle} />
 
-                    <div className="flex justify-center mt-32 lg:pt-12 ">
-                        <div className="lg:max-w-768 mx-6 w-full m-auto p-6 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md">
+                    <div className="flex justify-center mt-24">
+                        <div className="w-full h-full m-auto mx-6 px-12 pb-16 pt-5 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md">
                             <h5 className="my-6 text-xl font-semibold">팝업 추가</h5>
                             <form className="text-start">
                                 <div className="grid grid-cols-1">
@@ -132,7 +93,6 @@ export default function PopUpForm() {
 
                                     <div className="mt-8">
                                         <Link
-                                            onClick={handleSubmit}
                                             className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2"
                                         >
                                             팝업 등록하기
