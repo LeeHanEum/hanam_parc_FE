@@ -42,7 +42,6 @@ export default function MainPage(){
                         // 사용자 데이터가 성공적으로 받아와졌을 때 state에 저장
                         setUserData(data.data);
                         context.login({userData: data.data});
-                        console.log('User data fetched:', data.data);
                     } else {
                         // 토큰이 유효하지 않거나 오류가 발생한 경우 로그아웃 또는 다른 처리 수행
                         context.logout();
@@ -101,7 +100,7 @@ export default function MainPage(){
 
             <Suspense fallback={<Loding />}>
 
-            {/*<MainPopUp />*/}
+            <MainPopUp />
 
             <MainNotification />
 

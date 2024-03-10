@@ -108,3 +108,21 @@ export const uploadPopupUrl = async (id, url) => {
         console.error('Error uploading images:', error);
     }
 }
+
+export const deletePopup = async (id) => {
+    try {
+        const response = await fetch(`/popup/delete?id=${id}`, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        alert('팝업이 삭제되었습니다.');
+
+    } catch (error) {
+        console.error('Error deleting the popup:', error);
+    }
+}
+

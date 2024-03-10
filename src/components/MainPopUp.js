@@ -10,16 +10,6 @@ export default function MainPopUp() {
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(3);
 
-    const [modalVisible, setModalVisible] = useState(false);
-
-    const closeModal = () => {
-        setModalVisible(false);
-    }
-
-    const openModal = () => {
-        setModalVisible(true);
-    }
-
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchBoards();
@@ -53,13 +43,7 @@ export default function MainPopUp() {
                         return(
                             <div key={index} className="relative rounded-md shadow dark:shadow-gray-800">
                                 <Link >
-                                    <img src={`${process.env.PUBLIC_URL}/${item.url}`} alt=""/>
-                                    {/*{*/}
-                                    {/*    setModalVisible ?*/}
-                                    {/*        <Modal visible={modalVisible} closable={true} maskClosable={true} onClose={closeModal} url={item.url} size={item.size} />*/}
-                                    {/*        :*/}
-                                    {/*        null*/}
-                                    {/*}*/}
+                                    <img src={item.url} alt=""/>
                                 </Link>
                             </div>
                         )
