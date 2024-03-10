@@ -15,7 +15,7 @@ export default function ProgramList() {
 
     useEffect(() => {
         // 페이지 로딩 시 API 호출
-        fetchBoards();
+        fetchBoards(page, size);
     }, [page, size]);
 
     const fetchBoards = async () => {

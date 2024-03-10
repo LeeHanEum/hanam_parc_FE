@@ -20,7 +20,7 @@ export default function Announcement() {
     useEffect(() => {
         // 페이지 로딩 시 API 호출
         fetchBoards();
-    }, []);
+    }, [page, size]);
 
     const fetchBoards = async () => {
         try {

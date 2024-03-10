@@ -197,9 +197,9 @@ export default function Navbar(props) {
                         <li className="has-submenu parent-parent-menu-item">
                             <Link to="#!">통합 자료실</Link><span className="menu-arrow xs:hidden"></span>
                             <ul className="submenu">
-                                <li><Link to="/page-comming-soon">보도 자료</Link></li>
-                                <li><Link to="/page-comming-soon">멀티미디어 자료실</Link></li>
-                                <li><Link to="/page-comming-soon">문서 자료실</Link></li>
+                                <li><Link to="/news">보도 자료</Link></li>
+                                <li><Link to="/gallery">멀티미디어 자료실</Link></li>
+                                <li><Link to="/docs">문서 자료실</Link></li>
                             </ul>
                         </li>
 

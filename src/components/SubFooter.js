@@ -4,7 +4,7 @@ import logo from '../asset/image/logo.png';
 
 export default function SubFooter() {
     return (
-        <footer className="footer bg-dark-footer relative text-gray-200 dark:text-gray-200">
+        <footer className="footer w-full bg-dark-footer relative text-gray-200 dark:text-gray-200 bottom-0">
             <div className="container relative">
                 <div className="grid grid-cols-12">
                     <div className="col-span-12">

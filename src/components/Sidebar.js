@@ -82,9 +82,9 @@ export default function Sidebar(){
                         <Link to="#" onClick={(e)=>{setSubManu(subManu === "gallery-item" ? "" : "gallery-item")}}><AiOutlineCamera className="me-3 icon"/>자료실 관리</Link>
                         <div className={`sidebar-submenu ${["gallery-one","gallery-two","gallery-item"].includes(subManu)? "block" : ""}`}>
                             <ul>
-                                <li className="text-lg ml-1"><Link to='/'>보도자료</Link></li>
-                                <li className="text-lg"><Link to='/'>멀티미디어 자료실</Link></li>
-                                <li className="text-lg"><Link to='/'>문서 자료실</Link></li>
+                                <li className="text-lg ml-1"><Link to='/admin-news'>보도자료</Link></li>
+                                <li className="text-lg"><Link to='/admin-gallery'>멀티미디어 자료실</Link></li>
+                                <li className="text-lg"><Link to='/admin-docs'>문서 자료실</Link></li>
                             </ul>
                         </div>
                     </li>

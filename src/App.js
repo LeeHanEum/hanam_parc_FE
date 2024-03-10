@@ -56,6 +56,11 @@ const Winter = lazy(() => import('./page/competitionInfo/Winter'));
 const Student = lazy(() => import('./page/competitionInfo/Student'));
 const Gyonggi = lazy(() => import('./page/competitionInfo/Gyonggi'));
 const Life = lazy(() => import('./page/competitionInfo/Life'));
+const Gallerys = lazy(() => import('./page/admin/archive/Gallerys'));
+const GalleryList = lazy(() => import('./page/archive/GalleryList'));
+const NewGallery = lazy(() => import('./page/admin/archive/NewGallery'));
+const GalleryDetails = lazy(() => import('./page/archive/GalleryDetails'));
+
 
 export default function App() {
     return (
@@ -117,6 +122,10 @@ export default function App() {
                     <Route path="/student" element={<Student />} />
                     <Route path="/gyonggi" element={<Gyonggi />} />
                     <Route path="/life" element={<Life />} />
+                    <Route path="/gallery" element={<GalleryList />} />
+                    <Route path="/admin-gallery" element={<Gallerys />} />
+                    <Route path="/new-gallery" element={<NewGallery />} />
+                    <Route path={"/gallery/:id"} element={<GalleryDetails />} />
                 </Routes>
                 </Suspense>
             </BrowserRouter>
