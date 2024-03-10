@@ -101,7 +101,7 @@ export default function MainPage(){
 
             <Suspense fallback={<Loding />}>
 
-            <MainPopUp />
+            {/*<MainPopUp />*/}
 
             <MainNotification />
 
