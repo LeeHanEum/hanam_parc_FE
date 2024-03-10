@@ -15,7 +15,7 @@ export default function MainPopUp() {
 
     const fetchBoards = async () => {
         try {
-            const response = await fetch(`/popup/page?page=${page}&size=${size}`);
+            const response = await fetch(`/popup/isShow?page=${page}&size=${size}`);
             if (response.ok) {
                 const data = await response.json();
                 setPopups(data.data.content);

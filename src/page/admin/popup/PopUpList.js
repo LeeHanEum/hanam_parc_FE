@@ -1,6 +1,5 @@
 import Sidebar from "../../../components/Sidebar";
 import Topnav from "../../../components/Topnav";
-import Select from "react-select";
 import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
@@ -13,7 +12,7 @@ export default function PopUpList() {
     const [popup, setPopup] = useState([]);
 
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(20);
+    const [size, setSize] = useState(9);
     const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
