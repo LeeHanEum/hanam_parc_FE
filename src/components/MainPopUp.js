@@ -1,7 +1,5 @@
-import {course_main} from "../asset/data/data";
 import {Link} from "react-router-dom";
 import React, {useEffect, useState} from "react";
-import Modal from "./Modal";
 
 export default function MainPopUp() {
 
@@ -14,7 +12,6 @@ export default function MainPopUp() {
         // 페이지 로딩 시 API 호출
         fetchBoards();
     }, []);
-
 
     const fetchBoards = async () => {
         try {
@@ -31,6 +28,10 @@ export default function MainPopUp() {
         }
     };
 
+    const onPopup = (url) => {
+        window.open(url, "_blank", "width=800, height=800, top=100, left=100");
+    }
+
     return (
         <section className="relative md:py-24 py-16" >
             <div className="container relative">
@@ -38,12 +39,12 @@ export default function MainPopUp() {
                     <h3 className="mb-4 md:text-3xl md:leading-normal text-3xl leading-normal font-semibold">팝업존</h3>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
+                <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-[30px]">
                     {popups.map((item,index)=>{
                         return(
                             <div key={index} className="relative rounded-md shadow dark:shadow-gray-800">
                                 <Link >
-                                    <img src={item.url} alt=""/>
+                                    <img src={item.url} alt="" onClick={() => onPopup(item.url)}/>
                                 </Link>
                             </div>
                         )
