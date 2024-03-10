@@ -59,11 +59,10 @@ export const uploadProgramThumbnail = async (programId, thumbnail) => {
     }
 }
 
-export const handleSubmitPopup = async (name, size, isShow, url) => {
+export const handleSubmitPopup = async (name, isShow, url) => {
     try {
         const PopupRequestDto = {
             name: name,
-            size: size,
             isShow: isShow.value, // boolean 값으로 변환 처리 하자
         }
 
