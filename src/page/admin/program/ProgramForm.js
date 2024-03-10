@@ -99,8 +99,8 @@ export default function ProgramForm() {
                 <main className="page-content bg-gray-50 dark:bg-slate-800 h-full">
                     <Topnav toggle={toggle} setToggle={setToggle} />
 
-                    <div className="container relative flex justify-center mt-32">
-                        <div className="w-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md p-8">
+                    <div className="flex justify-center mt-24">
+                        <div className="w-full h-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md m-auto mx-6 px-12 pb-16 pt-5">
                             <div className="lg:col-span-6 md:col-span-6">
                                 <h5 className="my-6 text-xl font-semibold">프로그램 추가</h5>
 
