@@ -233,4 +233,16 @@ export const fetchGalleryImages = async (id) => {
     }
 }
 
+export const fetchCurrentMember = async () => {
+    try {
+        const response = await fetch(`/member/current`);
+        if (!response.ok) {
+            alert('회원 정보를 불러오지 못했습니다.');
+        }
+        return await response.json().then(data => data.data);
+    } catch (error) {
+        console.error('Error fetching current member:', error);
+    }
+}
+
 

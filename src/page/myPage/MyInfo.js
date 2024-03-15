@@ -1,22 +1,48 @@
 import Topnav from "../../components/Topnav";
 import { Link } from "react-router-dom";
 import Select from "react-select";
-import React, { useContext, useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
 import MySidebar from "../../components/MySidebar";
 import authContext from "../../auth/AuthContext";
+import {fetchCurrentMember} from "../../api/Api";
 
 export default function MyInfo() {
     const [toggle, setToggle] = useState(true);
     const context = useContext(authContext);
 
-    const [phone, setPhone] = useState(context.user?.phone || '');
-    const [location, setLocation] = useState(context.user?.address || '');
-    const [email, setEmail] = useState(context.user?.email || '');
-    const [guardianName, setGuardianName] = useState(context.user?.guardianName || '');
-    const [guardianPhone, setGuardianPhone] = useState(context.user?.guardianPhone || '');
-    const [birth, setBirth] = useState(context.user?.birth || '');
-    const [gender, setGender] = useState(String(context.user?.gender) || '');
-    const [disabilityType, setDisabilityType] = useState(String(context.user?.disabilityType) || '');
+    const [user , setUser] = useState({});
+    const [id, setId] = useState('');
+    const [name, setName] = useState('');
+    const [memberRole, setMemberRole] = useState('');
+    const [memberStatus, setMemberStatus] = useState('');
+    const [phone, setPhone] = useState('');
+    const [location, setLocation] = useState('');
+    const [email, setEmail] = useState('');
+    const [guardianName, setGuardianName] = useState('');
+    const [guardianPhone, setGuardianPhone] = useState('');
+    const [birth, setBirth] = useState('');
+    const [gender, setGender] = useState('');
+    const [disabilityType, setDisabilityType] = useState('');
+
+    useEffect (() => {
+        const data = fetchCurrentMember();
+        data.then((res) => {
+            setUser(res);
+            setId(res.id);
+            setName(res.name);
+            setMemberRole(res.memberRole);
+            setMemberStatus(res.memberStatus);
+            setPhone(res.phone);
+            setLocation(res.address);
+            setEmail(res.email);
+            setGuardianName(res.guardianName);
+            setGuardianPhone(res.guardianPhone);
+            setBirth(res.birth);
+            setGender(res.gender);
+            setDisabilityType(res.disabilityType);
+        });
+    },[]);
+
 
     const genderOptions = [
         { value: 'NULL', label: '선택하세요' },
@@ -38,19 +64,27 @@ export default function MyInfo() {
     ]
 
     const updateMember = async () => {
-        const memberRequestDto = {
-            name: context.user?.name,
+
+        let memberRequestDto = {
+            name: name,
             gender: gender.value, // Use gender.value to get the selected value
             phone,
             address: location,
             email,
             guardianName,
             guardianPhone,
-            memberRole: context.user?.memberRole,
-            memberStatus: context.user?.memberStatus,
+            memberRole: memberRole.value,
+            memberStatus: memberStatus.value,
             disabilityType: disabilityType.value,  // Use disabilityType.value to get the selected value
             birth,
         };
+
+        if (memberRequestDto.gender == null) {
+            memberRequestDto.gender = user.gender;
+        }
+        if (memberRequestDto.disabilityType == null) {
+            memberRequestDto.disabilityType = user.disabilityType;
+        }
 
         try {
             console.log("Member update request:", memberRequestDto);
@@ -63,10 +97,8 @@ export default function MyInfo() {
             });
 
             if (response.ok) {
-                const data = await response.json();
-                console.log("Member updated successfully:", data);
-                // Update any necessary state or perform actions after a successful update
                 alert("회원 정보가 수정되었습니다.");
+                window.location.href = "/";
             } else {
                 console.error("Error updating member:", response.statusText);
             }
@@ -90,21 +122,21 @@ export default function MyInfo() {
 
                                 <div className="mb-4">
                                     <label className="font-semibold mr-2" htmlFor="id">아이디 :</label>
-                                    <input id="id" type="text" className="form-input mt-3 py-2 w-full px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.id} readOnly />
+                                    <input id="id" type="text" className="form-input mt-3 py-2 w-full px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={id} readOnly />
                                 </div>
 
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="name">이름 :</label>
-                                    <input id="name" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.name} readOnly />
+                                    <input id="name" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={name} readOnly />
                                 </div>
 
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="gender">성별 :</label>
                                     <Select
                                         id="gender"
-                                        className="my-3"
+                                        className="my-3 border border-gray-200 rounded-md px-2"
                                         options={genderOptions}
-                                        value={gender}
+                                        value={genderOptions.find(option => option.value === gender)}
                                         onChange={(selectedOption) => setGender(selectedOption)}
                                     />
                                 </div>
@@ -116,7 +148,7 @@ export default function MyInfo() {
 
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="location">주소 :</label>
-                                    <Link className="mx-4 py-0.5 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center border-green-600 text-green-600 rounded-md me-2 text-sm">주소찾기</Link>
+                                    {/*<Link className="mx-4 py-0.5 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center border-green-600 text-green-600 rounded-md me-2 text-sm">주소찾기</Link>*/}
                                     <input id="location" type="address"
                                            className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
                                            value={location}
@@ -162,21 +194,22 @@ export default function MyInfo() {
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="memberRole">권한 :</label>
                                     <input id="memberRole" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
-                                           value={context.user?.memberRole}
+                                           value={memberRole}
                                     />
                                 </div>
 
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="memberStatus">상태 :</label>
-                                    <input id="memberStatus" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={context.user?.memberStatus} />
+                                    <input id="memberStatus" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={memberStatus} />
                                 </div>
 
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="disabilityType">장애 유형 :</label>
                                     <Select
                                         id="disability_type"
+                                        className="my-3 border border-gray-200 rounded-md px-2"
                                         options={disabilityTypeOptions}
-                                        value={disabilityTypeOptions.label}
+                                        value={disabilityTypeOptions.find(option => option.value === disabilityType)}
                                         onChange={(selectedOption) => setDisabilityType(selectedOption)}
                                     />
                                 </div>
@@ -187,7 +220,7 @@ export default function MyInfo() {
                                 </div>
 
                                 <div className="mt-12">
-                                    <Link to="#" onClick={() => updateMember()} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">내 정보 수정 완료하기</Link>
+                                    <Link onClick={() => updateMember()} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">내 정보 수정 완료하기</Link>
                                 </div>
                             </div>
                         </div>
@@ -196,4 +229,4 @@ export default function MyInfo() {
             </div>
         </>
     );
-}
+};

@@ -34,7 +34,7 @@ export default function MySidebar(){
                 <SimpleBarReact style={{height:"calc(100% - 70px)"}}>
                     <ul className="sidebar-menu border-t border-white/10">
                         <li className={`text-xl px-1 my-5 ${["" ,"index","index-crypto",].includes(manu)? "active" : ""}`}>
-                            <Link to="my-home" ><AiOutlineLineChart className=" me-3 icon "/>대시보드</Link>
+                            <Link to="/my-home" ><AiOutlineLineChart className=" me-3 icon "/>대시보드</Link>
                         </li>
 
                         <li className={`text-xl my-5 ${["profile","profile-billing","profile-payment","profile-social","profile-notification","profile-setting"].includes(manu)? "active" : ""}`}>
