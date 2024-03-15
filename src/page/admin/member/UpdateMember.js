@@ -81,13 +81,13 @@ export default function UpdateMember() {
 
         let memberRequestDto = {
             name: name,
-            gender: gender.value, // Use gender.value to get the selected value
+            gender: gender?.value, // Use gender.value to get the selected value
             phone,
             address: location,
             email,
             guardianName,
             guardianPhone,
-            disabilityType: disabilityType.value,
+            disabilityType: disabilityType?.value,
             memberStatus: memberStatus.value,
             memberRole: memberRole.value,
             birth,
