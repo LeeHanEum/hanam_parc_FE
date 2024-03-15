@@ -245,4 +245,15 @@ export const fetchCurrentMember = async () => {
     }
 }
 
+export const fetchMemberById = async (id) => {
+    try {
+        const response = await fetch(`/member?id=${id}`);
+        if (!response.ok) {
+            alert('회원 정보를 불러오지 못했습니다.');
+        }
+        return await response.json().then(data => data.data);
+    } catch (error) {
+        console.error('Error fetching member by id:', error);
+    }
+}
 

@@ -60,6 +60,7 @@ const Gallerys = lazy(() => import('./page/admin/archive/Gallerys'));
 const GalleryList = lazy(() => import('./page/archive/GalleryList'));
 const NewGallery = lazy(() => import('./page/admin/archive/NewGallery'));
 const GalleryDetails = lazy(() => import('./page/archive/GalleryDetails'));
+const UpdateMember = lazy(() => import('./page/admin/member/UpdateMember'));
 
 
 export default function App() {
@@ -126,6 +127,7 @@ export default function App() {
                     <Route path="/admin-gallery" element={<Gallerys />} />
                     <Route path="/new-gallery" element={<NewGallery />} />
                     <Route path={"/gallery/:id"} element={<GalleryDetails />} />
+                    <Route path={"/admin-update-member/:id"} element={<UpdateMember />} />
                 </Routes>
                 </Suspense>
             </BrowserRouter>

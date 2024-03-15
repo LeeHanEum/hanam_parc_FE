@@ -45,12 +45,7 @@ export default function Sidebar(){
                     </li>
 
                     <li className={`text-xl my-5 sidebar-dropdown ${["profile","profile-billing","profile-payment","profile-social","profile-notification","profile-setting"].includes(manu)? "active" : ""}`}>
-                        <Link to="#" onClick={(e)=>{setSubManu(subManu === "profile-item" ? "" : "profile-item")}}><AiOutlineUser className=" me-3 icon "/>회원 관리</Link>
-                        <div className={`sidebar-submenu ${["profile","profile-billing","profile-payment","profile-social","profile-notification","profile-setting","profile-item"].includes(subManu)? "block" : ""}`}>
-                            <ul>
-                                <li className="text-lg"><Link to='/admin-member'>회원 목록</Link></li>
-                            </ul>
-                        </div>
+                        <Link to="/admin-member"><AiOutlineUser className=" me-3 icon "/>회원 관리</Link>
                     </li>
 
                     <li className={`text-xl my-5 sidebar-dropdown ${["chat","email","calendar"].includes(manu)? "active" : ""}`}>

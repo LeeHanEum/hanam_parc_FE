@@ -1,12 +1,11 @@
-import Topnav from "../../components/Topnav";
-import { Link } from "react-router-dom";
+import Topnav from "../../../components/Topnav";
+import {Link, useLocation} from "react-router-dom";
 import Select from "react-select";
-import React, {useContext, useEffect, useState} from "react";
-import MySidebar from "../../components/MySidebar";
-import authContext from "../../auth/AuthContext";
-import {fetchCurrentMember} from "../../api/Api";
+import React, {useEffect, useState} from "react";
+import {fetchMemberById, updateMemberRoleStatus} from "../../../api/Api";
+import Sidebar from "../../../components/Sidebar";
 
-export default function MyInfo() {
+export default function UpdateMember() {
     const [toggle, setToggle] = useState(true);
 
     const [user , setUser] = useState({});
@@ -23,8 +22,12 @@ export default function MyInfo() {
     const [gender, setGender] = useState('');
     const [disabilityType, setDisabilityType] = useState('');
 
+    const page_location = useLocation();
+    const member_id = page_location.pathname.split("/")[2];
+
+
     useEffect (() => {
-        const data = fetchCurrentMember();
+        const data = fetchMemberById(member_id);
         data.then((res) => {
             setUser(res);
             setId(res.id);
@@ -62,6 +65,18 @@ export default function MyInfo() {
         { value: 'NONE', label: '해당없음' }
     ]
 
+    const roleOptions = [
+        { value: 'ADMIN', label: '관리자' },
+        { value: 'USER', label: '사용자' },
+        { value: 'GUEST', label: '손님' }
+    ]
+
+    const statusOptions = [
+        { value: 'ACTIVE', label: '활동계정' },
+        { value: 'BLOCKED', label: '차단계정' },
+        { value: 'DORMANT', label: '휴면계정' }
+    ]
+
     const updateMember = async () => {
 
         let memberRequestDto = {
@@ -72,9 +87,9 @@ export default function MyInfo() {
             email,
             guardianName,
             guardianPhone,
-            memberRole: user.memberRole,
-            memberStatus: user.memberStatus,
             disabilityType: disabilityType.value,
+            memberStatus: memberStatus.value,
+            memberRole: memberRole.value,
             birth,
         };
 
@@ -83,6 +98,12 @@ export default function MyInfo() {
         }
         if (memberRequestDto.disabilityType == null) {
             memberRequestDto.disabilityType = user.disabilityType;
+        }
+        if (memberRequestDto.memberStatus == null) {
+            memberRequestDto.memberStatus = user.memberStatus;
+        }
+        if (memberRequestDto.memberRole == null) {
+            memberRequestDto.memberRole = user.memberRole;
         }
 
         try {
@@ -97,7 +118,7 @@ export default function MyInfo() {
 
             if (response.ok) {
                 alert("회원 정보가 수정되었습니다.");
-                window.location.href = "/";
+                window.location.href = "/admin-member";
             } else {
                 console.error("Error updating member:", response.statusText);
             }
@@ -109,7 +130,7 @@ export default function MyInfo() {
     return (
         <>
             <div className={`page-wrapper ${toggle ? "toggled" : ""}`}>
-                <MySidebar />
+                <Sidebar />
                 <main className="page-content bg-gray-50 dark:bg-slate-800 h-full">
                     <Topnav toggle={toggle} setToggle={setToggle} />
 
@@ -117,7 +138,7 @@ export default function MyInfo() {
                         <div className="w-full h-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md m-auto mx-6 px-12 pb-16 pt-5">
                             <div className="lg:col-span-6 md:col-span-6">
 
-                                <h5 className="my-6 text-xl font-semibold">내 정보 수정하기</h5>
+                                <h5 className="my-6 text-xl font-semibold">회원 정보 수정하기</h5>
 
                                 <div className="mb-4">
                                     <label className="font-semibold mr-2" htmlFor="id">아이디 :</label>
@@ -192,14 +213,24 @@ export default function MyInfo() {
 
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="memberRole">권한 :</label>
-                                    <input id="memberRole" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
-                                           value={memberRole}
+                                    <Select
+                                        id="memberRole"
+                                        className="my-3 border border-gray-200 rounded-md px-2"
+                                        options={roleOptions}
+                                        value={roleOptions.find(option => option.value === memberRole)}
+                                        onChange={(selectedOption) => setMemberRole(selectedOption)}
                                     />
                                 </div>
 
                                 <div className="mb-4">
                                     <label className="font-semibold" htmlFor="memberStatus">상태 :</label>
-                                    <input id="memberStatus" type="text" className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0" value={memberStatus} />
+                                    <Select
+                                        id="memberStatus"
+                                        className="my-3 border border-gray-200 rounded-md px-2"
+                                        options={statusOptions}
+                                        value={statusOptions.find(option => option.value === memberStatus)}
+                                        onChange={(selectedOption) => setMemberStatus(selectedOption)}
+                                    />
                                 </div>
 
                                 <div className="mb-4">
@@ -219,7 +250,7 @@ export default function MyInfo() {
                                 </div>
 
                                 <div className="mt-12">
-                                    <Link onClick={() => updateMember()} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">내 정보 수정 완료하기</Link>
+                                    <Link onClick={() => updateMember()} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">회원 정보 수정 완료하기</Link>
                                 </div>
                             </div>
                         </div>

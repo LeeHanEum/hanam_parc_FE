@@ -12,25 +12,10 @@ export default function MemberList() {
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(15);
     const [totalPages, setTotalPages] = useState(0);
-    const [isUpdate, setIsUpdate] = useState(false);
-    const [memberRole, setMemberRole] = useState("");
-    const [memberStatus, setMemberStatus] = useState("");
-    let [updateId, setUpdateId] = useState(0);
 
     useEffect(() => {
-        // 페이지 로딩 시 API 호출
         fetchMembers();
     }, [page, size]);
-
-    const toggleUpdate = (id) => {
-        if (isUpdate) {
-            setIsUpdate(false);
-            setUpdateId(0);
-        } else {
-            setIsUpdate(true);
-            setUpdateId(id);
-        }
-    }
 
     const fetchMembers = async () => {
         try {
@@ -46,36 +31,6 @@ export default function MemberList() {
             console.error("Error fetching members:", error);
         }
     };
-
-    const handleUpdate = async (member, memberRole, memberStatus) => {
-        try {
-            if (memberRole === "") {
-                memberRole = member.memberRole;
-            }
-            if (memberStatus === "") {
-                memberStatus = member.memberStatus;
-            }
-            const response = await fetch(`/member/role?id=${member.id}&memberRole=${memberRole}&memberStatus=${memberStatus}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    memberRole: memberRole,
-                    memberStatus: memberStatus
-                })
-            });
-            if (response.ok) {
-                alert("사용자 정보가 수정되었습니다.");
-                fetchMembers();
-                setIsUpdate(false);
-            } else {
-                console.error("Error updating member:", response.statusText);
-            }
-        } catch (error) {
-            console.error("Error updating member:", error);
-        }
-    }
 
     return (
         <>
@@ -96,64 +51,24 @@ export default function MemberList() {
                                         <th className="px-3 py-5 text-center xs:hidden">성별</th>
                                         <th className="px-3 py-5 text-center ">생년월일</th>
                                         <th className="px-3 py-5 text-center ">전화번호</th>
-                                        <th className="px-3 py-5 text-center xs:hidden">주소</th>
                                         <th className="px-3 py-5 text-center xs:hidden">이메일</th>
                                         <th className="px-3 py-5 text-center xs:hidden">권한</th>
                                         <th className="px-3 py-5 text-center xs:hidden">상태</th>
-                                        <th className="px-3 py-5 text-center">상세</th>
-
                                     </tr>
                                     </thead>
 
                                     <tbody>
                                     {members.map((member) => (
                                         <tr className="border-t border-gray-100 dark:border-gray-700" key={member.id}>
-                                            <td className="p-3 text-center xs:hidden">{member.id}</td>
-                                            <td className="p-3 text-center">{member.name}</td>
-                                            <td className="p-3 text-center xs:hidden">{member.gender}</td>
-                                            <td className="p-3 text-center">{member.birth}</td>
+                                            <td className="p-3 text-center xs:hidden"><Link to={`/admin-update-member/${member.id}`}>{member.id}</Link></td>
+                                            <td className="p-3 text-center"><Link to={`/admin-update-member/${member.id}`}>{member.name}</Link></td>
+                                            <td className="p-3 text-center xs:hidden">{member.gender == null ? "NULL" : member.gender}</td>
+                                            <td className="p-3 text-center">{member.birth == null ? "NULL" : member.birth}</td>
                                             <td className="p-3 text-center">{member.phone}</td>
-                                            <td className="p-3 text-center xs:hidden">{member.address}</td>
                                             <td className="p-3 text-center xs:hidden">{member.email}</td>
-                                            { isUpdate && updateId === member.id ?
-                                                <>
-                                                    <td className="p-3 text-center xs:hidden">
-                                                        <Select className="w-full"
-                                                                options={[
-                                                                    { value: 'GUEST', label: 'GUEST' },
-                                                                    { value: 'USER', label: 'USER'},
-                                                                    { value: 'ADMIN', label: 'ADMIN'}
-                                                                ]}
-                                                                onChange={(e) => setMemberRole(e.value)}
-                                                                defaultValue={{ value: member.memberRole, label: member.memberRole }}
-                                                        />
-                                                    </td>
-                                                    <td className="p-3 text-center xs:hidden">
-                                                        <Select className="w-full"
-                                                                options={[
-                                                                    { value: 'ACTIVE', label: 'ACTIVE' },
-                                                                    { value: 'DORMANT', label: 'DORMANT'},
-                                                                    { value: 'BLOCKED', label: 'BLOCKED'}
-                                                                ]}
-                                                                onChange={(e) => setMemberStatus(e.value)}
-                                                                defaultValue={{ value: member.memberStatus, label: member.memberStatus }}
-                                                        />
-                                                    </td>
-                                                </>
-                                            :
+                                            <td className="p-3 text-center xs:hidden">{member.memberRole}</td>
+                                            <td className="p-3 text-center xs:hidden">{member.memberStatus}</td>
 
-                                                <>
-                                                <td className="p-3 text-center xs:hidden">{member.memberRole}</td>
-                                                <td className="p-3 text-center xs:hidden">{member.memberStatus}</td>
-                                                 </>
-                                            }
-                                            <td className="p-3 text-center">
-                                                { isUpdate && updateId === member.id ?
-                                                    <Link onClick={() => handleUpdate(member, memberRole, memberStatus)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">저장</Link>
-                                                    :
-                                                    <Link onClick={() => toggleUpdate(member.id)} className="py-1 px-1 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2">수정</Link>
-                                                }
-                                            </td>
                                         </tr>
                                     ))}
                                     </tbody>
