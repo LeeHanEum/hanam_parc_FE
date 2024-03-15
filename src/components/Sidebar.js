@@ -41,7 +41,7 @@ export default function Sidebar(){
             <SimpleBarReact style={{height:"calc(100% - 70px)"}}> 
                 <ul className="sidebar-menu border-t border-white/10">
                     <li className={`text-xl px-1 my-5 ${["" ,"index","index-crypto",].includes(manu)? "active" : ""}`}>
-                        <Link to="#" onClick={(e)=>{setSubManu(subManu === "dashboard-item" ? "" : "dashboard-item")}}><AiOutlineLineChart className=" me-3 icon "/>대시보드</Link>
+                        <Link to="/admin-home"><AiOutlineLineChart className=" me-3 icon "/>대시보드</Link>
                     </li>
 
                     <li className={`text-xl my-5 sidebar-dropdown ${["profile","profile-billing","profile-payment","profile-social","profile-notification","profile-setting"].includes(manu)? "active" : ""}`}>
