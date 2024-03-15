@@ -124,16 +124,14 @@ export default function UpdateProgram() {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            await response.json();
+            alert("프로그램이 수정되었습니다.");
+
             if (thumbnailModal) {
                 const imgRes = await uploadProgramThumbnail(id, thumbnail);
                 if (!imgRes.ok) {
                     alert("이미지 업로드에 실패했습니다.");
                 }
             }
-
-            // 프로그램이 성공적으로 추가되면 추가적인 작업을 수행할 수 있습니다.
-            alert("프로그램을 성공적으로 수정하였습니다.");
 
         } catch (error) {
             console.error("Error adding program:", error.message);

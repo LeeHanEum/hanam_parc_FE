@@ -6,7 +6,7 @@ export default function MainPopUp() {
     const [popups, setPopups] = useState([]);
 
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(3);
+    const [size, setSize] = useState(4);
 
     useEffect(() => {
         // 페이지 로딩 시 API 호출

@@ -19,74 +19,28 @@ export default function MyInfo() {
     const [disabilityType, setDisabilityType] = useState(String(context.user?.disabilityType) || '');
 
     const genderOptions = [
-        { value: '0', label: '선택하세요' },
-        { value: '1', label: "남성" },
-        { value: '2', label: "여성" },
+        { value: 'NULL', label: '선택하세요' },
+        { value: 'MEN', label: "남성" },
+        { value: 'WOMEN', label: "여성" },
     ]
 
     const disabilityTypeOptions = [
-        { value: '0', label: '선택하세요' },
-        { value: '1', label: '시각장애' },
-        { value: '2', label: '청각장애' },
-        { value: '3', label: '언어장애' },
-        { value: '4', label: '지체장애' },
-        { value: '5', label: '지적장애' },
-        { value: '6', label: '정신장애' },
-        { value: '7', label: '복합장애' },
-        { value: '8', label: '기타' },
-        { value: '9', label: '해당없음' }
+        { value: 'NULL', label: '선택하세요' },
+        { value: 'BLIND', label: '시각장애' },
+        { value: 'DEAF', label: '청각장애' },
+        { value: 'MUTE', label: '언어장애' },
+        { value: 'PHYSICAL', label: '지체장애' },
+        { value: 'INTELLECTUAL', label: '지적장애' },
+        { value: 'MENTAL', label: '정신장애' },
+        { value: 'MULTIPLE', label: '복합장애' },
+        { value: 'ETC', label: '기타' },
+        { value: 'NONE', label: '해당없음' }
     ]
-
-    const genderToEnum = (value) => {
-        switch (value) {
-            case 1: return "MEN";
-            case 2: return "WOMEN";
-            default: return null;
-        }
-    }
-
-    const EnumToGender = (value) => {
-        switch (value) {
-            case "MEN": return 1;
-            case "WOMEN": return 2;
-            default: return 0;
-        }
-    }
-
-    const disabilityTypeToEnum = (value) => {
-        switch (value) {
-            case 1: return "VISUAL";
-            case 2: return "DEAF";
-            case 3: return "MUTE";
-            case 4: return "PHYSICAL";
-            case 5: return "INTELLECTUAL";
-            case 6: return "MENTAL";
-            case 7: return "COMPLEX";
-            case 8: return "ETC";
-            case 9: return "NONE";
-            default: return null;
-        }
-    }
-
-    const EnumToDisabilityType = (value) => {
-        switch (value) {
-            case "VISUAL": return 1;
-            case "DEAF": return 2;
-            case "MUTE": return 3;
-            case "PHYSICAL": return 4;
-            case "INTELLECTUAL": return 5;
-            case "MENTAL": return 6;
-            case "COMPLEX": return 7;
-            case "ETC": return 8;
-            case "NONE": return 9;
-            default: return 0;
-        }
-    }
 
     const updateMember = async () => {
         const memberRequestDto = {
             name: context.user?.name,
-            gender: genderToEnum(gender.value),  // Use gender.value to get the selected value
+            gender: gender.value, // Use gender.value to get the selected value
             phone,
             address: location,
             email,
@@ -94,7 +48,7 @@ export default function MyInfo() {
             guardianPhone,
             memberRole: context.user?.memberRole,
             memberStatus: context.user?.memberStatus,
-            disabilityType: disabilityTypeToEnum(disabilityType.value),  // Use disabilityType.value to get the selected value
+            disabilityType: disabilityType.value,  // Use disabilityType.value to get the selected value
             birth,
         };
 
@@ -128,8 +82,8 @@ export default function MyInfo() {
                 <main className="page-content bg-gray-50 dark:bg-slate-800 h-full">
                     <Topnav toggle={toggle} setToggle={setToggle} />
 
-                    <div className="container relative flex justify-center mt-32">
-                        <div className="w-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md p-8">
+                    <div className="flex justify-center mt-32">
+                        <div className="w-full h-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md m-auto mx-6 px-12 pb-16 pt-5">
                             <div className="lg:col-span-6 md:col-span-6">
 
                                 <h5 className="my-6 text-xl font-semibold">내 정보 수정하기</h5>
@@ -150,7 +104,7 @@ export default function MyInfo() {
                                         id="gender"
                                         className="my-3"
                                         options={genderOptions}
-                                        value={genderOptions.find(option => option.value === gender)}
+                                        value={gender}
                                         onChange={(selectedOption) => setGender(selectedOption)}
                                     />
                                 </div>
@@ -222,7 +176,7 @@ export default function MyInfo() {
                                     <Select
                                         id="disability_type"
                                         options={disabilityTypeOptions}
-                                        value={disabilityTypeOptions.find(option => option.value === disabilityType)}
+                                        value={disabilityTypeOptions.label}
                                         onChange={(selectedOption) => setDisabilityType(selectedOption)}
                                     />
                                 </div>
