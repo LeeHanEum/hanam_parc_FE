@@ -16,6 +16,8 @@ import {
 
 import "../assets/css/dashboard.css";
 import {LiaFileInvoiceDollarSolid} from "react-icons/lia";
+import {FaHome} from "react-icons/fa";
+import {User} from "feather-icons-react";
 
 export default function Sidebar(){
     const [manu , setManu] = useState('');
@@ -38,7 +40,7 @@ export default function Sidebar(){
                 <div className="sidebar-brand">
                     <Link to="/"><img src={logo} width="80%" alt="" className="m-auto align-middle"/></Link>
                 </div>
-            <SimpleBarReact style={{height:"calc(100% - 70px)"}}> 
+            <SimpleBarReact style={{height:"calc(100% - 70px)"}}>
                 <ul className="sidebar-menu border-t border-white/10">
                     <li className={`text-xl px-1 my-5 ${["" ,"index","index-crypto",].includes(manu)? "active" : ""}`}>
                         <Link to="/admin-home"><AiOutlineLineChart className=" me-3 icon "/>대시보드</Link>
@@ -94,9 +96,14 @@ export default function Sidebar(){
                         </div>
                     </li>
 
+                    <li className={`text-xl my-5 sidebar-dropdown mt-10 mx-10`}>
+                        <Link to="/my-home" className="border align-middle duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2"><AiOutlineUser className="inline mx-1"/>마이페이지로 이동</Link>
+                    </li>
 
                 </ul>
+
             </SimpleBarReact>
+
             </div>
         </nav>
         
