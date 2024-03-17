@@ -3,11 +3,7 @@ import React, {useEffect, useState} from "react";
 import Topnav from "../../components/Topnav";
 import "../../assets/css/dashboard.css";
 import {fetchMembersBySize} from "../../api/Member";
-import {
-    fetchApplicationCountByProgramId,
-    fetchApplicationsBySize,
-    fetchProgramsByStatusBySize
-} from "../../api/Program";
+import {fetchApplicationsBySize, fetchProgramsByStatusBySize} from "../../api/Program";
 import {fetchBoardsBySize, fetchQnasBySize} from "../../api/Board";
 import {fetchPopupsBySize} from "../../api/Popup";
 import {Link} from "react-router-dom";
@@ -153,7 +149,7 @@ export default function Home() {
                                     <thead>
                                     <tr className="text-slate-500 border-gray-100 border-b">
                                         <th className="px-3 py-2 text-center">제목</th>
-                                        <th className="px-3 py-2 text-center">작성자</th>
+                                        <th className="px-3 py-2 text-center w-24">작성자</th>
                                         <th className="px-3 py-2 text-center w-20">날짜</th>
                                     </tr>
                                     </thead>

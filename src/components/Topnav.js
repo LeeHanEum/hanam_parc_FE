@@ -42,18 +42,13 @@ export default function Topnav({setToggle, toggle}){
                             <Icon.Menu  className="h-4 w-4" onClick={toggleHandler}/>
                         </Link>
 
-                        <div className="inline-block">
-                            <Link to="/" className="mx-6 py-1 px-3 inline-block font-semibold tracking-wide items-end border duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2"><FaHome className="inline mr-2"/>홈으로 이동</Link>
-                        </div>
-
                     </div>
 
                     <ul className="list-none mb-0 space-x-1">
                         <li className="dropdown inline-block relative">
-                            <button onClick={()=> setUser(!user)} className="dropdown-toggle items-center" type="button">
-                                <span className="h-8 w-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-[20px] text-center bg-gray-50 dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 border border-gray-100 dark:border-gray-800 text-slate-900 dark:text-white rounded-full"><User className="h-4 w-4" /></span>
-                                <span className="font-semibold text-[16px] ms-1 sm:inline-block hidden">{name}</span>
-                            </button>
+                            <div className="inline-block">
+                                <Link to="/" className="mx-6 py-1 px-3 inline-block font-semibold tracking-wide items-end border duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2"><FaHome className="inline mr-2"/>홈으로 이동</Link>
+                            </div>
                             <div className={`dropdown-menu absolute end-0 m-0 mt-4 z-10 w-44 rounded-md overflow-hidden bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 ${user ? '' : 'hidden'}`} >
                                 <ul className="py-2 text-start">
                                     <li>
