@@ -3,6 +3,8 @@ import Topnav from "../../../components/Topnav";
 import {Link} from "react-router-dom";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import React, {useEffect, useState} from "react";
+import {IoMdDocument} from "react-icons/io";
+import {FaRegQuestionCircle} from "react-icons/fa";
 
 export default function QnAList() {
 
@@ -59,7 +61,12 @@ export default function QnAList() {
                     <Topnav toggle={toggle} setToggle={setToggle}/>
 
                     <div className="mt-32 relative mx-6">
-                        <h3 className="text-3xl mx-2 font-semibold">문의사항 목록</h3>
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-3xl mx-2 font-semibold inline">문의사항 목록</h3>
+                            <div className="inline-flex items-end">
+                                <Link to="/new-qna" className="py-1 px-3 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2"><FaRegQuestionCircle className="inline mr-2"/>문의 쓰기</Link>
+                            </div>
+                        </div>
                         <div className="grid md:grid-cols-1 grid-cols-1 pt-6 gap-[30px]">
                             <div
                                 className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">

@@ -1,20 +1,13 @@
 import Sidebar from "../../../components/Sidebar";
 import Topnav from "../../../components/Topnav";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Select from "react-select";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 export default function NewBoard() {
 
-    const [toggle, setToggle] = useState(true)
-    const [title, setTitle] = useState('');
-    const [category, setCategory] = useState('');
-    const [content, setContent] = useState('');
-    const [images, setImages] = useState([]); // 이미지 파일 상태 추가
-
-    const handleImageChange = (e) => {
-        setImages([...e.target.files]);
-    }
+    const location = useLocation();
+    const board_category = location.state ? location.state.category : null;
 
     const categoryOptions = [
         { value: 'ANNOUNCEMENT', label: '공지사항' },
@@ -22,8 +15,25 @@ export default function NewBoard() {
         { value: 'MANAGEMENT', label: '경영공시' },
     ];
 
+    const [toggle, setToggle] = useState(true)
+    const [title, setTitle] = useState('');
+    const [category, setCategory] = useState(board_category ? categoryOptions.find(option => option.value === board_category) : '');
+    const [content, setContent] = useState('');
+    const [images, setImages] = useState([]); // 이미지 파일 상태 추가
+
+
+    const handleImageChange = (e) => {
+        setImages([...e.target.files]);
+    }
+
+
+
     const handleSubmit = async () => {
         try {
+            if (!category){
+                alert('카테고리를 선택하세요');
+                return;
+            }
             const BoardRequestDto = {
                 title: title,
                 content: content,

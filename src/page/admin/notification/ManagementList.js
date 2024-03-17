@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import React, {useEffect, useState} from "react";
 import {deleteBoard} from "../../../api/Api";
+import {IoMdDocument} from "react-icons/io";
 
 export default function ManagementList() {
 
@@ -46,7 +47,12 @@ export default function ManagementList() {
                     <Topnav toggle={toggle} setToggle={setToggle}/>
 
                     <div className="mt-32 relative mx-6">
-                        <h3 className="text-3xl mx-2 font-semibold">경영공시 목록</h3>
+                        <div className="flex items-center justify-between">
+                            <h3 className="text-3xl mx-2 font-semibold inline">경영공시 목록</h3>
+                            <div className="inline-flex items-end">
+                                <Link to="/new-board" state={{category : 'MANAGEMENT'}} className="py-1 px-3 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2"><IoMdDocument className="inline mx-0.5"/>새 글쓰기</Link>
+                            </div>
+                        </div>
                         <div className="grid md:grid-cols-1 grid-cols-1 pt-6 gap-[30px]">
                             <div
                                 className="relative overflow-x-auto block w-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-md">
