@@ -97,7 +97,7 @@ export default function Sidebar(){
                     </li>
 
                     <li className={`text-xl my-5 sidebar-dropdown mt-10 mx-10`}>
-                        <Link to="/my-home" className="border align-middle duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2"><AiOutlineUser className="inline mx-1"/>마이페이지로 이동</Link>
+                        <Link to="/my-home" className="border align-middle duration-500 text-base text-center bg-emerald-600 border-emerald-600 text-white rounded-md me-2"><AiOutlineUser className="inline mx-0.5"/>마이페이지로 이동</Link>
                     </li>
 
                 </ul>

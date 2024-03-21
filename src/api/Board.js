@@ -36,3 +36,16 @@ export const fechMyQnasBySize = async (page, size) => {
         console.error('Error fetching qna list:', error);
     }
 }
+
+export const fetchBoardImage = async (id) => {
+    try {
+        const response = await fetch(`/board/image?id=${id}`);
+        if (response.ok) {
+            return await response.json().then(data => data.data.boardImageList);
+        } else {
+            console.error("Error fetching program:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error fetching program:", error);
+    }
+}

@@ -1,13 +1,14 @@
 import Sidebar from "../../../components/Sidebar";
 import Topnav from "../../../components/Topnav";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Select from "react-select";
 import {Link, useLocation} from "react-router-dom";
+import {fetchBoardImage} from "../../../api/Board";
+import {FaPlus} from "react-icons/fa";
 
 export default function UpdateBoard() {
 
     const [toggle, setToggle] = useState(true);
-    const [imageModal, setImageModal] = useState(false);
     const [fileModal, setFileModal] = useState(false);
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState('');
@@ -17,13 +18,15 @@ export default function UpdateBoard() {
     const location = useLocation();
     const id = location.pathname.split("/")[2];
 
-    const toggleImageModal = () => {
-        setImageModal(!imageModal);
-    }
-
     const toggleFileModal = () => {
         setFileModal(!fileModal);
     }
+
+    const fileInputRef = useRef(null);
+
+    const handleImageUpload = () => {
+        fileInputRef.current.click();
+    };
 
     const categoryOptions = [
         { value: 'ANNOUNCEMENT', label: '공지사항' },
@@ -33,6 +36,8 @@ export default function UpdateBoard() {
 
     useEffect(() => {
         fetchBoard();
+        fetchBoardImage(id)
+            .then(data => setImages(data));
     }, []);
 
     const getCategoryLabel = (value) => {
@@ -65,78 +70,6 @@ export default function UpdateBoard() {
         }
     }
 
-    const handleSubmit = async () => {
-        try {
-            const BoardRequestDto = {
-                title: title,
-                content: content,
-                boardCategory: category.value,
-            }
-
-            const response = await fetch(`/board/update?id=${id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(BoardRequestDto),
-            });
-
-            console.log(BoardRequestDto);
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            if (images.length > 0) {
-                await uploadImages(id);
-            }
-
-            alert('게시글이 성공적으로 수정되었습니다.')
-
-
-        } catch (error) {
-            console.error('Error submitting the form:', error);
-            // Handle errors or display an error message to the user
-        }
-    }
-
-    const deleteImages = async (boardId) => {
-        try {
-            const response = await fetch(`/files/${boardId}`, {
-                method: 'DELETE',
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-        } catch (error) {
-            console.error('Error deleting images:', error);
-        }
-    }
-
-    const uploadImages = async (boardId) => {
-        try {
-            await deleteImages(boardId);
-
-            for (let i = 0; i < images.length; i++) {
-                const formData = new FormData();
-                formData.append('image', images[i]);
-
-                const response = await fetch(`/files/${boardId}`, {
-                    method: 'POST',
-                    body: formData,
-                });
-
-                if (!response.ok) {
-                    alert('이미지 업로드에 실패했습니다.');
-                }
-            }
-        } catch (error) {
-            console.error('Error uploading images:', error);
-        }
-    }
-
     return (
         <>
             <div className={`page-wrapper  ${toggle ? "toggled" : ""}`}>
@@ -144,8 +77,8 @@ export default function UpdateBoard() {
                 <main className="page-content bg-gray-50 dark:bg-slate-800 h-screen">
                     <Topnav toggle={toggle} setToggle={setToggle}/>
 
-                    <div className="container relative flex justify-center mt-32">
-                        <div className="w-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md p-8">
+                    <div className="flex justify-center mt-24">
+                        <div className="w-full h-full grid md:grid-cols-12 grid-cols-1 gap-[30px] dark:bg-slate-900 shadow-md dark:shadow-gray-800 rounded-md mx-6 px-12 pb-16 pt-5">
                             <div className="lg:col-span-6 md:col-span-6">
                                 <h5 className="my-6 text-xl font-semibold">글 수정하기</h5>
                                 <div className="grid grid-cols-1">
@@ -177,25 +110,30 @@ export default function UpdateBoard() {
                                         />
                                     </div>
 
-                                    <div className="mb-4 mt-4">
-                                        <button onClick={toggleImageModal} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center rounded-md me-2">
-                                            {imageModal ? "취소" : "첨부 이미지 변경 (기존 이미지 삭제됨)"}
-                                        </button>
+                                    <div className="mb-4 flex flex-wrap">
+                                        {images.map((url, index) => (
+                                            <div className="inline-flex relative mb-4 mr-4" key={index}>
+                                                <img key={index} src={url} alt="image" className="w-40 h-40 mr-2" />
+                                                <Link
+                                                    className="w-40 absolute bottom-0 py-0.5 inline-block font-semibold tracking-wide border align-middle duration-500 text-sm text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2"
+                                                >삭제
+                                                </Link>
+                                            </div>
+                                        ))}
+                                        {/* 이미지 추가 박스 모양 버튼 */}
+                                        <div className="w-40 h-40 relative rounded-md shadow group inline-flex items-center align-middle mb-4 mr-4">
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
+                                                ref={fileInputRef}
+                                                onChange={handleImageUpload}
+                                            />
+                                            <div className="rounded-md w-full h-full flex justify-center items-center cursor-pointer" onClick={handleImageUpload}>
+                                                <FaPlus className="text-6xl text-slate-400 group-hover:text-emerald-600" />
+                                            </div>
+                                        </div>
                                     </div>
-
-                                    {imageModal && (
-                                    <div className="mb-4">
-                                        <label className="font-semibold block" htmlFor="image">
-                                            이미지 첨부 :
-                                        </label>
-                                        <input
-                                            id="image"
-                                            type="file"
-                                            multiple
-                                            className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
-                                        />
-                                    </div>
-                                    )}
 
                                     <div className="mb-4 mt-4">
                                         <button onClick={toggleFileModal} className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center rounded-md me-2">
@@ -237,7 +175,6 @@ export default function UpdateBoard() {
 
                                 <div className="mt-8">
                                     <Link
-                                        onClick={handleSubmit}
                                         className="w-full py-2 inline-block font-semibold tracking-wide border align-middle duration-500 text-base text-center hover:bg-green-700 border-green-600 hover:border-green-700 text-green-600 hover:text-white rounded-md me-2"
                                     >
                                         글 등록하기
