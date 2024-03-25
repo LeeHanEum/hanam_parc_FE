@@ -16,10 +16,10 @@ export const affiliateData = [
     },
     {
         id : 2,
-        img : wheelchair,
-        title : "하남시장애인스포츠연맹",
-        president : "정규인",
-        vice : "-"
+        img : tabletennis,
+        title : "하남시장애인탁구협회",
+        president : "이영준",
+        vice : "황인자"
     },
     {
         id : 3,
@@ -59,9 +59,9 @@ export const affiliateData = [
 
     {
         id : 8,
-        img : tabletennis,
-        title : "하남시장애인탁구협회",
-        president : "이영준",
-        vice : "황인자"
+        img : wheelchair,
+        title : "스포츠연맹",
+        president : "정규인",
+        vice : "-"
     },
 ]
