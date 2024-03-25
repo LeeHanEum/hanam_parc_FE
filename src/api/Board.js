@@ -49,3 +49,16 @@ export const fetchBoardImage = async (id) => {
         console.error("Error fetching program:", error);
     }
 }
+
+export const fetchBoardFile = async (id) => {
+    try {
+        const response = await fetch(`/board/file?id=${id}`);
+        if (response.ok) {
+            return await response.json().then(data => data.data);
+        } else {
+            console.error("Error fetching program:", response.statusText);
+        }
+    } catch (error) {
+        console.error("Error fetching program:", error);
+    }
+}

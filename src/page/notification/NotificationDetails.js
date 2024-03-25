@@ -4,6 +4,8 @@ import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
 import SubFooter from "../../components/SubFooter";
 import * as url from "url";
+import {fetchBoardFile} from "../../api/Board";
+import {FaFileAlt} from "react-icons/fa";
 
 export default function NotificationDetails(){
 
@@ -16,6 +18,8 @@ export default function NotificationDetails(){
 
     const [board, setBoard] = useState({});
     const [boardImage, setBoardImage] = useState([]);
+    const [boardFileUrl, setBoardFileUrl] = useState([]);
+    const [boardFileName, setBoardFileName] = useState([]);
 
     let categoryText = "";
     switch (boardCategory) {
@@ -39,7 +43,10 @@ export default function NotificationDetails(){
     useEffect(() => {
         fetchBoard();
         fetchBoardImage();
-
+        fetchBoardFile(id).then((data) => {
+            setBoardFileUrl(data.boardFileUrl);
+            setBoardFileName(data.boardFileName);
+        });
     }, []);
 
     const fetchBoard = async () => {
@@ -113,7 +120,6 @@ export default function NotificationDetails(){
                                             src={`${process.env.PUBLIC_URL}${imageUrl}`}
                                             className="rounded-md m-auto mb-2"
                                             alt={`Image ${index + 1}`}
-                                            width="90%"
                                         />
                                     ))}
                                 </div>
@@ -131,10 +137,19 @@ export default function NotificationDetails(){
                                                 <td className="xs:px-2 py-4 px-2 w-28">작성자 : </td>
                                                 <td className="xs:px-2 py-4">{board.writer?.name}</td>
                                             </tr>
-                                            <tr className="border-t border-gray-100 dark:border-gray-700">
-                                                <td className="xs:px-2 py-4 px-2 w-28">첨부 파일 : </td>
-                                                <td className="xs:px-2 py-4"></td>
-                                            </tr>
+                                            {
+                                                boardFileUrl.map((fileUrl, index) => (
+                                                    <tr key={index} className="border-t border-gray-100 dark:border-gray-700">
+                                                        <td className="xs:px-2 py-4 px-2 w-28">{`첨부 파일 ${index + 1}:`}</td>
+                                                        <td className="xs:px-2 py-4 text-slate-900 hover:text-blue-600">
+                                                            <a href={`${process.env.PUBLIC_URL}${fileUrl}`} download>
+                                                                <FaFileAlt className="inline-block mr-2"/>
+                                                                {boardFileName[index]}
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
                                             <tr className="border-t border-gray-100 dark:border-gray-700">
                                                 <td className="xs:px-2 py-4 px-2 w-28">작성 날짜 : </td>
                                                 <td className="xs:px-2 py-4 ">{board.createdAt?.slice(0,10)}</td>
