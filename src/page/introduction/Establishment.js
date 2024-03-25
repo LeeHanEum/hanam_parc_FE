@@ -50,7 +50,7 @@ export default function Establishment() {
                             iconStyle={{ background: 'rgba(0, 128, 0, 0.3)', color: '#fff' }}
                         >
                             <p>하남시장애인조정연맹 인준</p>
-                            <p>이현재 회장님 취임</p>
+                            <p>이현재 회장 취임</p>
                         </VerticalTimelineElement>
 
                         <VerticalTimelineElement
@@ -76,7 +76,7 @@ export default function Establishment() {
                             iconStyle={{ background: 'rgba(0, 128, 0, 0.3)', color: '#fff' }}
                         >
                             <p>하남시장애인게이트볼연맹 인준</p>
-                            <p>김상호 회장님 취임</p>
+                            <p>김상호 회장 취임</p>
                         </VerticalTimelineElement>
 
                         <VerticalTimelineElement
@@ -85,7 +85,7 @@ export default function Establishment() {
                             iconStyle={{ background: 'rgba(0, 128, 0, 0.3)', color: '#fff' }}
                         >
                             <p>제2대 문양수 상임부회장 취임</p>
-                            <p>오수봉 회장님 취임</p>
+                            <p>오수봉 회장 취임</p>
                         </VerticalTimelineElement>
 
                         <VerticalTimelineElement
@@ -93,7 +93,7 @@ export default function Establishment() {
                             date="2014"
                             iconStyle={{ background: 'rgba(0, 128, 0, 0.3)', color: '#fff' }}
                         >
-                            <p>이교범 회장님 취임</p>
+                            <p>이교범 회장 취임</p>
                         </VerticalTimelineElement>
 
                         <VerticalTimelineElement
