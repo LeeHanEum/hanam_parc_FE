@@ -19,14 +19,16 @@ export default function NewBoard() {
     const [title, setTitle] = useState('');
     const [category, setCategory] = useState(board_category ? categoryOptions.find(option => option.value === board_category) : '');
     const [content, setContent] = useState('');
-    const [images, setImages] = useState([]); // 이미지 파일 상태 추가
-
+    const [images, setImages] = useState([]);
+    const [files, setFiles] = useState([]);
 
     const handleImageChange = (e) => {
         setImages([...e.target.files]);
     }
 
-
+    const handleFileChange = (e) => {
+        setFiles([...e.target.files]);
+    }
 
     const handleSubmit = async () => {
         try {
@@ -59,6 +61,10 @@ export default function NewBoard() {
                 await uploadImages(boardId);
             }
 
+            if (files.length > 0) {
+                await uploadFiles(boardId);
+            }
+
             alert('게시글이 등록되었습니다.');
 
         } catch (error) {
@@ -87,7 +93,25 @@ export default function NewBoard() {
         }
     }
 
+    const uploadFiles = async (boardId) => {
+        try {
+            for (let i = 0; i < files.length; i++) {
+                const formData = new FormData();
+                formData.append('file', files[i]);
 
+                const response = await fetch(`/files/${boardId}/file`, {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    alert('파일 업로드에 실패했습니다.');
+                }
+            }
+        } catch (error) {
+            console.error('Error uploading files:', error);
+        }
+    }
 
     return (
         <>
@@ -151,6 +175,7 @@ export default function NewBoard() {
                                             id="file"
                                             type="file"
                                             multiple
+                                            onChange={handleFileChange}
                                             className="form-input mt-3 w-full py-2 px-3 h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded outline-none border border-gray-200 focus:border-indigo-600 dark:border-gray-800 dark:focus:border-indigo-600 focus:ring-0"
                                         />
                                     </div>
