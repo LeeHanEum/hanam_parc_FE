@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar";
 import join_soccer from "../../asset/image/join_soccer.jpg";
 import React, {useEffect, useState} from "react";
 import {Link, useLocation} from "react-router-dom";
+import SubFooter from "../../components/SubFooter";
 
 export default function QnADetails() {
 
@@ -137,6 +138,8 @@ export default function QnADetails() {
                 </div>
 
             </section>
+
+            <SubFooter />
 
         </>
     )
