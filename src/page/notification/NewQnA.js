@@ -32,6 +32,8 @@ export default function NewQnA() {
             setTitle('');
             setContent('');
 
+            window.location.href = '/qna';
+
         } catch (error) {
             console.error('Error submitting the form:', error);
         }
