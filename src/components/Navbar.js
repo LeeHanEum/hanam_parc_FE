@@ -4,9 +4,10 @@ import wlogo from '../asset/image/wlogo.png';
 import '../assets/libs/@mdi/font/css/materialdesignicons.min.css';
 import '../assets/css/tailwind.css';
 import {Link, useLocation} from 'react-router-dom'
-import {Search, User} from "feather-icons-react";
+import {User} from "feather-icons-react";
 import AuthContext from "../auth/AuthContext";
 import {IoMdLogOut} from "react-icons/io";
+import {fetchCurrentMember} from "../api/Member";
 
 export default function Navbar(props) {
     let {navClass, navJustify} = props;
@@ -15,12 +16,23 @@ export default function Navbar(props) {
     let location = useLocation();
 
     const [logoColor, setLogoColor] = useState(wlogo);
+    const [user, setUser] = useState({});
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
     const context = useContext(AuthContext);
 
     useEffect(() => {
-        console.log(context);
-    },[]);
+        if (localStorage.getItem('token') === null) {
+            setIsAuthenticated(false);
+            return;
+        }
+        fetchCurrentMember().then((data) => {
+            setUser(data);
+            setIsAuthenticated(true);
+        }).catch((error) => {
+            console.error('Error fetching user data:', error);
+        });
+    }, []);
 
 
     useEffect(()=>{
@@ -73,12 +85,13 @@ export default function Navbar(props) {
 
     const [isDropdownVisible, setDropdownVisible] = useState(false);
 
-    // Function to toggle the dropdown menu visibility
     const toggleDropdown = () => {
         setDropdownVisible(!isDropdownVisible);
     };
 
     const logout = () => {
+        localStorage.removeItem('token');
+        setIsAuthenticated(false);
         context.logout();
         toggleDropdown();
     }
@@ -109,8 +122,8 @@ export default function Navbar(props) {
                 <div>
                     <ul className="buy-button list-none mb-0 lg:px-16 md:px-10 sm:px-2">
                         <li className="inline mb-0 dropdown">
-                            {context.isAuthenticated === true ?
-                                <button onClick={toggleDropdown} className="dropdown-toggle h-9 px-3 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-emerald-600 border-emerald-600 text-white"><span className="mx-0.5">{context.user?.name}</span><User className="h-4 w-4" /></button>
+                            {isAuthenticated === true ?
+                                <button onClick={toggleDropdown} className="dropdown-toggle h-9 px-2 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-md text-center rounded-full bg-emerald-600 border-emerald-600 text-white"><span className="mx-0.5">{user?.name}님</span><User className="h-4 w-4" /></button>
                                 : <Link to="/login" className="h-9 px-3 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center rounded-full bg-green-600 hover:bg-green-700 border border-green-600 hover:border-green-700 text-white">Log In</Link>
                             }
                         </li>
@@ -122,7 +135,7 @@ export default function Navbar(props) {
                                 <Link to="/my-home" className="flex items-center font-medium py-1 px-5 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white">마이페이지</Link>
                             </li>
                             {
-                                context.user?.memberRole === 'ADMIN'  || context.user?.memberRole === 'SUPER' ?
+                                user?.memberRole === 'ADMIN'  || user?.memberRole === 'SUPER' ?
                                     <li>
                                         <Link to="/admin-home" className="flex items-center font-medium py-1 px-4 dark:text-white/70 hover:text-emerald-600 dark:hover:text-white">관리자페이지</Link>
                                     </li>
@@ -167,7 +180,7 @@ export default function Navbar(props) {
                                 <li><Link to="/student">전국 장애 학생 체육대회</Link></li>
                                 <li><Link to="/gyonggi">경기도 장애인 체육대회</Link></li>
                                 <li><Link to="/life">경기도 장애인 생활 체육대회</Link></li>
-                                <li><Link>각종 대회 자료실</Link></li>
+                                {/*<li><Link>각종 대회 자료실</Link></li>*/}
                             </ul>
                         </li>
 

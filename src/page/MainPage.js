@@ -57,7 +57,7 @@ export default function MainPage(){
 
     return(
         <>
-            <Navbar navClass="nav-light" />
+            <Navbar navClass="nav-light"/>
 
             <section className="relative md:flex md:h-screen items-center md:py-0 pt-36 pb-56 bg-no-repeat bg-center bg-cover custom-gradient"
                      style={{backgroundImage: `linear-gradient(to top, #1e293b, rgba(30, 41, 59, 0.4)), url(${mainPhoto})`}}>
